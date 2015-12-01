@@ -1,0 +1,61 @@
+title 'Reticular vs. Ruminal pH';
+/* Data translation */
+options linesize=80;
+data read;
+        infile 'ph.dat';
+        input day animal silage dmi time rumenph reticph;
+
+if animal ne 138 then delete;
+if day ne 5 then delete;
+
+time2=time**2;
+time3=time**3;
+time4=time**4;
+
+/* Generate 4th-order polynomial trendline of reticular pH vs. time */
+proc reg data=read;
+    title2 'Reticuluar pH vs. Time';
+    by animal day;
+    Order4: model reticph=time time2 time3 time4 / noprint;
+    output out=new p=pred r=resid;
+
+/* Calculate linear autoregression with 12 period linear lag */
+/* 12 period lag = 1 hour of observations */
+proc pdlreg data=read;
+    title2 'Ruminal vs. Lagged Reticular pH';
+    model rumenph=reticph(12,2) / nlag=2 dwprob;
+
+data new2;
+     set new;
+     lag1pred=lag1(pred);
+     lag2pred=lag2(pred);
+     lag3pred=lag3(pred);
+     lag4pred=lag4(pred);
+     lag5pred=lag5(pred);
+     lag6pred=lag6(pred);
+     lag7pred=lag7(pred);
+     lag8pred=lag8(pred);
+     lag9pred=lag9(pred);
+     lag10pred=lag10(pred);
+    lag11pred=lag11(pred);
+    lag12pred=lag12(pred);
+     lag1resid=lag1(resid);
+     lag2resid=lag2(resid);
+     lag3resid=lag3(resid);
+     lag4resid=lag4(resid);
+     lag5resid=lag5(resid);
+     lag6resid=lag6(resid);
+     lag7resid=lag7(resid);
+     lag8resid=lag8(resid);
+     lag9resid=lag9(resid);
+     lag10resid=lag10(resid);
+     lag11resid=lag11(resid);
+     lag12resid=lag12(resid);
+
+proc pdlreg data=new2;
+    title2 'Ruminal vs. Predicted & Residual Reticuluar pH';
+     model rumenpH=pred(12,3) resid(12,2) / nlag=1 method=ml dwprob noprint;
+
+proc autoreg data=new2;
+     model rumenph=pred lag1pred lag3pred lag5pred lag5resid lag6resid lag7resid / dwprob noprint;
+run;

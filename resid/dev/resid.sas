@@ -1,0 +1,81 @@
+title 'Rumen pH Model';
+options linesize=80;
+
+/** Data Translation - Read Raw Data **/
+data first;
+    infile 'ph.dat';
+    input day animal silage dmi time rumenph reticph;
+    label   dmi = 'DMI (kg)'
+            rumenph = 'Ruminal pH'
+            reticph = 'Reticular pH';
+
+    *if animal ne 183 then delete;
+    *if day ne 15 then delete;
+
+    time2 = time**2;
+    time3 = time**3;
+    time4 = time**4;
+
+proc reg data=first;
+    title2 'Generation of 4th-order Polynomial - Reticph vs. Time';
+    by animal day;
+    Order4: model reticph = time time2 time3 time4 / noprint;
+    output out=order4 p=retpred r=retresid;
+run;
+
+data second;
+    set order4;
+    by animal day;
+    lag1r = lag1(retresid); /* Lagged residual reticular pH */
+
+proc pdlreg data=second method=ml noprint;
+    title2 'Prediction of Rumenph from Retpred & Lagged Retresid';
+    by animal day;
+    model rumenph = retpred(3,3) lag1r;
+    output out=third p=rumpred r=rumresid;
+
+proc pdlreg data=second method=ml noprint;
+    title2 'Prediction of rumenph from retpred & lag1r - NLAG=1';
+    by animal day;
+    model rumenph = retpred(3,3) lag1r / nlag=1;
+    output out=fourth p=rumpred r=rumresid;
+
+/* Import X,X fits from Excel file */
+proc import
+    datafile="All Fits.xlsx"
+    out=fifth
+    dbms=xlsx
+    replace;
+    sheet="X,X Fits";
+    getnames=yes;
+
+run;
+
+/* Export predictions & residuals to .dat files */
+data third;
+    retain animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid;
+    set third;
+    drop time2 time3 time4 lag1r;
+    file 'resid33.dat';
+    put animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid ;
+    run;
+
+data fourth;
+    retain animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid;
+    set fourth;
+    drop time2 time3 time4 lag1r;
+    file 'resid33lag.dat';
+    put animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid;
+    run;
+
+data fifth;
+    retain animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid;
+    set fifth;
+    file 'residXX.dat';
+    put animal day silage dmi time reticph retpred retresid rumenph rumpred rumresid;
+run;
+
+proc mixed covtest data=fifth;
+    class silage dmi retpred;
+    model rumresid = silage dmi retpred;
+    repeated retpred / subject=animal;

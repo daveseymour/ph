@@ -1,0 +1,1356 @@
+                                 The SAS System                                1
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=1 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.7048
+                      UN(2,1)      animal*day      0.5537
+                      UN(2,2)      animal*day      0.2660
+                      UN(3,1)      animal*day     -1.1120
+                      UN(3,2)      animal*day     -0.3510
+                      UN(3,3)      animal*day      0.5223
+                      UN(4,1)      animal*day     -0.1292
+                      UN(4,2)      animal*day     0.02781
+                      UN(4,3)      animal*day    -0.00755
+                      UN(4,4)      animal*day     0.03515
+                      UN(5,1)      animal*day    -0.05805
+                                 The SAS System                                2
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=1 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00901
+                      UN(5,3)      animal*day     0.01755
+                      UN(5,4)      animal*day    0.001597
+                      UN(5,5)      animal*day    0.002422
+                      UN(6,1)      animal*day    -0.08068
+                      UN(6,2)      animal*day    0.007538
+                      UN(6,3)      animal*day    0.004840
+                      UN(6,4)      animal*day     0.01159
+                      UN(6,5)      animal*day    0.002569
+                      UN(6,6)      animal*day    0.008495
+                      Residual                   0.001065
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -71951.2
+                     AIC (smaller is better)      -71907.2
+                     AICC (smaller is better)     -71907.2
+                     BIC (smaller is better)      -71862.3
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      51261.86          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.9933      0.2402      47       8.30      <.0001
+  reticph                    0.1351    0.003383    15E3      39.93      <.0001
+  lag1p                      0.5802     0.03471      51      16.72      <.0001
+  lag2r                      0.2078     0.02528      51       8.22      <.0001
+  lag7r                     0.08879    0.007418      51      11.97      <.0001
+  lag9r                     0.09046     0.01311      51       6.90      <.0001
+  silage         12         -0.5143      0.1334    15E3      -3.86      0.0001
+  silage         20         -0.3538      0.1296    15E3      -2.73      0.0063
+  silage         30         -0.3330      0.1264    15E3      -2.64      0.0084
+  silage         40         -0.1516      0.1263    15E3      -1.20      0.2301
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                                3
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=1 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1594.68    <.0001
+                 lag1p           1      51     279.43    <.0001
+                 lag2r           1      51      67.54    <.0001
+                 lag7r           1      51     143.27    <.0001
+                 lag9r           1      51      47.64    <.0001
+                 silage          4    15E3       4.55    0.0011
+                                 The SAS System                                4
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=2 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      4.2081
+                      UN(2,1)      animal*day      0.7551
+                      UN(2,2)      animal*day      0.2385
+                      UN(3,1)      animal*day     -1.3844
+                      UN(3,2)      animal*day     -0.3517
+                      UN(3,3)      animal*day      0.5637
+                      UN(4,1)      animal*day     -0.2012
+                      UN(4,2)      animal*day    0.007753
+                      UN(4,3)      animal*day     0.02278
+                      UN(4,4)      animal*day     0.03618
+                      UN(5,1)      animal*day    -0.07077
+                                 The SAS System                                5
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=2 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01324
+                      UN(5,3)      animal*day     0.02358
+                      UN(5,4)      animal*day    0.002743
+                      UN(5,5)      animal*day    0.003428
+                      UN(6,1)      animal*day     -0.1225
+                      UN(6,2)      animal*day    -0.00082
+                      UN(6,3)      animal*day     0.01928
+                      UN(6,4)      animal*day     0.01334
+                      UN(6,5)      animal*day    0.003653
+                      UN(6,6)      animal*day    0.009914
+                      Residual                   0.002345
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -65559.7
+                     AIC (smaller is better)      -65515.7
+                     AICC (smaller is better)     -65515.7
+                     BIC (smaller is better)      -65470.8
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      48948.39          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.1680      0.2180      52      14.53      <.0001
+  reticph                    0.1245    0.004820    16E3      25.83      <.0001
+  lag1p                      0.4212     0.03068      56      13.73      <.0001
+  lag2r                      0.1779     0.02568      56       6.93      <.0001
+  lag7r                     0.06686    0.008713      56       7.67      <.0001
+  lag9r                     0.08370     0.01407      56       5.95      <.0001
+  silage         12         -0.8051      0.1774    16E3      -4.54      <.0001
+  silage         20         -0.4138      0.1618    16E3      -2.56      0.0105
+  silage         30         -0.2570      0.1620    16E3      -1.59      0.1128
+  silage         40        -0.04164      0.1571    16E3      -0.27      0.7910
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                                6
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=2 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     667.03    <.0001
+                 lag1p           1      56     188.47    <.0001
+                 lag2r           1      56      48.01    <.0001
+                 lag7r           1      56      58.88    <.0001
+                 lag9r           1      56      35.37    <.0001
+                 silage          4    16E3       6.75    <.0001
+                                 The SAS System                                7
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=3 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.9997
+                      UN(2,1)      animal*day      0.8158
+                      UN(2,2)      animal*day      0.2196
+                      UN(3,1)      animal*day     -1.4167
+                      UN(3,2)      animal*day     -0.3375
+                      UN(3,3)      animal*day      0.5590
+                      UN(4,1)      animal*day     -0.1318
+                      UN(4,2)      animal*day     0.01624
+                      UN(4,3)      animal*day    0.004343
+                      UN(4,4)      animal*day     0.04176
+                      UN(5,1)      animal*day    -0.06736
+                                 The SAS System                                8
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=3 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01212
+                      UN(5,3)      animal*day     0.02208
+                      UN(5,4)      animal*day    0.002713
+                      UN(5,5)      animal*day    0.008168
+                      UN(6,1)      animal*day    -0.05238
+                      UN(6,2)      animal*day    0.002298
+                      UN(6,3)      animal*day    0.005867
+                      UN(6,4)      animal*day     0.01089
+                      UN(6,5)      animal*day    0.002535
+                      UN(6,6)      animal*day     0.01284
+                      Residual                   0.001727
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -69270.2
+                     AIC (smaller is better)      -69226.2
+                     AICC (smaller is better)     -69226.1
+                     BIC (smaller is better)      -69181.2
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      49020.93          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.3881      0.1796      52      18.87      <.0001
+  reticph                    0.1247    0.004142    16E3      30.10      <.0001
+  lag1p                      0.4602     0.02874      56      16.01      <.0001
+  lag2r                      0.1962     0.02709      56       7.24      <.0001
+  lag7r                     0.07436     0.01242      56       5.99      <.0001
+  lag9r                     0.08210     0.01562      56       5.26      <.0001
+  silage         12         -2.5823      0.2003    16E3     -12.89      <.0001
+  silage         20         -0.7683      0.1727    16E3      -4.45      <.0001
+  silage         30        -0.08579      0.1770    16E3      -0.48      0.6279
+  silage         40         -0.6673      0.1538    16E3      -4.34      <.0001
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                                9
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=3 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     906.05    <.0001
+                 lag1p           1      56     256.41    <.0001
+                 lag2r           1      56      52.44    <.0001
+                 lag7r           1      56      35.85    <.0001
+                 lag9r           1      56      27.63    <.0001
+                 silage          4    16E3      48.17    <.0001
+                                 The SAS System                               10
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=4 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16080
+                  Number of Observations Not Used         336
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      4.1888
+                      UN(2,1)      animal*day      0.6181
+                      UN(2,2)      animal*day      0.2549
+                      UN(3,1)      animal*day     -1.2469
+                      UN(3,2)      animal*day     -0.3490
+                      UN(3,3)      animal*day      0.5405
+                      UN(4,1)      animal*day     -0.1520
+                      UN(4,2)      animal*day     0.01995
+                      UN(4,3)      animal*day    0.003449
+                      UN(4,4)      animal*day     0.03585
+                      UN(5,1)      animal*day    -0.06369
+                                 The SAS System                               11
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=4 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00924
+                      UN(5,3)      animal*day     0.01859
+                      UN(5,4)      animal*day    0.003433
+                      UN(5,5)      animal*day    0.002595
+                      UN(6,1)      animal*day     -0.1006
+                      UN(6,2)      animal*day    0.008055
+                      UN(6,3)      animal*day    0.007234
+                      UN(6,4)      animal*day     0.01291
+                      UN(6,5)      animal*day    0.003159
+                      UN(6,6)      animal*day    0.008510
+                      Residual                   0.001471
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -72673.0
+                     AIC (smaller is better)      -72629.0
+                     AICC (smaller is better)     -72628.9
+                     BIC (smaller is better)      -72584.0
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      53370.79          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.4672      0.2454      51      10.05      <.0001
+  reticph                    0.1278    0.003859    16E3      33.12      <.0001
+  lag1p                      0.5205     0.03485      55      14.94      <.0001
+  lag2r                      0.1801     0.02517      55       7.16      <.0001
+  lag7r                     0.08316    0.007646      55      10.88      <.0001
+  lag9r                     0.09096     0.01278      55       7.12      <.0001
+  silage         12         -0.4420      0.1564    16E3      -2.83      0.0047
+  silage         20         -0.3918      0.1452    16E3      -2.70      0.0070
+  silage         30         -0.3487      0.1451    16E3      -2.40      0.0162
+  silage         40         -0.1886      0.1449    16E3      -1.30      0.1931
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               12
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=4 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3    1097.22    <.0001
+                 lag1p           1      55     223.09    <.0001
+                 lag2r           1      55      51.20    <.0001
+                 lag7r           1      55     118.29    <.0001
+                 lag9r           1      55      50.66    <.0001
+                 silage          4    16E3       2.89    0.0208
+                                 The SAS System                               13
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=5 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      5.0219
+                      UN(2,1)      animal*day      0.7838
+                      UN(2,2)      animal*day      0.2182
+                      UN(3,1)      animal*day     -1.5275
+                      UN(3,2)      animal*day     -0.3366
+                      UN(3,3)      animal*day      0.5685
+                      UN(4,1)      animal*day     -0.1704
+                      UN(4,2)      animal*day     0.01271
+                      UN(4,3)      animal*day     0.01306
+                      UN(4,4)      animal*day     0.03587
+                      UN(5,1)      animal*day    -0.07758
+                                 The SAS System                               14
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=5 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01147
+                      UN(5,3)      animal*day     0.02274
+                      UN(5,4)      animal*day    0.002633
+                      UN(5,5)      animal*day    0.003174
+                      UN(6,1)      animal*day    -0.07756
+                      UN(6,2)      animal*day    0.001485
+                      UN(6,3)      animal*day     0.01031
+                      UN(6,4)      animal*day     0.01142
+                      UN(6,5)      animal*day    0.002834
+                      UN(6,6)      animal*day    0.008700
+                      Residual                   0.001676
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -71246.0
+                     AIC (smaller is better)      -71202.0
+                     AICC (smaller is better)     -71201.9
+                     BIC (smaller is better)      -71157.0
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      54981.29          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.8272      0.2335      52      12.11      <.0001
+  reticph                    0.1250    0.004079    16E3      30.64      <.0001
+  lag1p                      0.4658     0.03217      56      14.48      <.0001
+  lag2r                      0.1766     0.02526      56       6.99      <.0001
+  lag7r                     0.07537    0.008149      56       9.25      <.0001
+  lag9r                     0.07659     0.01305      56       5.87      <.0001
+  silage         12         -0.5013      0.1654    16E3      -3.03      0.0024
+  silage         20         -0.3876      0.1529    16E3      -2.53      0.0113
+  silage         30         -0.2620      0.1528    16E3      -1.71      0.0864
+  silage         40         -0.1387      0.1526    16E3      -0.91      0.3635
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               15
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=5 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     938.62    <.0001
+                 lag1p           1      56     209.68    <.0001
+                 lag2r           1      56      48.87    <.0001
+                 lag7r           1      56      85.55    <.0001
+                 lag9r           1      56      34.47    <.0001
+                 silage          4    16E3       3.02    0.0169
+                                 The SAS System                               16
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=6 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.9503
+                      UN(2,1)      animal*day      0.7245
+                      UN(2,2)      animal*day      0.2292
+                      UN(3,1)      animal*day     -1.3216
+                      UN(3,2)      animal*day     -0.3381
+                      UN(3,3)      animal*day      0.5414
+                      UN(4,1)      animal*day     -0.1458
+                      UN(4,2)      animal*day     0.01689
+                      UN(4,3)      animal*day    0.005784
+                      UN(4,4)      animal*day     0.03803
+                      UN(5,1)      animal*day    -0.06880
+                                 The SAS System                               17
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=6 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01293
+                      UN(5,3)      animal*day     0.02310
+                      UN(5,4)      animal*day    0.003273
+                      UN(5,5)      animal*day    0.003565
+                      UN(6,1)      animal*day    -0.06183
+                      UN(6,2)      animal*day    0.001656
+                      UN(6,3)      animal*day    0.007911
+                      UN(6,4)      animal*day     0.01124
+                      UN(6,5)      animal*day    0.002913
+                      UN(6,6)      animal*day    0.008159
+                      Residual                   0.002123
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -67660.7
+                     AIC (smaller is better)      -67616.7
+                     AICC (smaller is better)     -67616.7
+                     BIC (smaller is better)      -67571.8
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      46286.96          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.6379      0.2124      52      12.42      <.0001
+  reticph                    0.1250    0.004590    16E3      27.23      <.0001
+  lag1p                      0.5143     0.03017      56      17.05      <.0001
+  lag2r                      0.1741     0.02595      56       6.71      <.0001
+  lag7r                     0.07355    0.008754      56       8.40      <.0001
+  lag9r                     0.07669     0.01286      56       5.96      <.0001
+  silage         12         -0.8033      0.1737    16E3      -4.63      <.0001
+  silage         20         -0.5880      0.1597    16E3      -3.68      0.0002
+  silage         30         -0.3567      0.1597    16E3      -2.23      0.0255
+  silage         40         -0.2713      0.1577    16E3      -1.72      0.0855
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               18
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=6 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     741.57    <.0001
+                 lag1p           1      56     290.66    <.0001
+                 lag2r           1      56      44.97    <.0001
+                 lag7r           1      56      70.59    <.0001
+                 lag9r           1      56      35.58    <.0001
+                 silage          4    16E3       6.50    <.0001
+                                 The SAS System                               19
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=7 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      4.0103
+                      UN(2,1)      animal*day      0.8033
+                      UN(2,2)      animal*day      0.3060
+                      UN(3,1)      animal*day     -1.3841
+                      UN(3,2)      animal*day     -0.3320
+                      UN(3,3)      animal*day      0.6375
+                      UN(4,1)      animal*day     -0.1859
+                      UN(4,2)      animal*day     0.01547
+                      UN(4,3)      animal*day     0.01210
+                      UN(4,4)      animal*day      0.1345
+                      UN(5,1)      animal*day    -0.07150
+                                 The SAS System                               20
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=7 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01175
+                      UN(5,3)      animal*day     0.02208
+                      UN(5,4)      animal*day    0.004318
+                      UN(5,5)      animal*day     0.09844
+                      UN(6,1)      animal*day     -0.1220
+                      UN(6,2)      animal*day    0.002881
+                      UN(6,3)      animal*day     0.01520
+                      UN(6,4)      animal*day     0.01344
+                      UN(6,5)      animal*day    0.003996
+                      UN(6,6)      animal*day      0.1039
+                      Residual                   0.001606
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -71827.9
+                     AIC (smaller is better)      -71783.9
+                     AICC (smaller is better)     -71783.8
+                     BIC (smaller is better)      -71738.9
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      55007.35          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.7518      0.3110      52      12.06      <.0001
+  reticph                    0.1178    0.004004    16E3      29.42      <.0001
+  lag1p                      0.5887     0.06996      56       8.41      <.0001
+  lag2r                      0.1853     0.04866      56       3.81      0.0003
+  lag7r                     0.07716     0.04172      56       1.85      0.0697
+  lag9r                     0.07895     0.04291      56       1.84      0.0711
+  silage         12         -2.5927      0.4350    16E3      -5.96      <.0001
+  silage         20         -2.1618      0.3901    16E3      -5.54      <.0001
+  silage         30         -0.3091      0.3886    16E3      -0.80      0.4264
+  silage         40         -1.7823      0.3689    16E3      -4.83      <.0001
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               21
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=7 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     865.42    <.0001
+                 lag1p           1      56      70.81    <.0001
+                 lag2r           1      56      14.51    0.0003
+                 lag7r           1      56       3.42    0.0697
+                 lag9r           1      56       3.38    0.0711
+                 silage          4    16E3      15.86    <.0001
+                                 The SAS System                               22
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=8 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      6.4208
+                      UN(2,1)      animal*day      0.6763
+                      UN(2,2)      animal*day      0.2159
+                      UN(3,1)      animal*day     -1.6315
+                      UN(3,2)      animal*day     -0.3201
+                      UN(3,3)      animal*day      0.5690
+                      UN(4,1)      animal*day     -0.2634
+                      UN(4,2)      animal*day     0.02103
+                      UN(4,3)      animal*day     0.01903
+                      UN(4,4)      animal*day     0.03788
+                      UN(5,1)      animal*day     -0.1093
+                                 The SAS System                               23
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=8 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00826
+                      UN(5,3)      animal*day     0.02436
+                      UN(5,4)      animal*day    0.003561
+                      UN(5,5)      animal*day    0.003255
+                      UN(6,1)      animal*day     -0.1300
+                      UN(6,2)      animal*day    0.006888
+                      UN(6,3)      animal*day     0.01269
+                      UN(6,4)      animal*day     0.01324
+                      UN(6,5)      animal*day    0.003449
+                      UN(6,6)      animal*day    0.008922
+                      Residual                   0.001272
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -75162.0
+                     AIC (smaller is better)      -75118.0
+                     AICC (smaller is better)     -75117.9
+                     BIC (smaller is better)      -75073.0
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      59870.69          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.6129      0.2940      52       8.89      <.0001
+  reticph                    0.1244    0.003552    16E3      35.04      <.0001
+  lag1p                      0.4889     0.04201      56      11.64      <.0001
+  lag2r                      0.1975     0.02544      56       7.76      <.0001
+  lag7r                     0.07881    0.008198      56       9.61      <.0001
+  lag9r                     0.08945     0.01290      56       6.93      <.0001
+  silage         12         -0.3606      0.1441    16E3      -2.50      0.0124
+  silage         20         -0.2327      0.1332    16E3      -1.75      0.0807
+  silage         30         -0.3122      0.1332    16E3      -2.34      0.0191
+  silage         40         -0.1222      0.1330    16E3      -0.92      0.3582
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               24
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=8 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3    1227.47    <.0001
+                 lag1p           1      56     135.45    <.0001
+                 lag2r           1      56      60.25    <.0001
+                 lag7r           1      56      92.40    <.0001
+                 lag9r           1      56      48.08    <.0001
+                 silage          4    16E3       2.23    0.0637
+                                 The SAS System                               25
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=9 ----------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16080
+                  Number of Observations Not Used         336
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      4.5296
+                      UN(2,1)      animal*day      0.8177
+                      UN(2,2)      animal*day      0.2323
+                      UN(3,1)      animal*day     -1.4843
+                      UN(3,2)      animal*day     -0.3266
+                      UN(3,3)      animal*day      0.5802
+                      UN(4,1)      animal*day     -0.1777
+                      UN(4,2)      animal*day     0.01706
+                      UN(4,3)      animal*day    0.009353
+                      UN(4,4)      animal*day     0.06834
+                      UN(5,1)      animal*day    -0.06897
+                                 The SAS System                               26
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=9 ----------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01276
+                      UN(5,3)      animal*day     0.02261
+                      UN(5,4)      animal*day    0.003398
+                      UN(5,5)      animal*day     0.03137
+                      UN(6,1)      animal*day     -0.1129
+                      UN(6,2)      animal*day    0.003385
+                      UN(6,3)      animal*day     0.01331
+                      UN(6,4)      animal*day     0.01383
+                      UN(6,5)      animal*day    0.003756
+                      UN(6,6)      animal*day     0.03768
+                      Residual                   0.002002
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -66941.1
+                     AIC (smaller is better)      -66897.1
+                     AICC (smaller is better)     -66897.0
+                     BIC (smaller is better)      -66852.2
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      52716.27          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.3838      0.2671      51      12.67      <.0001
+  reticph                    0.1258    0.004509    16E3      27.89      <.0001
+  lag1p                      0.5090     0.04772      55      10.67      <.0001
+  lag2r                      0.1889     0.03501      55       5.40      <.0001
+  lag7r                     0.07012     0.02399      55       2.92      0.0050
+  lag9r                     0.07810     0.02637      55       2.96      0.0045
+  silage         12         -2.8015      0.3449    16E3      -8.12      <.0001
+  silage         20         -1.2215      0.3015    16E3      -4.05      <.0001
+  silage         30        -0.08981      0.3030    16E3      -0.30      0.7669
+  silage         40         -0.5351      0.2781    16E3      -1.92      0.0544
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               27
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=9 ----------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3     778.01    <.0001
+                 lag1p           1      55     113.76    <.0001
+                 lag2r           1      55      29.11    <.0001
+                 lag7r           1      55       8.54    0.0050
+                 lag9r           1      55       8.78    0.0045
+                 silage          4    16E3      21.20    <.0001
+                                 The SAS System                               28
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=10 ---------------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           16359
+                  Number of Observations Not Used          57
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      5.2855
+                      UN(2,1)      animal*day      0.8085
+                      UN(2,2)      animal*day      0.2253
+                      UN(3,1)      animal*day     -1.5878
+                      UN(3,2)      animal*day     -0.3309
+                      UN(3,3)      animal*day      0.5887
+                      UN(4,1)      animal*day     -0.1766
+                      UN(4,2)      animal*day     0.02358
+                      UN(4,3)      animal*day    0.002908
+                      UN(4,4)      animal*day     0.05148
+                      UN(5,1)      animal*day    -0.06873
+                                 The SAS System                               29
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=10 ---------------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00902
+                      UN(5,3)      animal*day     0.01909
+                      UN(5,4)      animal*day    0.002821
+                      UN(5,5)      animal*day     0.01968
+                      UN(6,1)      animal*day    -0.09767
+                      UN(6,2)      animal*day    0.009739
+                      UN(6,3)      animal*day    0.005038
+                      UN(6,4)      animal*day     0.01245
+                      UN(6,5)      animal*day    0.003006
+                      UN(6,6)      animal*day     0.02633
+                      Residual                   0.001223
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -75737.1
+                     AIC (smaller is better)      -75693.1
+                     AICC (smaller is better)     -75693.1
+                     BIC (smaller is better)      -75648.2
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      60690.96          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.5839      0.2866      52      12.50      <.0001
+  reticph                    0.1242    0.003492    16E3      35.55      <.0001
+  lag1p                      0.4953     0.04372      56      11.33      <.0001
+  lag2r                      0.2022     0.02965      56       6.82      <.0001
+  lag7r                     0.07508     0.01885      56       3.98      0.0002
+  lag9r                     0.08270     0.02166      56       3.82      0.0003
+  silage         12         -1.9311      0.3381    16E3      -5.71      <.0001
+  silage         20         -1.8959      0.3012    16E3      -6.30      <.0001
+  silage         30         -0.6386      0.3011    16E3      -2.12      0.0340
+  silage         40         -1.0309      0.2843    16E3      -3.63      0.0003
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               30
+                                                     11:57 Monday, July 13, 2015
+
+--------------------------------- replicate=10 ---------------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    16E3    1264.00    <.0001
+                 lag1p           1      56     128.35    <.0001
+                 lag2r           1      56      46.54    <.0001
+                 lag7r           1      56      15.86    0.0002
+                 lag9r           1      56      14.58    0.0003
+                 silage          4    16E3      13.75    <.0001
+                                 The SAS System                               31
+                                                     11:57 Monday, July 13, 2015
+
+                 Obs    _TYPE_    _FREQ_      rmse       mae
+
+                  1        0       2016     0.35327    0.21732

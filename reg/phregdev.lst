@@ -1,0 +1,1661 @@
+                  Prediction of Ruminal pH Using Reticuluar pH                 1
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                   N10_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.2924671    DFE                        850
+         MSE                 0.03446    Root MSE               0.18564
+         SBC              -429.65435    AIC                 -448.65407
+         MAE              0.14930831    AICC                -448.60696
+         MAPE             2.26838815    HQC                 -441.37781
+         Durbin-Watson        0.1477    Regress R-Square        0.4234
+                                        Total R-Square          0.4234
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2370       0.3211      -3.85      0.0001
+      pred**0          1       0.3438       0.0140      24.55      <.0001
+      pred**1          1       0.6677       0.1762       3.79      0.0002
+      lag1r            1       0.0668       0.0350       1.91      0.0571
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.214661       0.0842      -2.55      0.0110
+        pred(1)            -0.150995       0.0674      -2.24      0.0254
+        pred(2)            -0.087330       0.0507      -1.72      0.0851
+        pred(3)            -0.023665       0.0339      -0.70      0.4858
+        pred(4)             0.040001       0.0174       2.30      0.0217
+        pred(5)             0.103666     0.004223      24.55      <.0001
+        pred(6)             0.167331       0.0173       9.69      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.215        0                       0.422
+
+          pred(0)         |*************|                           |
+          pred(1)         |    *********|                           |
+          pred(2)         |        *****|                           |
+          pred(3)         |            *|                           |
+          pred(4)         |             |**                         |
+          pred(5)         |             |*******                    |
+          pred(6)         |             |***********                |
+                  Prediction of Ruminal pH Using Reticuluar pH                 2
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.230997       0.0338       6.83      <.0001
+        pred(8)             0.294662       0.0505       5.83      <.0001
+        pred(9)             0.358327       0.0673       5.33      <.0001
+        pred(10)            0.421993       0.0841       5.02      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.215        0                       0.422
+
+          pred(7)         |             |***************            |
+          pred(8)         |             |*******************        |
+          pred(9)         |             |***********************    |
+          pred(10)        |             |***************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 3
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N9_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.8095679    DFE                        859
+         MSE                 0.03470    Root MSE               0.18629
+         SBC              -428.37053    AIC                 -447.41219
+         MAE              0.14941034    AICC                -447.36557
+         MAPE             2.26914286    HQC                 -440.12351
+         Durbin-Watson        0.1577    Regress R-Square        0.4191
+                                        Total R-Square          0.4191
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.0958       0.3202      -3.42      0.0007
+      pred**0          1       0.7920       0.0327      24.19      <.0001
+      pred**1          1      12.5245       2.2827       5.49      <.0001
+      lag1r            1       0.0593       0.0349       1.70      0.0902
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -8.296109       1.6145      -5.14      <.0001
+        pred(1)             9.416196       1.6141       5.83      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -8.296             0                 9.4162
+
+          pred(0)         |******************|                      |
+          pred(1)         |                  |**********************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 4
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N8_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE               29.655558    DFE                        858
+         MSE                 0.03456    Root MSE               0.18591
+         SBC              -431.31307    AIC                 -450.35009
+         MAE              0.14949544    AICC                -450.30342
+         MAPE             2.27030889    HQC                 -443.06279
+         Durbin-Watson        0.1485    Regress R-Square        0.4218
+                                        Total R-Square          0.4218
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1172       0.3197      -3.49      0.0005
+      pred**0          1       0.6485       0.0267      24.29      <.0001
+      pred**1          1       6.7124       1.2081       5.56      <.0001
+      lag1r            1       0.0595       0.0349       1.70      0.0887
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -4.371974       0.8546      -5.12      <.0001
+        pred(1)             0.374391       0.0154      24.29      <.0001
+        pred(2)             5.120755       0.8543       5.99      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -4.372             0                 5.1208
+
+          pred(0)         |******************|                      |
+          pred(1)         |                  |**                    |
+          pred(2)         |                  |**********************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 5
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N7_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.6054668    DFE                        857
+         MSE                 0.03455    Root MSE               0.18586
+         SBC              -431.24211    AIC                 -450.27449
+         MAE              0.14956673    AICC                -450.22776
+         MAPE             2.27140403    HQC                 -442.98856
+         Durbin-Watson        0.1462    Regress R-Square        0.4226
+                                        Total R-Square          0.4226
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1390       0.3197      -3.56      0.0004
+      pred**0          1       0.5632       0.0231      24.35      <.0001
+      pred**1          1       4.1927       0.7818       5.36      <.0001
+      lag1r            1       0.0597       0.0349       1.71      0.0872
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -2.530993       0.5247      -4.82      <.0001
+        pred(1)            -0.655946       0.1753      -3.74      0.0002
+        pred(2)             1.219101       0.1751       6.96      <.0001
+        pred(3)             3.094148       0.5245       5.90      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -2.531            0                  3.0941
+
+          pred(0)         |*****************|                       |
+          pred(1)         |              ***|                       |
+          pred(2)         |                 |*********              |
+          pred(3)         |                 |***********************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 6
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N6_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.5932056    DFE                        856
+         MSE                 0.03457    Root MSE               0.18593
+         SBC              -430.07133    AIC                 -449.09906
+         MAE              0.14959129    AICC                -449.05227
+         MAPE             2.27186136    HQC                  -441.8145
+         Durbin-Watson        0.1464    Regress R-Square        0.4225
+                                        Total R-Square          0.4225
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1588       0.3200      -3.62      0.0003
+      pred**0          1       0.5050       0.0207      24.39      <.0001
+      pred**1          1       2.8453       0.5609       5.07      <.0001
+      lag1r            1       0.0603       0.0349       1.73      0.0845
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -1.573713       0.3549      -4.43      <.0001
+        pred(1)            -0.673939       0.1777      -3.79      0.0002
+        pred(2)             0.225835     0.009258      24.39      <.0001
+        pred(3)             1.125608       0.1775       6.34      <.0001
+        pred(4)             2.025382       0.3547       5.71      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -1.574            0                  2.0254
+
+          pred(0)         |*****************|                       |
+          pred(1)         |          *******|                       |
+          pred(2)         |                 |***                    |
+          pred(3)         |                 |*************          |
+          pred(4)         |                 |***********************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 7
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N5_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.5304517    DFE                        855
+         MSE                 0.03454    Root MSE               0.18585
+         SBC              -430.36854    AIC                 -449.39161
+         MAE              0.14948887    AICC                -449.34477
+         MAPE             2.27049385    HQC                 -442.10844
+         Durbin-Watson        0.1467    Regress R-Square        0.4227
+                                        Total R-Square          0.4227
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1714       0.3201      -3.66      0.0003
+      pred**0          1       0.4617       0.0189      24.43      <.0001
+      pred**1          1       2.0768       0.4281       4.85      <.0001
+      lag1r            1       0.0611       0.0349       1.75      0.0803
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -1.052635       0.2560      -4.11      <.0001
+        pred(1)            -0.556184       0.1538      -3.62      0.0003
+        pred(2)            -0.059732       0.0518      -1.15      0.2494
+        pred(3)             0.436719       0.0517       8.45      <.0001
+        pred(4)             0.933170       0.1536       6.07      <.0001
+        pred(5)             1.429621       0.2559       5.59      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -1.053           0                   1.4296
+
+          pred(0)         |****************|                        |
+          pred(1)         |        ********|                        |
+          pred(2)         |                |                        |
+          pred(3)         |                |********                |
+          pred(4)         |                |****************        |
+          pred(5)         |                |************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 8
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N4_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.4732213    DFE                        854
+         MSE                 0.03451    Root MSE               0.18577
+         SBC              -430.50574    AIC                 -449.52415
+         MAE              0.14940745    AICC                -449.47726
+         MAPE             2.26942589    HQC                 -442.24236
+         Durbin-Watson        0.1469    Regress R-Square        0.4229
+                                        Total R-Square          0.4229
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1842       0.3202      -3.70      0.0002
+      pred**0          1       0.4281       0.0175      24.46      <.0001
+      pred**1          1       1.5811       0.3411       4.63      <.0001
+      lag1r            1       0.0623       0.0349       1.78      0.0749
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.734596       0.1936      -3.79      0.0002
+        pred(1)            -0.435789       0.1292      -3.37      0.0008
+        pred(2)            -0.136982       0.0649      -2.11      0.0350
+        pred(3)             0.161825     0.006616      24.46      <.0001
+        pred(4)             0.460632       0.0647       7.12      <.0001
+        pred(5)             0.759439       0.1290       5.89      <.0001
+        pred(6)             1.058245       0.1934       5.47      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.735           0                   1.0582
+
+          pred(0)         |****************|                        |
+          pred(1)         |       *********|                        |
+          pred(2)         |              **|                        |
+          pred(3)         |                |****                    |
+          pred(4)         |                |**********              |
+          pred(5)         |                |*****************       |
+          pred(6)         |                |************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                 9
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N3_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.4347014    DFE                        853
+         MSE                 0.03451    Root MSE               0.18576
+         SBC              -430.09853    AIC                 -449.11228
+         MAE              0.14938804    AICC                -449.06533
+         MAPE             2.26924453    HQC                 -441.83186
+         Durbin-Watson        0.1471    Regress R-Square        0.4230
+                                        Total R-Square          0.4230
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.1990       0.3204      -3.74      0.0002
+      pred**0          1       0.4012       0.0164      24.49      <.0001
+      pred**1          1       1.2359       0.2805       4.41      <.0001
+      lag1r            1       0.0631       0.0350       1.81      0.0713
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.525598       0.1517      -3.47      0.0006
+        pred(1)            -0.334895       0.1084      -3.09      0.0021
+        pred(2)            -0.144192       0.0653      -2.21      0.0274
+        pred(3)             0.046511       0.0225       2.07      0.0388
+        pred(4)             0.237214       0.0223      10.62      <.0001
+        pred(5)             0.427917       0.0651       6.57      <.0001
+        pred(6)             0.618620       0.1083       5.71      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.526          0                    0.8093
+
+          pred(0)         |***************|                         |
+          pred(1)         |      *********|                         |
+          pred(2)         |            ***|                         |
+          pred(3)         |               |**                       |
+          pred(4)         |               |*******                  |
+          pred(5)         |               |*************            |
+          pred(6)         |               |*******************      |
+                  Prediction of Ruminal pH Using Reticuluar pH                10
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.809323       0.1515       5.34      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.526          0                    0.8093
+
+          pred(7)         |               |*************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                11
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N2_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.3916327    DFE                        852
+         MSE                 0.03450    Root MSE               0.18573
+         SBC              -429.82381    AIC                 -448.83289
+         MAE               0.1493644    AICC                -448.78588
+         MAPE             2.26899972    HQC                 -441.55386
+         Durbin-Watson        0.1474    Regress R-Square        0.4231
+                                        Total R-Square          0.4231
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2127       0.3206      -3.78      0.0002
+      pred**0          1       0.3790       0.0155      24.51      <.0001
+      pred**1          1       0.9893       0.2361       4.19      <.0001
+      lag1r            1       0.0643       0.0350       1.84      0.0666
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.384535       0.1221      -3.15      0.0017
+        pred(1)            -0.256822       0.0917      -2.80      0.0052
+        pred(2)            -0.129109       0.0613      -2.11      0.0353
+        pred(3)            -0.001395       0.0310      -0.05      0.9641
+        pred(4)             0.126318     0.005154      24.51      <.0001
+        pred(5)             0.254032       0.0308       8.23      <.0001
+        pred(6)             0.381745       0.0611       6.25      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.385         0                     0.6372
+
+          pred(0)         |**************|                          |
+          pred(1)         |     *********|                          |
+          pred(2)         |          ****|                          |
+          pred(3)         |              |                          |
+          pred(4)         |              |******                    |
+          pred(5)         |              |***********               |
+          pred(6)         |              |****************          |
+                  Prediction of Ruminal pH Using Reticuluar pH                12
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.509458       0.0915       5.57      <.0001
+        pred(8)             0.637172       0.1220       5.22      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.385         0                     0.6372
+
+          pred(7)         |              |*********************     |
+          pred(8)         |              |**************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                13
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    N1_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.3403609    DFE                        851
+         MSE                 0.03448    Root MSE               0.18568
+         SBC              -429.78817    AIC                 -448.79258
+         MAE              0.14932844    AICC                -448.74552
+         MAPE             2.26857931    HQC                 -441.51494
+         Durbin-Watson        0.1476    Regress R-Square        0.4233
+                                        Total R-Square          0.4233
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2250       0.3208      -3.82      0.0001
+      pred**0          1       0.3601       0.0147      24.53      <.0001
+      pred**1          1       0.8078       0.2025       3.99      <.0001
+      lag1r            1       0.0657       0.0350       1.87      0.0612
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.286363       0.1005      -2.85      0.0045
+        pred(1)            -0.197424       0.0782      -2.52      0.0118
+        pred(2)            -0.108486       0.0560      -1.94      0.0530
+        pred(3)            -0.019547       0.0338      -0.58      0.5635
+        pred(4)             0.069391       0.0121       5.72      <.0001
+        pred(5)             0.158330       0.0120      13.18      <.0001
+        pred(6)             0.247268       0.0337       7.34      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.286         0                     0.5141
+
+          pred(0)         |**************|                          |
+          pred(1)         |     *********|                          |
+          pred(2)         |         *****|                          |
+          pred(3)         |              |                          |
+          pred(4)         |              |***                       |
+          pred(5)         |              |********                  |
+          pred(6)         |              |************              |
+                  Prediction of Ruminal pH Using Reticuluar pH                14
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.336206       0.0559       6.02      <.0001
+        pred(8)             0.425145       0.0781       5.44      <.0001
+        pred(9)             0.514083       0.1004       5.12      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.286         0                     0.5141
+
+          pred(7)         |              |*****************         |
+          pred(8)         |              |*********************     |
+          pred(9)         |              |**************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                15
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                     O_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.2924671    DFE                        850
+         MSE                 0.03446    Root MSE               0.18564
+         SBC              -429.65435    AIC                 -448.65407
+         MAE              0.14930831    AICC                -448.60696
+         MAPE             2.26838815    HQC                 -441.37781
+         Durbin-Watson        0.1477    Regress R-Square        0.4234
+                                        Total R-Square          0.4234
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2370       0.3211      -3.85      0.0001
+      pred**0          1       0.3438       0.0140      24.55      <.0001
+      pred**1          1       0.6677       0.1762       3.79      0.0002
+      lag1r            1       0.0668       0.0350       1.91      0.0571
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.214661       0.0842      -2.55      0.0110
+        pred(1)            -0.150995       0.0674      -2.24      0.0254
+        pred(2)            -0.087330       0.0507      -1.72      0.0851
+        pred(3)            -0.023665       0.0339      -0.70      0.4858
+        pred(4)             0.040001       0.0174       2.30      0.0217
+        pred(5)             0.103666     0.004223      24.55      <.0001
+        pred(6)             0.167331       0.0173       9.69      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.215        0                       0.422
+
+          pred(0)         |*************|                           |
+          pred(1)         |    *********|                           |
+          pred(2)         |        *****|                           |
+          pred(3)         |            *|                           |
+          pred(4)         |             |**                         |
+          pred(5)         |             |*******                    |
+          pred(6)         |             |***********                |
+                  Prediction of Ruminal pH Using Reticuluar pH                16
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.230997       0.0338       6.83      <.0001
+        pred(8)             0.294662       0.0505       5.83      <.0001
+        pred(9)             0.358327       0.0673       5.33      <.0001
+        pred(10)            0.421993       0.0841       5.02      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.215        0                       0.422
+
+          pred(7)         |             |***************            |
+          pred(8)         |             |*******************        |
+          pred(9)         |             |***********************    |
+          pred(10)        |             |***************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                17
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P1_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.2530305    DFE                        849
+         MSE                 0.03446    Root MSE               0.18562
+         SBC              -429.27407    AIC                 -448.26911
+         MAE              0.14931534    AICC                -448.22194
+         MAPE             2.26859543    HQC                 -440.99424
+         Durbin-Watson        0.1479    Regress R-Square        0.4235
+                                        Total R-Square          0.4235
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2496       0.3214      -3.89      0.0001
+      pred**0          1       0.3297       0.0134      24.56      <.0001
+      pred**1          1       0.5556       0.1553       3.58      0.0004
+      lag1r            1       0.0676       0.0351       1.93      0.0542
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.160375       0.0716      -2.24      0.0254
+        pred(1)            -0.113911       0.0586      -1.94      0.0524
+        pred(2)            -0.067447       0.0457      -1.48      0.1403
+        pred(3)            -0.020983       0.0328      -0.64      0.5221
+        pred(4)             0.025481       0.0199       1.28      0.2014
+        pred(5)             0.071945     0.007617       9.45      <.0001
+        pred(6)             0.118409     0.007510      15.77      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.16        0                       0.3507
+
+          pred(0)         |************|                            |
+          pred(1)         |    ********|                            |
+          pred(2)         |       *****|                            |
+          pred(3)         |           *|                            |
+          pred(4)         |            |**                          |
+          pred(5)         |            |******                      |
+          pred(6)         |            |*********                   |
+                  Prediction of Ruminal pH Using Reticuluar pH                18
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.164873       0.0198       8.32      <.0001
+        pred(8)             0.211337       0.0326       6.47      <.0001
+        pred(9)             0.257801       0.0456       5.66      <.0001
+        pred(10)            0.304265       0.0585       5.20      <.0001
+        pred(11)            0.350729       0.0715       4.91      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.16        0                       0.3507
+
+          pred(7)         |            |*************               |
+          pred(8)         |            |*****************           |
+          pred(9)         |            |*********************       |
+          pred(10)        |            |************************    |
+          pred(11)        |            |****************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                19
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P2_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.2041746    DFE                        848
+         MSE                 0.03444    Root MSE               0.18558
+         SBC              -429.16858    AIC                 -448.15892
+         MAE              0.14929155    AICC                 -448.1117
+         MAPE             2.26836797    HQC                 -440.88544
+         Durbin-Watson        0.1481    Regress R-Square        0.4234
+                                        Total R-Square          0.4234
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2594       0.3217      -3.91      <.0001
+      pred**0          1       0.3172       0.0129      24.57      <.0001
+      pred**1          1       0.4666       0.1383       3.37      0.0008
+      lag1r            1       0.0685       0.0351       1.95      0.0512
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.119559       0.0617      -1.94      0.0529
+        pred(1)            -0.084972       0.0515      -1.65      0.0990
+        pred(2)            -0.050386       0.0412      -1.22      0.2220
+        pred(3)            -0.015799       0.0310      -0.51      0.6108
+        pred(4)             0.018788       0.0209       0.90      0.3684
+        pred(5)             0.053375       0.0109       4.89      <.0001
+        pred(6)             0.087962     0.003580      24.57      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.12       0                        0.2955
+
+          pred(0)         |***********|                             |
+          pred(1)         |   ********|                             |
+          pred(2)         |       ****|                             |
+          pred(3)         |          *|                             |
+          pred(4)         |           |**                           |
+          pred(5)         |           |*****                        |
+          pred(6)         |           |*********                    |
+                  Prediction of Ruminal pH Using Reticuluar pH                20
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.122549       0.0108      11.34      <.0001
+        pred(8)             0.157136       0.0208       7.57      <.0001
+        pred(9)             0.191723       0.0309       6.20      <.0001
+        pred(10)            0.226310       0.0411       5.51      <.0001
+        pred(11)            0.260897       0.0513       5.08      <.0001
+        pred(12)            0.295484       0.0616       4.80      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.12       0                        0.2955
+
+          pred(7)         |           |************                 |
+          pred(8)         |           |***************              |
+          pred(9)         |           |*******************          |
+          pred(10)        |           |**********************       |
+          pred(11)        |           |**************************   |
+          pred(12)        |           |*****************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                21
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P3_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.1711423    DFE                        847
+         MSE                 0.03444    Root MSE               0.18558
+         SBC              -428.60156    AIC                 -447.58721
+         MAE              0.14931615    AICC                -447.53993
+         MAPE             2.26883798    HQC                 -440.31512
+         Durbin-Watson        0.1480    Regress R-Square        0.4233
+                                        Total R-Square          0.4233
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2712       0.3221      -3.95      <.0001
+      pred**0          1       0.3061       0.0125      24.58      <.0001
+      pred**1          1       0.3917       0.1243       3.15      0.0017
+      lag1r            1       0.0690       0.0351       1.97      0.0494
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.087004       0.0537      -1.62      0.1057
+        pred(1)            -0.061034       0.0455      -1.34      0.1802
+        pred(2)            -0.035064       0.0373      -0.94      0.3473
+        pred(3)            -0.009095       0.0291      -0.31      0.7546
+        pred(4)             0.016875       0.0209       0.81      0.4202
+        pred(5)             0.042845       0.0129       3.33      0.0009
+        pred(6)             0.068815     0.005343      12.88      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.087     0                         0.2506
+
+          pred(0)         |**********|                              |
+          pred(1)         |   *******|                              |
+          pred(2)         |      ****|                              |
+          pred(3)         |         *|                              |
+          pred(4)         |          |**                            |
+          pred(5)         |          |*****                         |
+          pred(6)         |          |********                      |
+                  Prediction of Ruminal pH Using Reticuluar pH                22
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.094785     0.005250      18.05      <.0001
+        pred(8)             0.120754       0.0127       9.48      <.0001
+        pred(9)             0.146724       0.0208       7.05      <.0001
+        pred(10)            0.172694       0.0290       5.96      <.0001
+        pred(11)            0.198664       0.0372       5.34      <.0001
+        pred(12)            0.224634       0.0454       4.95      <.0001
+        pred(13)            0.250603       0.0536       4.68      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.087     0                         0.2506
+
+          pred(7)         |          |***********                   |
+          pred(8)         |          |**************                |
+          pred(9)         |          |*****************             |
+          pred(10)        |          |*********************         |
+          pred(11)        |          |************************      |
+          pred(12)        |          |***************************   |
+          pred(13)        |          |******************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                23
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P4_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.1216566    DFE                        846
+         MSE                 0.03442    Root MSE               0.18553
+         SBC              -428.51465    AIC                  -447.4956
+         MAE              0.14928329    AICC                -447.44826
+         MAPE             2.26849292    HQC                  -440.2249
+         Durbin-Watson        0.1484    Regress R-Square        0.4231
+                                        Total R-Square          0.4231
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2784       0.3224      -3.96      <.0001
+      pred**0          1       0.2960       0.0120      24.57      <.0001
+      pred**1          1       0.3311       0.1125       2.94      0.0033
+      lag1r            1       0.0699       0.0351       1.99      0.0466
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.062081       0.0472      -1.31      0.1889
+        pred(1)            -0.042296       0.0405      -1.04      0.2968
+        pred(2)            -0.022511       0.0338      -0.67      0.5058
+        pred(3)            -0.002726       0.0271      -0.10      0.9200
+        pred(4)             0.017059       0.0205       0.83      0.4047
+        pred(5)             0.036844       0.0139       2.66      0.0080
+        pred(6)             0.056630     0.007460       7.59      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.062   0                           0.2149
+
+          pred(0)         |********|                                |
+          pred(1)         |   *****|                                |
+          pred(2)         |      **|                                |
+          pred(3)         |        |                                |
+          pred(4)         |        |***                             |
+          pred(5)         |        |******                          |
+          pred(6)         |        |*********                       |
+                  Prediction of Ruminal pH Using Reticuluar pH                24
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.076415     0.003110      24.57      <.0001
+        pred(8)             0.096200     0.007353      13.08      <.0001
+        pred(9)             0.115985       0.0137       8.44      <.0001
+        pred(10)            0.135770       0.0203       6.67      <.0001
+        pred(11)            0.155555       0.0270       5.76      <.0001
+        pred(12)            0.175340       0.0337       5.20      <.0001
+        pred(13)            0.195125       0.0404       4.83      <.0001
+        pred(14)            0.214910       0.0471       4.56      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.062   0                           0.2149
+
+          pred(7)         |        |************                    |
+          pred(8)         |        |**************                  |
+          pred(9)         |        |*****************               |
+          pred(10)        |        |********************            |
+          pred(11)        |        |***********************         |
+          pred(12)        |        |**************************      |
+          pred(13)        |        |*****************************   |
+          pred(14)        |        |********************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                25
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P5_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              29.0701061    DFE                        845
+         MSE                 0.03440    Root MSE               0.18548
+         SBC              -428.48828    AIC                 -447.46452
+         MAE              0.14925069    AICC                -447.41713
+         MAPE             2.26815418    HQC                 -440.19522
+         Durbin-Watson        0.1485    Regress R-Square        0.4228
+                                        Total R-Square          0.4228
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2847       0.3228      -3.98      <.0001
+      pred**0          1       0.2868       0.0117      24.56      <.0001
+      pred**1          1       0.2806       0.1025       2.74      0.0063
+      lag1r            1       0.0704       0.0351       2.01      0.0449
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.042444       0.0418      -1.01      0.3107
+        pred(1)            -0.027226       0.0363      -0.75      0.4535
+        pred(2)            -0.012008       0.0308      -0.39      0.6964
+        pred(3)             0.003211       0.0252       0.13      0.8988
+        pred(4)             0.018429       0.0197       0.93      0.3505
+        pred(5)             0.033648       0.0143       2.36      0.0185
+        pred(6)             0.048866     0.008887       5.50      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.042  0                            0.1858
+
+          pred(0)         |*******|                                 |
+          pred(1)         |   ****|                                 |
+          pred(2)         |     **|                                 |
+          pred(3)         |       |                                 |
+          pred(4)         |       |***                              |
+          pred(5)         |       |******                           |
+          pred(6)         |       |********                         |
+                  Prediction of Ruminal pH Using Reticuluar pH                26
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.064084     0.004070      15.75      <.0001
+        pred(8)             0.079303     0.003990      19.88      <.0001
+        pred(9)             0.094521     0.008778      10.77      <.0001
+        pred(10)            0.109739       0.0141       7.76      <.0001
+        pred(11)            0.124958       0.0196       6.37      <.0001
+        pred(12)            0.140176       0.0251       5.58      <.0001
+        pred(13)            0.155395       0.0306       5.07      <.0001
+        pred(14)            0.170613       0.0362       4.72      <.0001
+        pred(15)            0.185831       0.0417       4.45      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.042  0                            0.1858
+
+          pred(7)         |       |***********                      |
+          pred(8)         |       |**************                   |
+          pred(9)         |       |*****************                |
+          pred(10)        |       |*******************              |
+          pred(11)        |       |**********************           |
+          pred(12)        |       |*************************        |
+          pred(13)        |       |****************************     |
+          pred(14)        |       |******************************   |
+          pred(15)        |       |*********************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                27
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P6_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              28.9926268    DFE                        844
+         MSE                 0.03435    Root MSE               0.18534
+         SBC              -429.22027    AIC                 -448.19179
+         MAE              0.14916131    AICC                -448.14434
+         MAPE             2.26703387    HQC                 -440.92389
+         Durbin-Watson        0.1486    Regress R-Square        0.4224
+                                        Total R-Square          0.4224
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2860       0.3230      -3.98      <.0001
+      pred**0          1       0.2782       0.0113      24.55      <.0001
+      pred**1          1       0.2391       0.0939       2.55      0.0110
+      lag1r            1       0.0707       0.0350       2.02      0.0440
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.027204       0.0373      -0.73      0.4664
+        pred(1)            -0.015368       0.0327      -0.47      0.6385
+        pred(2)            -0.003532       0.0281      -0.13      0.8999
+        pred(3)             0.008304       0.0235       0.35      0.7234
+        pred(4)             0.020140       0.0188       1.07      0.2855
+        pred(5)             0.031977       0.0143       2.24      0.0252
+        pred(6)             0.043813     0.009746       4.50      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.027                               0.1622
+
+          pred(0)         |*****|                                   |
+          pred(1)         |   **|                                   |
+          pred(2)         |     |                                   |
+          pred(3)         |     |**                                 |
+          pred(4)         |     |****                               |
+          pred(5)         |     |*******                            |
+          pred(6)         |     |*********                          |
+                  Prediction of Ruminal pH Using Reticuluar pH                28
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.055649     0.005448      10.22      <.0001
+        pred(8)             0.067485     0.002749      24.55      <.0001
+        pred(9)             0.079321     0.005350      14.83      <.0001
+        pred(10)            0.091157     0.009636       9.46      <.0001
+        pred(11)            0.102994       0.0142       7.28      <.0001
+        pred(12)            0.114830       0.0187       6.13      <.0001
+        pred(13)            0.126666       0.0233       5.43      <.0001
+        pred(14)            0.138502       0.0280       4.95      <.0001
+        pred(15)            0.150338       0.0326       4.61      <.0001
+        pred(16)            0.162174       0.0372       4.36      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.027                               0.1622
+
+          pred(7)         |     |************                       |
+          pred(8)         |     |***************                    |
+          pred(9)         |     |*****************                  |
+          pred(10)        |     |********************               |
+          pred(11)        |     |**********************             |
+          pred(12)        |     |*************************          |
+          pred(13)        |     |***************************        |
+          pred(14)        |     |******************************     |
+          pred(15)        |     |********************************   |
+          pred(16)        |     |***********************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                29
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P7_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE               28.956642    DFE                        843
+         MSE                 0.03435    Root MSE               0.18534
+         SBC              -428.73954    AIC                 -447.70635
+         MAE              0.14916099    AICC                -447.65884
+         MAPE             2.26716219    HQC                 -440.43985
+         Durbin-Watson        0.1487    Regress R-Square        0.4219
+                                        Total R-Square          0.4219
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.2928       0.3235      -4.00      <.0001
+      pred**0          1       0.2706       0.0110      24.53      <.0001
+      pred**1          1       0.2007       0.0865       2.32      0.0205
+      lag1r            1       0.0708       0.0350       2.02      0.0436
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.013707       0.0335      -0.41      0.6829
+        pred(1)            -0.004590       0.0296      -0.15      0.8769
+        pred(2)             0.004527       0.0257       0.18      0.8603
+        pred(3)             0.013644       0.0218       0.63      0.5319
+        pred(4)             0.022762       0.0179       1.27      0.2044
+        pred(5)             0.031879       0.0140       2.27      0.0235
+        pred(6)             0.040996       0.0102       4.01      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.014                               0.1413
+
+          pred(0)         |***|                                     |
+          pred(1)         |  *|                                     |
+          pred(2)         |   |*                                    |
+          pred(3)         |   |***                                  |
+          pred(4)         |   |******                               |
+          pred(5)         |   |********                             |
+          pred(6)         |   |**********                           |
+                  Prediction of Ruminal pH Using Reticuluar pH                30
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.050113     0.006492       7.72      <.0001
+        pred(8)             0.059231     0.003292      17.99      <.0001
+        pred(9)             0.068348     0.003224      21.20      <.0001
+        pred(10)            0.077465     0.006389      12.13      <.0001
+        pred(11)            0.086582       0.0101       8.57      <.0001
+        pred(12)            0.095700       0.0139       6.87      <.0001
+        pred(13)            0.104817       0.0178       5.89      <.0001
+        pred(14)            0.113934       0.0217       5.25      <.0001
+        pred(15)            0.123051       0.0256       4.81      <.0001
+        pred(16)            0.132169       0.0295       4.48      <.0001
+        pred(17)            0.141286       0.0334       4.23      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.014                               0.1413
+
+          pred(7)         |   |*************                        |
+          pred(8)         |   |***************                      |
+          pred(9)         |   |******************                   |
+          pred(10)        |   |********************                 |
+          pred(11)        |   |***********************              |
+          pred(12)        |   |*************************            |
+          pred(13)        |   |***************************          |
+          pred(14)        |   |******************************       |
+          pred(15)        |   |********************************     |
+          pred(16)        |   |***********************************  |
+          pred(17)        |   |*************************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                31
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P8_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE               28.934046    DFE                        842
+         MSE                 0.03436    Root MSE               0.18537
+         SBC              -427.86726    AIC                 -446.82934
+         MAE              0.14920546    AICC                -446.78177
+         MAPE             2.26793329    HQC                 -439.56424
+         Durbin-Watson        0.1488    Regress R-Square        0.4214
+                                        Total R-Square          0.4214
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.3017       0.3240      -4.02      <.0001
+      pred**0          1       0.2637       0.0108      24.52      <.0001
+      pred**1          1       0.1664       0.0800       2.08      0.0379
+      lag1r            1       0.0708       0.0351       2.02      0.0438
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)            -0.002235       0.0303      -0.07      0.9413
+        pred(1)             0.004736       0.0270       0.18      0.8607
+        pred(2)             0.011706       0.0237       0.49      0.6207
+        pred(3)             0.018677       0.0203       0.92      0.3583
+        pred(4)             0.025647       0.0170       1.51      0.1317
+        pred(5)             0.032617       0.0137       2.38      0.0174
+        pred(6)             0.039588       0.0104       3.80      0.0002
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.002                               0.1232
+
+          pred(0)         ||                                        |
+          pred(1)         ||*                                       |
+          pred(2)         ||****                                    |
+          pred(3)         ||******                                  |
+          pred(4)         ||********                                |
+          pred(5)         ||**********                              |
+          pred(6)         ||*************                           |
+                  Prediction of Ruminal pH Using Reticuluar pH                32
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.046558     0.007196       6.47      <.0001
+        pred(8)             0.053528     0.004207      12.72      <.0001
+        pred(9)             0.060499     0.002468      24.52      <.0001
+        pred(10)            0.067469     0.004117      16.39      <.0001
+        pred(11)            0.074439     0.007092      10.50      <.0001
+        pred(12)            0.081410       0.0103       7.90      <.0001
+        pred(13)            0.088380       0.0136       6.51      <.0001
+        pred(14)            0.095350       0.0169       5.65      <.0001
+        pred(15)            0.102321       0.0202       5.06      <.0001
+        pred(16)            0.109291       0.0235       4.64      <.0001
+        pred(17)            0.116261       0.0269       4.33      <.0001
+        pred(18)            0.123232       0.0302       4.08      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.002                               0.1232
+
+          pred(7)         ||***************                         |
+          pred(8)         ||*****************                       |
+          pred(9)         ||********************                    |
+          pred(10)        ||**********************                  |
+          pred(11)        ||************************                |
+          pred(12)        ||**************************              |
+          pred(13)        ||*****************************           |
+          pred(14)        ||*******************************         |
+          pred(15)        ||*********************************       |
+          pred(16)        ||***********************************     |
+          pred(17)        ||**************************************  |
+          pred(18)        ||****************************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                33
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                    P9_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              28.9133554    DFE                        841
+         MSE                 0.03438    Root MSE               0.18542
+         SBC              -426.93943    AIC                 -445.89677
+         MAE              0.14925153    AICC                -445.84916
+         MAPE             2.26872865    HQC                 -438.63308
+         Durbin-Watson        0.1488    Regress R-Square        0.4209
+                                        Total R-Square          0.4209
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.3100       0.3246      -4.04      <.0001
+      pred**0          1       0.2573       0.0105      24.50      <.0001
+      pred**1          1       0.1364       0.0744       1.83      0.0670
+      lag1r            1       0.0708       0.0351       2.02      0.0437
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)             0.007266       0.0276       0.26      0.7921
+        pred(1)             0.012557       0.0247       0.51      0.6111
+        pred(2)             0.017849       0.0218       0.82      0.4135
+        pred(3)             0.023140       0.0190       1.22      0.2224
+        pred(4)             0.028431       0.0161       1.77      0.0776
+        pred(5)             0.033722       0.0132       2.55      0.0111
+        pred(6)             0.039013       0.0104       3.74      0.0002
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.1078
+
+          pred(0)         |***                                      |
+          pred(1)         |*****                                    |
+          pred(2)         |*******                                  |
+          pred(3)         |*********                                |
+          pred(4)         |***********                              |
+          pred(5)         |*************                            |
+          pred(6)         |***************                          |
+                  Prediction of Ruminal pH Using Reticuluar pH                34
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.044304     0.007637       5.80      <.0001
+        pred(8)             0.049596     0.004972       9.98      <.0001
+        pred(9)             0.054887     0.002785      19.71      <.0001
+        pred(10)            0.060178     0.002727      22.07      <.0001
+        pred(11)            0.065469     0.004874      13.43      <.0001
+        pred(12)            0.070760     0.007532       9.40      <.0001
+        pred(13)            0.076052       0.0103       7.38      <.0001
+        pred(14)            0.081343       0.0131       6.19      <.0001
+        pred(15)            0.086634       0.0160       5.42      <.0001
+        pred(16)            0.091925       0.0188       4.88      <.0001
+        pred(17)            0.097216       0.0217       4.48      <.0001
+        pred(18)            0.102507       0.0246       4.17      <.0001
+        pred(19)            0.107799       0.0274       3.93      <.0001
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.1078
+
+          pred(7)         |*****************                        |
+          pred(8)         |*******************                      |
+          pred(9)         |*********************                    |
+          pred(10)        |***********************                  |
+          pred(11)        |*************************                |
+          pred(12)        |***************************              |
+          pred(13)        |*****************************            |
+          pred(14)        |*******************************          |
+          pred(15)        |*********************************        |
+          pred(16)        |***********************************      |
+          pred(17)        |*************************************    |
+          pred(18)        |***************************************  |
+          pred(19)        |*****************************************|
+                  Prediction of Ruminal pH Using Reticuluar pH                35
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                        Model                   P10_LAGS
+                        Dependent Variable       rumenph
+                                              Ruminal pH
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              28.9030266    DFE                        840
+         MSE                 0.03441    Root MSE               0.18549
+         SBC              -425.70916    AIC                 -444.66177
+         MAE              0.14934337    AICC                 -444.6141
+         MAPE             2.27018564    HQC                 -437.39948
+         Durbin-Watson        0.1488    Regress R-Square        0.4204
+                                        Total R-Square          0.4204
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1      -1.3208       0.3253      -4.06      <.0001
+      pred**0          1       0.2514       0.0103      24.48      <.0001
+      pred**1          1       0.1092       0.0694       1.57      0.1159
+      lag1r            1       0.0708       0.0351       2.02      0.0439
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(0)             0.015504       0.0252       0.62      0.5380
+        pred(1)             0.019440       0.0227       0.86      0.3915
+        pred(2)             0.023376       0.0202       1.16      0.2472
+        pred(3)             0.027313       0.0177       1.54      0.1233
+        pred(4)             0.031249       0.0152       2.05      0.0405
+        pred(5)             0.035185       0.0128       2.76      0.0059
+        pred(6)             0.039122       0.0103       3.80      0.0002
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.0942
+
+          pred(0)         |*******                                  |
+          pred(1)         |********                                 |
+          pred(2)         |**********                               |
+          pred(3)         |************                             |
+          pred(4)         |**************                           |
+          pred(5)         |***************                          |
+          pred(6)         |*****************                        |
+                  Prediction of Ruminal pH Using Reticuluar pH                36
+                        Step 4: Lag Number Optimization
+                                                   11:02 Wednesday, May 13, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        pred(7)             0.043058     0.007884       5.46      <.0001
+        pred(8)             0.046994     0.005531       8.50      <.0001
+        pred(9)             0.050930     0.003399      14.98      <.0001
+        pred(10)            0.054867     0.002242      24.48      <.0001
+        pred(11)            0.058803     0.003318      17.72      <.0001
+        pred(12)            0.062739     0.005431      11.55      <.0001
+        pred(13)            0.066676     0.007779       8.57      <.0001
+        pred(14)            0.070612       0.0102       6.92      <.0001
+        pred(15)            0.074548       0.0127       5.89      <.0001
+        pred(16)            0.078485       0.0151       5.19      <.0001
+        pred(17)            0.082421       0.0176       4.68      <.0001
+        pred(18)            0.086357       0.0201       4.30      <.0001
+        pred(19)            0.090293       0.0226       4.00      <.0001
+        pred(20)            0.094230       0.0251       3.76      0.0002
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.0942
+
+          pred(7)         |*******************                      |
+          pred(8)         |********************                     |
+          pred(9)         |**********************                   |
+          pred(10)        |************************                 |
+          pred(11)        |**************************               |
+          pred(12)        |***************************              |
+          pred(13)        |*****************************            |
+          pred(14)        |*******************************          |
+          pred(15)        |********************************         |
+          pred(16)        |**********************************       |
+          pred(17)        |************************************     |
+          pred(18)        |**************************************   |
+          pred(19)        |***************************************  |
+          pred(20)        |*****************************************|

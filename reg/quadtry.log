@@ -1,0 +1,167 @@
+1                                                          The SAS System                               08:39 Tuesday, June 30, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+1          title 'Reticular vs. Ruminal pH';
+2          /* Data translation */
+3          options linesize=80;
+4          data read;
+5                  infile '~/pH/ph.dat';
+6                  input day animal silage dmi time rumenph reticph;
+7          
+8          if animal ne 138 then delete;
+9          if day ne 5 then delete;
+10         
+11         time2=time**2;
+12         time3=time**3;
+13         time4=time**4;
+14         
+15         /* Generate 4th-order polynomial trendline of reticular pH vs. time
+15       ! */
+
+2                                The SAS System     08:39 Tuesday, June 30, 2015
+
+NOTE: The infile '~/pH/ph.dat' is:
+      Filename=/home/seymourd/pH/ph.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Apr 27 09:43:56 2015,
+      File Size (bytes)=806856
+
+NOTE: 17280 records were read from the infile '~/pH/ph.dat'.
+      The minimum record length was 28.
+      The maximum record length was 48.
+NOTE: The data set WORK.READ has 288 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+16         proc reg data=read;
+17             title2 'Reticuluar pH vs. Time';
+18             by animal day;
+19             Order4: model reticph=time time2 time3 time4 / noprint;
+20             output out=new p=pred r=resid;
+21         
+22         /* Calculate linear autoregression with 12 period linear lag */
+23         /* 12 period lag = 1 hour of observations */
+
+NOTE: The data set WORK.NEW has 288 observations and 12 variables.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.02 seconds
+      
+
+24         proc pdlreg data=read;
+25             title2 'Ruminal vs. Lagged Reticular pH';
+26             model rumenph=reticph(12,2) / nlag=2 dwprob;
+27         
+
+NOTE: The PROCEDURE PDLREG printed pages 1-4.
+NOTE: PROCEDURE PDLREG used (Total process time):
+      real time           0.31 seconds
+      cpu time            0.01 seconds
+      
+
+28         data new2;
+29              set new;
+30              lag1pred=lag1(pred);
+31              lag2pred=lag2(pred);
+32              lag3pred=lag3(pred);
+33              lag4pred=lag4(pred);
+34              lag5pred=lag5(pred);
+35              lag6pred=lag6(pred);
+36              lag7pred=lag7(pred);
+37              lag8pred=lag8(pred);
+38              lag9pred=lag9(pred);
+39              lag10pred=lag10(pred);
+40             lag11pred=lag11(pred);
+41             lag12pred=lag12(pred);
+42              lag1resid=lag1(resid);
+43              lag2resid=lag2(resid);
+3                                The SAS System     08:39 Tuesday, June 30, 2015
+
+44              lag3resid=lag3(resid);
+45              lag4resid=lag4(resid);
+46              lag5resid=lag5(resid);
+47              lag6resid=lag6(resid);
+48              lag7resid=lag7(resid);
+49              lag8resid=lag8(resid);
+50              lag9resid=lag9(resid);
+51              lag10resid=lag10(resid);
+52              lag11resid=lag11(resid);
+53              lag12resid=lag12(resid);
+54         
+
+NOTE: There were 288 observations read from the data set WORK.NEW.
+NOTE: The data set WORK.NEW2 has 288 observations and 36 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+55         proc pdlreg data=new2;
+56             title2 'Ruminal vs. Predicted & Residual Reticuluar pH';
+57              model rumenpH=pred(12,3) resid(12,2) / nlag=1 method=ml dwprob
+57       ! noprint;
+58         
+
+NOTE: PROCEDURE PDLREG used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+59         proc autoreg data=new2;
+60              model rumenph=pred lag1pred lag3pred lag5pred lag5resid
+60       ! lag6resid lag7resid / dwprob noprint;
+61         run;
+
+NOTE: PROCEDURE AUTOREG used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.79 seconds
+      cpu time            0.06 seconds
+      

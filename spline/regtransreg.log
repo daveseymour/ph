@@ -1,0 +1,148 @@
+1                                                          The SAS System                            08:30 Friday, November 27, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+1          options linesize=80;
+2          
+3          title 'REG vs TRANSREG Model Fits';
+4          
+5          data reg;
+6              infile '~/ph/resid/aormixed.dat';
+7              input animal day silage dmi time reticph Preticph Rreticph
+7        ! rumenph Prumenph
+8                  Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+9              if animal = 52 and day > 12 then delete;
+10             tc = time + (day-1);
+11             time2 = time**2;
+12             time3 = time**3;
+13             time4 = time**4;
+14             tc2 = tc**2;
+15             tc3 = tc**3;
+16             tc4 = tc**4;
+2                                The SAS System  08:30 Friday, November 27, 2015
+
+17         run;
+
+NOTE: The infile '~/ph/resid/aormixed.dat' is:
+      Filename=/home/seymourd/ph/resid/aormixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Thu Jul  9 10:59:56 2015,
+      File Size (bytes)=2916745
+
+NOTE: 17280 records were read from the infile '~/ph/resid/aormixed.dat'.
+      The minimum record length was 46.
+      The maximum record length was 177.
+NOTE: The data set WORK.REG has 16416 observations and 24 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+18         
+19         data transreg;
+20             infile '~/ph/final/mixed.dat';
+21             input animal day silage dmi time tc reticph Preticph Rreticph
+21       ! rumenph
+22                 Prumenph Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+23             if animal = 52 and day > 12 then delete;
+24         run;
+
+NOTE: The infile '~/ph/final/mixed.dat' is:
+      Filename=/home/seymourd/ph/final/mixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Fri Nov 27 08:08:26 2015,
+      File Size (bytes)=3149457
+
+NOTE: 17280 records were read from the infile '~/ph/final/mixed.dat'.
+      The minimum record length was 77.
+      The maximum record length was 190.
+NOTE: The data set WORK.TRANSREG has 16416 observations and 18 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+25         
+26         proc mixed data=reg covtest noitprint ic;
+27             title2 'PROC REG Model Fit';
+28             class animal day silage;
+29             model rumenph = reticph lag1p lag2r lag7r lag9r silage / solution
+30                 outp=mixed;
+31             random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+32                 subject=animal*day;
+33         run;
+
+NOTE: 112 observations are not included because of missing values.
+NOTE: The data set WORK.MIXED has 16416 observations and 31 variables.
+NOTE: The PROCEDURE MIXED printed pages 1-3.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           0.80 seconds
+3                                The SAS System  08:30 Friday, November 27, 2015
+
+      cpu time            0.80 seconds
+      
+
+34         
+35         proc mixed data=transreg covtest noitprint ic;
+36             title2 'PROC TRANSREG Model Fit';
+37             class animal day silage;
+38             model rumenph = reticph lag1p lag2r lag7r lag9r silage / solution
+39                 outp=mixed;
+40             random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+41                 subject=animal*day;
+42         run;
+
+NOTE: 112 observations are not included because of missing values.
+NOTE: The data set WORK.MIXED has 16416 observations and 25 variables.
+NOTE: The PROCEDURE MIXED printed pages 4-6.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           0.88 seconds
+      cpu time            0.86 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.77 seconds
+      cpu time            1.72 seconds
+      

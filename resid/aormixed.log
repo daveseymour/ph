@@ -1,0 +1,151 @@
+1                                                          The SAS System                                17:31 Sunday, July 12, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+1          options linesize=80;
+2          title 'Analysis of Residuals - PROC MIXED';
+3          
+4          data raw;
+5              infile '~/ph/ph.dat';
+6              input day animal silage dmi time rumenph reticph;
+7          
+8              *if animal ne 52 then delete;
+9              *if day ne 1 then delete;
+10         
+11             time2 = time**2;
+12             time3 = time**3;
+13             time4 = time**4;
+14         
+
+NOTE: The infile '~/ph/ph.dat' is:
+      Filename=/home/seymourd/ph/ph.dat,
+2                                The SAS System      17:31 Sunday, July 12, 2015
+
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Apr 27 09:43:56 2015,
+      File Size (bytes)=806856
+
+NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
+      The minimum record length was 28.
+      The maximum record length was 48.
+NOTE: The data set WORK.RAW has 17280 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.02 seconds
+      
+
+15         proc reg data=raw noprint;
+16             title2 'Reticph Prediction';
+17             by animal day;
+18             model reticph = time time2 time3 time4;
+19             output out=quadfit p=retpred r=retresid;
+20         run;
+
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=13
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=14
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=15
+NOTE: Interactivity disabled with BY processing.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.02 seconds
+      
+NOTE: The data set WORK.QUADFIT has 17280 observations and 12 variables.
+
+21         
+22         data quadfit;
+23             set quadfit;
+24             lag1p = lag1(retpred);
+25             lag3p = lag3(retpred);
+26             lag2r = lag2(retresid);
+27             lag4r = lag4(retresid);
+28             lag7r = lag7(retresid);
+29             lag9r = lag9(retresid);
+30             drop time2 time3 time4;
+31         
+
+NOTE: There were 17280 observations read from the data set WORK.QUADFIT.
+NOTE: The data set WORK.QUADFIT has 17280 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+32         proc mixed covtest;
+33             class animal day silage;
+3                                The SAS System      17:31 Sunday, July 12, 2015
+
+34             model rumenph = reticph lag1p lag2r lag7r lag9r silage / solution
+34       !  outp=preds;
+35             random intercept retpred lag1p lag2r lag7r lag9r / type=un
+35       ! subject=animal*day;
+36         
+37             /* AICC no silage: -18577.4 */
+38             /* AICC silage covariate: -18591.3 */
+39             /* Best fit - AICC silage class variable: -18592.2 */
+40         
+
+NOTE: 976 observations are not included because of missing values.
+ERROR: User asked for termination
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: SAS set option OBS=0 and will continue to check statements. 
+      This might cause NOTE: No observations in data set.
+WARNING: The data set WORK.PREDS may be incomplete.  When this step was stopped 
+         there were 0 observations and 0 variables.
+NOTE: The PROCEDURE MIXED printed page 1.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           34.67 seconds
+      cpu time            23.94 seconds
+      
+ERROR: Errors printed on pages 2,3.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           35.01 seconds
+      cpu time            24.01 seconds
+      

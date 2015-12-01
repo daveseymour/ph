@@ -1,0 +1,184 @@
+1                                                          The SAS System                                10:50 Tuesday, July 7, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+1          options linesize=80;
+2          
+3          data first;
+4              infile 'resid33.dat';
+5              input animal day silage dmi time reticph retpred retresid rumenph
+5        !  rumpred rumresid;
+6              lag1r = lag1(retresid);
+7          
+
+NOTE: The infile 'resid33.dat' is:
+      Filename=/home/seymourd/pH/resid/resid33.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Jul  6 13:50:53 2015,
+      File Size (bytes)=1597115
+
+NOTE: 16416 records were read from the infile 'resid33.dat'.
+      The minimum record length was 48.
+      The maximum record length was 99.
+NOTE: The data set WORK.FIRST has 16416 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+8          proc mixed covtest method=ml;
+9              by animal day;
+10             class animal retpred lag1r silage;
+11             model rumenph = retpred lag1r silage / ddfm=kr;
+12             random animal;
+13             repeated / subject=animal;
+14             lsmeans;
+15         
+16         run;
+
+2                                The SAS System      10:50 Tuesday, July 7, 2015
+
+NOTE: 1 observation is not included because of missing values.
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=1
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=2
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=3
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=4
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=5
+NOTE: 27 observations are not included because of missing values.
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Did not converge.
+NOTE: The above message was for the following BY group:
+      animal=52 day=6
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=7
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Did not converge.
+NOTE: The above message was for the following BY group:
+      animal=52 day=8
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of too many likelihood evaluations.
+NOTE: The above message was for the following BY group:
+      animal=52 day=9
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=10
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=52 day=11
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+3                                The SAS System      10:50 Tuesday, July 7, 2015
+
+      residual variance estimate.
+WARNING: Did not converge.
+NOTE: The above message was for the following BY group:
+      animal=52 day=12
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=1
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=2
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=3
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=4
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=5
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=6
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=7
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+WARNING: Stopped because of infinite likelihood.
+NOTE: The above message was for the following BY group:
+      animal=64 day=8
+NOTE: An infinite likelihood is assumed in iteration 0 because of a nonpositive 
+      residual variance estimate.
+ERROR: User asked for termination
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: The PROCEDURE MIXED printed pages 1-188.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           6:00.22
+      cpu time            9:24.92
+      
+ERROR: Errors printed on page 3.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           6:00.27
+4                                The SAS System      10:50 Tuesday, July 7, 2015
+
+      cpu time            9:24.95
+      

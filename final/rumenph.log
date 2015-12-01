@@ -1,0 +1,618 @@
+1                                                          The SAS System                            08:08 Friday, November 27, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.44 seconds
+      cpu time            0.01 seconds
+      
+1          options linesize=80;
+2          
+3          title 'Predicting the timecourse of ruminal pH from continuous
+3        ! reticular pH measurements';
+4          /*  D.J. Seymour*, K.M. Wood†, J.P. Cant* and G.B. Penner†
+5              * Department of Animal Biosciences, University of Guelph, Guelph,
+5        !  ON, N1G
+6                  2W1
+7              † Department of Animal & Poultry Science, University of
+7        ! Saskatchewan,
+8                  Saskatoon, SK, S7N 5A8
+9          */
+10         
+11         data raw;
+12             infile '~/ph/ph.dat';
+13             input day animal silage dmi time rumenph reticph;
+14             tc = time + (day-1); /* convert all observations to continuous
+2                                The SAS System  08:08 Friday, November 27, 2015
+
+14       ! timecourse */
+15         run;
+
+NOTE: The infile '~/ph/ph.dat' is:
+      Filename=/home/seymourd/ph/ph.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Apr 27 09:43:56 2015,
+      File Size (bytes)=806856
+
+NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
+      The minimum record length was 28.
+      The maximum record length was 48.
+NOTE: The data set WORK.RAW has 17280 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+16         
+17         /*  generate predictions of reticph (Preticph) */
+18         
+19         proc transreg data=raw noprint;
+20             title2 'Prediction of Reticular pH Using Smoothing Spline';
+21             by animal;
+22             model identity(reticph) = pspline(tc / nknots=44);
+23             output out=transreg predicted residual;
+24         run;
+
+NOTE: 864 observations were deleted from the analysis due to missing values.
+NOTE: Passive observations are beyond the exterior knots.  If you want to 
+      interpolate beyond the data, specify exterior knots beyond the passive 
+      observation values.
+NOTE: Algorithm converged.
+NOTE: The above message was for the following BY group:
+      animal=52
+NOTE: 30 observations were deleted from the analysis due to missing values.
+NOTE: Algorithm converged.
+NOTE: The above message was for the following BY group:
+      animal=138
+NOTE: There were 17280 observations read from the data set WORK.RAW.
+NOTE: The data set WORK.TRANSREG has 17280 observations and 104 variables.
+NOTE: PROCEDURE TRANSREG used (Total process time):
+      real time           0.25 seconds
+      cpu time            0.21 seconds
+      
+
+25         
+26         /*  generate lagged variables & merge TRANSREG output with original
+26       ! data*/
+27         /*  note on nomenclature:
+28         /*      - predicted values are prefixed with P
+29         /*      - residuals are prefixed with R
+30         /*      - lag variables are named in the style 'lag1p/r' to denote 1
+30       ! lag of the
+31         /*          predicted or residual value of reticph */
+32         
+33         data merged;
+3                                The SAS System  08:08 Friday, November 27, 2015
+
+34             merge transreg raw;
+35             by animal tc;
+36             lag1p = lag1(Preticph);
+37             lag3p = lag3(Preticph);
+38             lag2r = lag2(Rreticph);
+39             lag4r = lag4(Rreticph);
+40             lag7r = lag7(Rreticph);
+41             lag9r = lag9(Rreticph);
+42             keep animal day silage dmi time tc reticph Preticph Rreticph
+42       ! rumenph lag1p
+43                 lag3p lag2r lag4r lag7r lag9r;
+44         run;
+
+NOTE: There were 17280 observations read from the data set WORK.TRANSREG.
+NOTE: There were 17280 observations read from the data set WORK.RAW.
+NOTE: The data set WORK.MERGED has 17280 observations and 16 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+45         
+46         /*  model rumen ph based on reticular ph predictions and residuals */
+47         
+48         proc mixed covtest data=merged;
+49             title2 'Prediction of Rumen pH Using Predicted Reticular pH';
+50             class animal day silage;
+51             model rumenph = reticph lag1p lag2r lag7r lag9r silage / solution
+52                 outp=mixed;
+53             random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+54                 subject=animal*day;
+55         run;
+
+NOTE: 976 observations are not included because of missing values.
+NOTE: Convergence criteria met.
+NOTE: The data set WORK.MIXED has 17280 observations and 23 variables.
+NOTE: The PROCEDURE MIXED printed pages 1-4.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           0.69 seconds
+      cpu time            0.58 seconds
+      
+
+56         
+57         /*  prepare data for cross-validation of model */
+58         /*  adapted from Cassel (2007) */
+59         
+60         data mixed;
+61             set mixed;
+62             Prumenph = Pred;
+63             Rrumenph = Resid;
+64             drop Pred Resid Alpha DF Upper Lower;
+65             file 'mixed.dat';
+66             put animal day silage dmi time tc reticph Preticph Rreticph
+66       ! rumenph Prumenph
+67                 Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+68         
+69         /*  perform 10-fold cross validation */
+70         /*  generate list of animal-day subsets */
+4                                The SAS System  08:08 Friday, November 27, 2015
+
+71         
+
+NOTE: The file 'mixed.dat' is:
+      Filename=/home/seymourd/ph/final/mixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Fri Nov 27 08:08:26 2015
+
+NOTE: 17280 records were written to the file 'mixed.dat'.
+      The minimum record length was 77.
+      The maximum record length was 190.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.MIXED has 17280 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.05 seconds
+      
+
+72         proc summary data = mixed;
+73             title2 'Generation of Animal-Day Subsets';
+74             by animal day;
+75             output out= aniday;
+76         run;
+
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.ANIDAY has 60 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+77         
+78         data aniday;
+79             set aniday;
+80             drop _TYPE_ _FREQ_;
+81             if animal = 52 and day > 12 then delete;
+82         run;
+
+NOTE: There were 60 observations read from the data set WORK.ANIDAY.
+NOTE: The data set WORK.ANIDAY has 57 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+83         
+84         /*  generate cross-validation datasets */
+85         /*  always manually select seed for repeatability */
+86         
+87         %let K=10;
+88         %let rate=%sysevalf((&K-1)/&K);
+89         
+90         proc surveyselect data=aniday out=train seed=495857 samprate=&RATE
+90       ! outall
+91             rep=10;
+92             title2 'Selection of Training & Testing Datasets';
+93         run;
+
+5                                The SAS System  08:08 Friday, November 27, 2015
+
+NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
+NOTE: The PROCEDURE SURVEYSELECT printed page 5.
+NOTE: PROCEDURE SURVEYSELECT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+94         
+95         proc sort data = train;
+96             by animal day;
+97         
+
+NOTE: There were 570 observations read from the data set WORK.TRAIN.
+NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+98         data train1 train2 train3 train4 train5 train6 train7 train8 train9
+98       ! train10;
+99             set train;
+100            if replicate = 1 then output train1;
+101            if replicate = 2 then output train2;
+102            if replicate = 3 then output train3;
+103            if replicate = 4 then output train4;
+104            if replicate = 5 then output train5;
+105            if replicate = 6 then output train6;
+106            if replicate = 7 then output train7;
+107            if replicate = 8 then output train8;
+108            if replicate = 9 then output train9;
+109            if replicate = 10 then output train10;
+110        run;
+
+NOTE: There were 570 observations read from the data set WORK.TRAIN.
+NOTE: The data set WORK.TRAIN1 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN2 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN3 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN4 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN5 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN6 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN7 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN8 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN9 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN10 has 57 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+111        
+112        /*
+113            merge selection results to data. errors occur when merging
+113      ! multiple
+114            replicates, need to make form individual datasets for each
+114      ! replicate
+115            and merge at end
+116        */
+6                                The SAS System  08:08 Friday, November 27, 2015
+
+117        
+118        data xv1;
+119            merge train1 mixed;
+120            by animal day;
+121        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN1.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV1 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+122        
+123        data xv2;
+124            merge train2 mixed;
+125            by animal day;
+126        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN2.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV2 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+127        
+128        data xv3;
+129            merge train3 mixed;
+130            by animal day;
+131        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN3.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV3 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+132        
+133        data xv4;
+134            merge train4 mixed;
+135            by animal day;
+136        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN4.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV4 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+137        
+138        data xv5;
+7                                The SAS System  08:08 Friday, November 27, 2015
+
+139            merge train5 mixed;
+140            by animal day;
+141        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN5.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV5 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+142        
+143        data xv6;
+144            merge train6 mixed;
+145            by animal day;
+146        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN6.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV6 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+147        
+148        data xv7;
+149            merge train7 mixed;
+150            by animal day;
+151        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN7.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV7 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+152        
+153        data xv8;
+154            merge train8 mixed;
+155            by animal day;
+156        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN8.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV8 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+157        
+158        data xv9;
+159            merge train9 mixed;
+160            by animal day;
+8                                The SAS System  08:08 Friday, November 27, 2015
+
+161        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN9.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV9 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+162        
+163        data xv10;
+164            merge train10 mixed;
+165            by animal day;
+166        run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN10.
+NOTE: There were 17280 observations read from the data set WORK.MIXED.
+NOTE: The data set WORK.XV10 has 17280 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+167        
+168        data xv;
+169            set xv1 xv2 xv3 xv4 xv5 xv6 xv7 xv8 xv9 xv10;
+170            if selected then new_Prumenph = Prumenph;
+171            if replicate = . then delete;
+172            file 'xv.dat';
+173            put replicate selected animal day silage dmi time tc reticph
+173      ! Preticph
+174                Rreticph rumenph Prumenph Rrumenph new_Prumenph;
+175        run;
+
+NOTE: The file 'xv.dat' is:
+      Filename=/home/seymourd/ph/final/xv.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Fri Nov 27 08:08:26 2015
+
+NOTE: 164160 records were written to the file 'xv.dat'.
+      The minimum record length was 58.
+      The maximum record length was 130.
+NOTE: There were 17280 observations read from the data set WORK.XV1.
+NOTE: There were 17280 observations read from the data set WORK.XV2.
+NOTE: There were 17280 observations read from the data set WORK.XV3.
+NOTE: There were 17280 observations read from the data set WORK.XV4.
+NOTE: There were 17280 observations read from the data set WORK.XV5.
+NOTE: There were 17280 observations read from the data set WORK.XV6.
+NOTE: There were 17280 observations read from the data set WORK.XV7.
+NOTE: There were 17280 observations read from the data set WORK.XV8.
+NOTE: There were 17280 observations read from the data set WORK.XV9.
+NOTE: There were 17280 observations read from the data set WORK.XV10.
+NOTE: The data set WORK.XV has 164160 observations and 22 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.51 seconds
+      cpu time            0.38 seconds
+9                                The SAS System  08:08 Friday, November 27, 2015
+
+      
+
+176        
+177        proc sort data=xv;
+178            by replicate animal day;
+179        run;
+
+NOTE: There were 164160 observations read from the data set WORK.XV.
+NOTE: The data set WORK.XV has 164160 observations and 22 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.08 seconds
+      
+
+180        
+181        /*  get predicted values for new_Prumenph in each replicate */
+182        
+183        proc mixed data=xv method=mivque0;
+184            by replicate;
+185            class animal day silage;
+186            model new_Prumenph = reticph lag1p lag2r lag7r lag9r silage /
+186      ! solution
+187                outp=xv_pred(where=(new_Prumenph=.));
+188            random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+189                subject=animal*day;
+190        run;
+
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Variable StdErrPred already exists on file WORK.XV_PRED, using 
+      StdErrPred2 instead.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=1
+NOTE: 1497 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=2
+NOTE: 1488 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=3
+NOTE: 1488 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=4
+NOTE: 1488 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=5
+NOTE: 1497 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=6
+NOTE: 1497 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=7
+NOTE: 1458 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=8
+NOTE: 1488 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=9
+NOTE: 1497 observations are not included because of missing values.
+NOTE: The above message was for the following BY group:
+10                               The SAS System  08:08 Friday, November 27, 2015
+
+      Sample Replicate Number=10
+NOTE: The data set WORK.XV_PRED has 14886 observations and 29 variables.
+NOTE: The PROCEDURE MIXED printed pages 6-35.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           1.97 seconds
+      cpu time            1.72 seconds
+      
+
+191        
+192        /*  summarize results of cross validation */
+193        
+194        data xv_pred;
+195            set xv_pred;
+196            if selected ne 0 then delete;
+197            xv_Prumenph = Pred;
+198            xv_Rrumenph = rumenph - xv_Prumenph;
+199            absr = abs(xv_Rrumenph);
+200            file 'xv_pred.dat';
+201            put replicate animal day silage dmi time tc reticph Preticph
+201      ! Rreticph
+202                rumenph Prumenph Rrumenph xv_Prumenph xv_Rrumenph absr;
+203        run;
+
+NOTE: The file 'xv_pred.dat' is:
+      Filename=/home/seymourd/ph/final/xv_pred.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Fri Nov 27 08:08:29 2015
+
+NOTE: 14400 records were written to the file 'xv_pred.dat'.
+      The minimum record length was 60.
+      The maximum record length was 154.
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      112 at 198:27   112 at 199:12   
+NOTE: There were 14886 observations read from the data set WORK.XV_PRED.
+NOTE: The data set WORK.XV_PRED has 14400 observations and 32 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+204        
+205        proc summary data=xv_pred;
+206            title2 '10-Fold Cross Validation Summary';
+207            title3 'MAE: Mean Absolute Error';
+208            var xv_Rrumenph absr;
+209            output out=summary std(xv_Rrumenph)=RMSE mean(absr)=MAE;
+210        run;
+
+NOTE: There were 14400 observations read from the data set WORK.XV_PRED.
+NOTE: The data set WORK.SUMMARY has 1 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+11                               The SAS System  08:08 Friday, November 27, 2015
+
+211        
+212        proc print data=summary;
+213        run;
+
+NOTE: There were 1 observations read from the data set WORK.SUMMARY.
+NOTE: The PROCEDURE PRINT printed page 36.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           4.38 seconds
+      cpu time            3.19 seconds
+      

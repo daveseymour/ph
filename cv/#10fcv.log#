@@ -1,0 +1,611 @@
+1                                                          The SAS System                                14:06 Monday, July 13, 2015
+
+
+
+
+
+
+
+
+
+Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+1          /* Adapted from Cassel (2007) */
+2          options linesize=80;
+3          
+4          data aormixed;
+5              infile '~/ph/resid/aormixed.dat';
+6              input animal day silage dmi time reticph retpred retresid rumenph
+6        !  rumpred rumresid lag1p lag3p lag2r lag4r lag7r lag9r;
+7              if animal = 52 and day > 12 then delete;
+8          
+9          /* Instead picking from full dataset, can randomly pick from dataset
+9        ! of only animal-day combinations */
+10         
+
+NOTE: The infile '~/ph/resid/aormixed.dat' is:
+      Filename=/home/seymourd/ph/resid/aormixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+2                                The SAS System      14:06 Monday, July 13, 2015
+
+      Last Modified=Thu Jul  9 10:59:56 2015,
+      File Size (bytes)=2916745
+
+NOTE: 17280 records were read from the infile '~/ph/resid/aormixed.dat'.
+      The minimum record length was 46.
+      The maximum record length was 177.
+NOTE: The data set WORK.AORMIXED has 16416 observations and 17 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
+
+11         proc summary data = aormixed;
+12             by animal day;
+13             output out= aniday;
+14         run;
+
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.ANIDAY has 57 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+15         
+16         data aniday;
+17             set aniday;
+18             drop _TYPE_ _FREQ_;
+19             if animal = 52 and day > 12 then delete;
+20         run;
+
+NOTE: There were 57 observations read from the data set WORK.ANIDAY.
+NOTE: The data set WORK.ANIDAY has 57 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+21         
+22         %let K=10;
+23         %let rate=%sysevalf((&K-1)/&K);
+24         
+25         /* Generate the cross-validation sample */
+26         proc surveyselect data=aniday out=train seed=495857
+27             samprate=&RATE outall rep=10;
+28             /* Always manually select seed for repeatability */
+29         run;
+
+NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
+NOTE: The PROCEDURE SURVEYSELECT printed page 1.
+NOTE: PROCEDURE SURVEYSELECT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+30         
+31         proc sort data = train;
+32             by animal day;
+3                                The SAS System      14:06 Monday, July 13, 2015
+
+33         
+
+NOTE: There were 570 observations read from the data set WORK.TRAIN.
+NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+34         data train1 train2 train3 train4 train5 train6 train7 train8 train9
+34       ! train10;
+35             set train;
+36             if replicate = 1 then output train1;
+37             if replicate = 2 then output train2;
+38             if replicate = 3 then output train3;
+39             if replicate = 4 then output train4;
+40             if replicate = 5 then output train5;
+41             if replicate = 6 then output train6;
+42             if replicate = 7 then output train7;
+43             if replicate = 8 then output train8;
+44             if replicate = 9 then output train9;
+45             if replicate = 10 then output train10;
+46         run;
+
+NOTE: There were 570 observations read from the data set WORK.TRAIN.
+NOTE: The data set WORK.TRAIN1 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN2 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN3 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN4 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN5 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN6 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN7 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN8 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN9 has 57 observations and 4 variables.
+NOTE: The data set WORK.TRAIN10 has 57 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+47         
+48         /* Merge selection criteria to data */
+49         /* When doing more than one replicate, datasets dont match up
+49       ! properly. Need to make separate dataset per replicate and merge to
+49       ! data separately */
+50         
+51         data xv1;
+52             merge train1 aormixed;
+53             by animal day;
+54         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN1.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV1 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+4                                The SAS System      14:06 Monday, July 13, 2015
+
+
+55         
+56         data xv2;
+57             merge train2 aormixed;
+58             by animal day;
+59         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN2.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV2 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+60         
+61         data xv3;
+62             merge train3 aormixed;
+63             by animal day;
+64         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN3.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV3 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+65         
+66         data xv4;
+67             merge train4 aormixed;
+68             by animal day;
+69         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN4.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV4 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+70         
+71         data xv5;
+72             merge train5 aormixed;
+73             by animal day;
+74         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN5.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV5 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+75         
+5                                The SAS System      14:06 Monday, July 13, 2015
+
+76         data xv6;
+77             merge train6 aormixed;
+78             by animal day;
+79         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN6.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV6 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+80         
+81         data xv7;
+82             merge train7 aormixed;
+83             by animal day;
+84         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN7.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV7 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+85         
+86         data xv8;
+87             merge train8 aormixed;
+88             by animal day;
+89         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN8.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV8 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+90         
+91         data xv9;
+92             merge train9 aormixed;
+93             by animal day;
+94         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN9.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV9 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+95         
+96         data xv10;
+97             merge train10 aormixed;
+6                                The SAS System      14:06 Monday, July 13, 2015
+
+98             by animal day;
+99         run;
+
+NOTE: There were 57 observations read from the data set WORK.TRAIN10.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.XV10 has 16416 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+100        
+101        data xv;
+102            set xv1 xv2 xv3 xv4 xv5 xv6 xv7 xv8 xv9 xv10;
+103            if selected then new_rumpred = rumpred;
+104            file 'xv.dat';
+105            put replicate selected animal day silage dmi time reticph retpred
+105      !  retresid rumenph rumpred rumresid new_rumpred;
+106        run;
+
+NOTE: The file 'xv.dat' is:
+      Filename=/home/seymourd/ph/cv/xv.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Jul 13 14:06:16 2015
+
+NOTE: 164160 records were written to the file 'xv.dat'.
+      The minimum record length was 54.
+      The maximum record length was 117.
+NOTE: There were 16416 observations read from the data set WORK.XV1.
+NOTE: There were 16416 observations read from the data set WORK.XV2.
+NOTE: There were 16416 observations read from the data set WORK.XV3.
+NOTE: There were 16416 observations read from the data set WORK.XV4.
+NOTE: There were 16416 observations read from the data set WORK.XV5.
+NOTE: There were 16416 observations read from the data set WORK.XV6.
+NOTE: There were 16416 observations read from the data set WORK.XV7.
+NOTE: There were 16416 observations read from the data set WORK.XV8.
+NOTE: There were 16416 observations read from the data set WORK.XV9.
+NOTE: There were 16416 observations read from the data set WORK.XV10.
+NOTE: The data set WORK.XV has 164160 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.48 seconds
+      cpu time            0.30 seconds
+      
+
+107        
+108        
+109        
+110        /* Get predicted values for the missing new_rumpred in each replicate
+110      !  */
+111        proc mixed data=xv method=mivque0 lognote;
+112            by replicate;
+113            class animal day silage;
+114            model new_rumpred = reticph lag1p lag2r lag7r lag9r silage /
+114      ! solution outp=out1(where=(new_rumpred=.));
+115            random intercept retpred lag1p lag2r lag7r lag9r / type=un
+115      ! subject=animal*day;
+116        run;
+7                                The SAS System      14:06 Monday, July 13, 2015
+
+
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=1
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1497 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=2
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=3
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=4
+NOTE: Levelizing effects.
+8                                The SAS System      14:06 Monday, July 13, 2015
+
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=5
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1497 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=6
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1497 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=7
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1458 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=8
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+9                                The SAS System      14:06 Monday, July 13, 2015
+
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=9
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1497 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      Sample Replicate Number=10
+NOTE: The data set WORK.OUT1 has 14886 observations and 27 variables.
+NOTE: The PROCEDURE MIXED printed pages 2-31.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           1.69 seconds
+      cpu time            1.65 seconds
+      
+
+117        
+118        data out1;
+119            set out1;
+120            if selected ne 0 then delete;
+121        
+122        /* Summarize the results of the cross-validations */
+
+NOTE: There were 14886 observations read from the data set WORK.OUT1.
+NOTE: The data set WORK.OUT1 has 14400 observations and 27 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+123        data out2;
+124            set out1;
+125            cv_rumpred = Pred;
+126            new_resid=rumpred - cv_rumpred;
+127            absr=abs(new_resid);
+128            drop Pred;
+129            file '10fcv.dat';
+130            put replicate animal day silage dmi time reticph retpred retresid
+130      !  rumenph rumpred rumresid cv_rumpred new_resid absr;
+131        run;
+
+NOTE: The file '10fcv.dat' is:
+10                               The SAS System      14:06 Monday, July 13, 2015
+
+      Filename=/home/seymourd/ph/cv/10fcv.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Jul 13 14:06:18 2015
+
+NOTE: 14400 records were written to the file '10fcv.dat'.
+      The minimum record length was 56.
+      The maximum record length was 141.
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      84 at 126:23   84 at 127:10   
+NOTE: There were 14400 observations read from the data set WORK.OUT1.
+NOTE: The data set WORK.OUT2 has 14400 observations and 29 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+132        
+133        proc export
+134            data = out2
+135            file = '10fcv.xls'
+136            dbms = xls
+137            replace;
+138            sheet = 'Cross-Validation';
+139        
+
+NOTE: The export data set has 14400 observations and 29 variables.
+NOTE: "/home/seymourd/ph/cv/10fcv.xls" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.63 seconds
+      cpu time            0.07 seconds
+      
+
+140        proc summary data=out2;
+141            var new_resid absr;
+142            output out=out3 std(new_resid)=RMSE mean(absr)=MAE;
+143        run;
+
+NOTE: There were 14400 observations read from the data set WORK.OUT2.
+NOTE: The data set WORK.OUT3 has 1 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+144        
+145        proc print data=out3;
+NOTE: There were 1 observations read from the data set WORK.OUT3.
+NOTE: The PROCEDURE PRINT printed page 32.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+11                               The SAS System      14:06 Monday, July 13, 2015
+
+      real time           3.13 seconds
+      cpu time            2.19 seconds
+      

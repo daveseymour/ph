@@ -1,0 +1,1372 @@
+                                 The SAS System                                1
+                                                09:41 Thursday, November 5, 2015
+
+                           The SURVEYSELECT Procedure
+
+                   Selection Method    Simple Random Sampling
+
+                      Input Data Set               ANIDAY
+                      Random Number Seed           495857
+                      Sampling Rate                   0.9
+                      Sample Size                      52
+                      Selection Probability      0.912281
+                      Sampling Weight                   0
+                      Number of Replicates             10
+                      Total Sample Size               520
+                      Output Data Set               TRAIN
+                                 The SAS System                                2
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=1 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.7048
+                      UN(2,1)      animal*day      0.5537
+                      UN(2,2)      animal*day      0.2660
+                      UN(3,1)      animal*day     -1.1120
+                      UN(3,2)      animal*day     -0.3510
+                      UN(3,3)      animal*day      0.5223
+                      UN(4,1)      animal*day     -0.1292
+                      UN(4,2)      animal*day     0.02781
+                      UN(4,3)      animal*day    -0.00755
+                      UN(4,4)      animal*day     0.03515
+                      UN(5,1)      animal*day    -0.05805
+                                 The SAS System                                3
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=1 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00901
+                      UN(5,3)      animal*day     0.01755
+                      UN(5,4)      animal*day    0.001597
+                      UN(5,5)      animal*day    0.002422
+                      UN(6,1)      animal*day    -0.08068
+                      UN(6,2)      animal*day    0.007538
+                      UN(6,3)      animal*day    0.004840
+                      UN(6,4)      animal*day     0.01159
+                      UN(6,5)      animal*day    0.002569
+                      UN(6,6)      animal*day    0.008495
+                      Residual                   0.001065
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -71951.2
+                     AIC (smaller is better)      -71907.2
+                     AICC (smaller is better)     -71907.2
+                     BIC (smaller is better)      -71862.3
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      51261.86          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.9933      0.2402      47       8.30      <.0001
+  reticph                    0.1351    0.003383    15E3      39.93      <.0001
+  lag1p                      0.5802     0.03471      51      16.72      <.0001
+  lag2r                      0.2078     0.02528      51       8.22      <.0001
+  lag7r                     0.08879    0.007418      51      11.97      <.0001
+  lag9r                     0.09046     0.01311      51       6.90      <.0001
+  silage         12         -0.5143      0.1334    15E3      -3.86      0.0001
+  silage         20         -0.3538      0.1296    15E3      -2.73      0.0063
+  silage         30         -0.3330      0.1264    15E3      -2.64      0.0084
+  silage         40         -0.1516      0.1263    15E3      -1.20      0.2301
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                                4
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=1 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1594.68    <.0001
+                 lag1p           1      51     279.43    <.0001
+                 lag2r           1      51      67.54    <.0001
+                 lag7r           1      51     143.27    <.0001
+                 lag9r           1      51      47.64    <.0001
+                 silage          4    15E3       4.55    0.0011
+                                 The SAS System                                5
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=2 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14919
+                  Number of Observations Not Used        1497
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.7927
+                      UN(2,1)      animal*day      0.6142
+                      UN(2,2)      animal*day      0.2827
+                      UN(3,1)      animal*day     -1.1855
+                      UN(3,2)      animal*day     -0.3768
+                      UN(3,3)      animal*day      0.5588
+                      UN(4,1)      animal*day     -0.1327
+                      UN(4,2)      animal*day     0.02571
+                      UN(4,3)      animal*day    -0.00471
+                      UN(4,4)      animal*day     0.03215
+                      UN(5,1)      animal*day    -0.05980
+                                 The SAS System                                6
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=2 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01187
+                      UN(5,3)      animal*day     0.02062
+                      UN(5,4)      animal*day    0.000821
+                      UN(5,5)      animal*day    0.002420
+                      UN(6,1)      animal*day    -0.08795
+                      UN(6,2)      animal*day    0.008382
+                      UN(6,3)      animal*day    0.005132
+                      UN(6,4)      animal*day     0.01215
+                      UN(6,5)      animal*day    0.002425
+                      UN(6,6)      animal*day    0.009012
+                      Residual                   0.000947
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -73496.7
+                     AIC (smaller is better)      -73452.7
+                     AICC (smaller is better)     -73452.6
+                     BIC (smaller is better)      -73407.7
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      52919.45          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.9712      0.2355      47       8.37      <.0001
+  reticph                    0.1353    0.003201    15E3      42.25      <.0001
+  lag1p                      0.5820     0.03411      51      17.06      <.0001
+  lag2r                      0.2080     0.02428      51       8.56      <.0001
+  lag7r                     0.08593    0.007078      51      12.14      <.0001
+  lag9r                     0.09899     0.01341      51       7.38      <.0001
+  silage         12         -0.4902      0.1299    15E3      -3.77      0.0002
+  silage         20         -0.3118      0.1220    15E3      -2.56      0.0106
+  silage         30         -0.3190      0.1165    15E3      -2.74      0.0062
+  silage         40         -0.1440      0.1189    15E3      -1.21      0.2260
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                                7
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=2 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1785.18    <.0001
+                 lag1p           1      51     291.09    <.0001
+                 lag2r           1      51      73.35    <.0001
+                 lag7r           1      51     147.40    <.0001
+                 lag9r           1      51      54.48    <.0001
+                 silage          4    15E3       4.36    0.0016
+                                 The SAS System                                8
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=3 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.3346
+                      UN(2,1)      animal*day      0.6953
+                      UN(2,2)      animal*day      0.2423
+                      UN(3,1)      animal*day     -1.2021
+                      UN(3,2)      animal*day     -0.3478
+                      UN(3,3)      animal*day      0.5309
+                      UN(4,1)      animal*day     -0.1006
+                      UN(4,2)      animal*day     0.02306
+                      UN(4,3)      animal*day    -0.00700
+                      UN(4,4)      animal*day     0.03485
+                      UN(5,1)      animal*day    -0.05013
+                                 The SAS System                                9
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=3 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01144
+                      UN(5,3)      animal*day     0.01885
+                      UN(5,4)      animal*day    0.001389
+                      UN(5,5)      animal*day    0.001693
+                      UN(6,1)      animal*day    -0.05046
+                      UN(6,2)      animal*day    0.002090
+                      UN(6,3)      animal*day    0.005898
+                      UN(6,4)      animal*day     0.01079
+                      UN(6,5)      animal*day    0.002395
+                      UN(6,6)      animal*day    0.007076
+                      Residual                   0.001201
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -69612.1
+                     AIC (smaller is better)      -69568.1
+                     AICC (smaller is better)     -69568.0
+                     BIC (smaller is better)      -69523.2
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      46506.06          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.1217      0.1777      47      11.94      <.0001
+  reticph                    0.1347    0.003588    15E3      37.53      <.0001
+  lag1p                      0.5594     0.02664      51      21.00      <.0001
+  lag2r                      0.2193     0.02544      51       8.62      <.0001
+  lag7r                     0.08180    0.006135      51      13.33      <.0001
+  lag9r                     0.09250     0.01220      51       7.58      <.0001
+  silage         12         -0.4391     0.07432    15E3      -5.91      <.0001
+  silage         20         -0.3274     0.07203    15E3      -4.55      <.0001
+  silage         30         -0.3246     0.06887    15E3      -4.71      <.0001
+  silage         40         -0.1641     0.06886    15E3      -2.38      0.0172
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               10
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=3 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1408.78    <.0001
+                 lag1p           1      51     440.96    <.0001
+                 lag2r           1      51      74.33    <.0001
+                 lag7r           1      51     177.80    <.0001
+                 lag9r           1      51      57.46    <.0001
+                 silage          4    15E3      11.14    <.0001
+                                 The SAS System                               11
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=4 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.7181
+                      UN(2,1)      animal*day      0.5338
+                      UN(2,2)      animal*day      0.2696
+                      UN(3,1)      animal*day     -1.0945
+                      UN(3,2)      animal*day     -0.3516
+                      UN(3,3)      animal*day      0.5201
+                      UN(4,1)      animal*day     -0.1234
+                      UN(4,2)      animal*day     0.02377
+                      UN(4,3)      animal*day    -0.00434
+                      UN(4,4)      animal*day     0.03446
+                      UN(5,1)      animal*day    -0.05689
+                                 The SAS System                               12
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=4 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.00886
+                      UN(5,3)      animal*day     0.01723
+                      UN(5,4)      animal*day    0.002790
+                      UN(5,5)      animal*day    0.002316
+                      UN(6,1)      animal*day    -0.07865
+                      UN(6,2)      animal*day    0.009239
+                      UN(6,3)      animal*day    0.002833
+                      UN(6,4)      animal*day     0.01237
+                      UN(6,5)      animal*day    0.002767
+                      UN(6,6)      animal*day    0.008385
+                      Residual                   0.001029
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -72856.8
+                     AIC (smaller is better)      -72812.8
+                     AICC (smaller is better)     -72812.7
+                     BIC (smaller is better)      -72767.8
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      52514.34          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.9641      0.2450      47       8.02      <.0001
+  reticph                    0.1348    0.003317    15E3      40.63      <.0001
+  lag1p                      0.5847     0.03532      51      16.56      <.0001
+  lag2r                      0.1984     0.02528      51       7.85      <.0001
+  lag7r                     0.09058    0.007242      51      12.51      <.0001
+  lag9r                     0.09761     0.01293      51       7.55      <.0001
+  silage         12         -0.4728      0.1437    15E3      -3.29      0.0010
+  silage         20         -0.3494      0.1273    15E3      -2.75      0.0060
+  silage         30         -0.3299      0.1247    15E3      -2.65      0.0081
+  silage         40         -0.1661      0.1246    15E3      -1.33      0.1824
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               13
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=4 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1650.69    <.0001
+                 lag1p           1      51     274.15    <.0001
+                 lag2r           1      51      61.59    <.0001
+                 lag7r           1      51     156.44    <.0001
+                 lag9r           1      51      56.97    <.0001
+                 silage          4    15E3       3.66    0.0055
+                                 The SAS System                               14
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=5 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.6746
+                      UN(2,1)      animal*day      0.5856
+                      UN(2,2)      animal*day      0.2725
+                      UN(3,1)      animal*day     -1.1398
+                      UN(3,2)      animal*day     -0.3621
+                      UN(3,3)      animal*day      0.5378
+                      UN(4,1)      animal*day     -0.1092
+                      UN(4,2)      animal*day     0.01965
+                      UN(4,3)      animal*day    -0.00240
+                      UN(4,4)      animal*day     0.03486
+                      UN(5,1)      animal*day    -0.05660
+                                 The SAS System                               15
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=5 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01108
+                      UN(5,3)      animal*day     0.01942
+                      UN(5,4)      animal*day    0.001508
+                      UN(5,5)      animal*day    0.002657
+                      UN(6,1)      animal*day    -0.07012
+                      UN(6,2)      animal*day    0.003817
+                      UN(6,3)      animal*day    0.006936
+                      UN(6,4)      animal*day     0.01126
+                      UN(6,5)      animal*day    0.002629
+                      UN(6,6)      animal*day    0.008669
+                      Residual                   0.001293
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -69311.9
+                     AIC (smaller is better)      -69267.9
+                     AICC (smaller is better)     -69267.9
+                     BIC (smaller is better)      -69223.0
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      47577.42          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.8736      0.2390      47       7.84      <.0001
+  reticph                    0.1351    0.003735    15E3      36.18      <.0001
+  lag1p                      0.6022     0.03437      51      17.52      <.0001
+  lag2r                      0.1949     0.02576      51       7.57      <.0001
+  lag7r                     0.08743    0.007761      51      11.27      <.0001
+  lag9r                     0.08588     0.01344      51       6.39      <.0001
+  silage         12         -0.5975      0.1566    15E3      -3.82      0.0001
+  silage         20         -0.3962      0.1351    15E3      -2.93      0.0034
+  silage         30         -0.3603      0.1380    15E3      -2.61      0.0090
+  silage         40         -0.1692      0.1379    15E3      -1.23      0.2201
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               16
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=5 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1308.82    <.0001
+                 lag1p           1      51     306.96    <.0001
+                 lag2r           1      51      57.28    <.0001
+                 lag7r           1      51     126.93    <.0001
+                 lag9r           1      51      40.81    <.0001
+                 silage          4    15E3       4.62    0.0010
+                                 The SAS System                               17
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=6 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14919
+                  Number of Observations Not Used        1497
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.4345
+                      UN(2,1)      animal*day      0.7013
+                      UN(2,2)      animal*day      0.2475
+                      UN(3,1)      animal*day     -1.2220
+                      UN(3,2)      animal*day     -0.3533
+                      UN(3,3)      animal*day      0.5405
+                      UN(4,1)      animal*day     -0.1062
+                      UN(4,2)      animal*day     0.02293
+                      UN(4,3)      animal*day    -0.00605
+                      UN(4,4)      animal*day     0.03620
+                      UN(5,1)      animal*day    -0.05241
+                                 The SAS System                               18
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=6 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01219
+                      UN(5,3)      animal*day     0.01992
+                      UN(5,4)      animal*day    0.001797
+                      UN(5,5)      animal*day    0.002627
+                      UN(6,1)      animal*day    -0.05190
+                      UN(6,2)      animal*day    0.002490
+                      UN(6,3)      animal*day    0.005652
+                      UN(6,4)      animal*day     0.01084
+                      UN(6,5)      animal*day    0.002570
+                      UN(6,6)      animal*day    0.007921
+                      Residual                   0.001236
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -69338.4
+                     AIC (smaller is better)      -69294.4
+                     AICC (smaller is better)     -69294.4
+                     BIC (smaller is better)      -69249.5
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      46976.38          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  2.0973      0.2007      47      10.45      <.0001
+  reticph                    0.1356    0.003649    15E3      37.16      <.0001
+  lag1p                      0.5745     0.02818      51      20.39      <.0001
+  lag2r                      0.1980     0.02598      51       7.62      <.0001
+  lag7r                     0.08183    0.007478      51      10.94      <.0001
+  lag9r                     0.08387     0.01289      51       6.51      <.0001
+  silage         12         -0.6806      0.1497    15E3      -4.55      <.0001
+  silage         20         -0.4908      0.1381    15E3      -3.55      0.0004
+  silage         30         -0.3227      0.1355    15E3      -2.38      0.0173
+  silage         40         -0.1994      0.1350    15E3      -1.48      0.1395
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               19
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=6 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1381.10    <.0001
+                 lag1p           1      51     415.70    <.0001
+                 lag2r           1      51      58.10    <.0001
+                 lag7r           1      51     119.75    <.0001
+                 lag9r           1      51      42.36    <.0001
+                 silage          4    15E3       6.48    <.0001
+                                 The SAS System                               20
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=7 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14919
+                  Number of Observations Not Used        1497
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.4166
+                      UN(2,1)      animal*day      0.6642
+                      UN(2,2)      animal*day      0.2649
+                      UN(3,1)      animal*day     -1.1783
+                      UN(3,2)      animal*day     -0.3652
+                      UN(3,3)      animal*day      0.5479
+                      UN(4,1)      animal*day     -0.1182
+                      UN(4,2)      animal*day     0.03399
+                      UN(4,3)      animal*day    -0.01548
+                      UN(4,4)      animal*day     0.03744
+                      UN(5,1)      animal*day    -0.05903
+                                 The SAS System                               21
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=7 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01064
+                      UN(5,3)      animal*day     0.01927
+                      UN(5,4)      animal*day    0.001012
+                      UN(5,5)      animal*day    0.004931
+                      UN(6,1)      animal*day    -0.08274
+                      UN(6,2)      animal*day     0.01291
+                      UN(6,3)      animal*day    -0.00023
+                      UN(6,4)      animal*day     0.01194
+                      UN(6,5)      animal*day    0.001946
+                      UN(6,6)      animal*day     0.01073
+                      Residual                   0.000162
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -93254.0
+                     AIC (smaller is better)      -93210.0
+                     AICC (smaller is better)     -93210.0
+                     BIC (smaller is better)      -93165.1
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      71072.32          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  3.1100      0.2028      47      15.33      <.0001
+  reticph                    0.1356    0.001366    15E3      99.29      <.0001
+  lag1p                      0.5369     0.02949      51      18.21      <.0001
+  lag2r                      0.2263     0.02529      51       8.95      <.0001
+  lag7r                     0.08328    0.009439      51       8.82      <.0001
+  lag9r                      0.1026     0.01402      51       7.32      <.0001
+  silage         12         -2.7823      0.1560    15E3     -17.83      <.0001
+  silage         20         -1.9211      0.1387    15E3     -13.85      <.0001
+  silage         30         0.08175      0.1413    15E3       0.58      0.5629
+  silage         40         -1.1525      0.1328    15E3      -8.68      <.0001
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               22
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=7 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    9858.07    <.0001
+                 lag1p           1      51     331.54    <.0001
+                 lag2r           1      51      80.05    <.0001
+                 lag7r           1      51      77.84    <.0001
+                 lag9r           1      51      53.55    <.0001
+                 silage          4    15E3     127.54    <.0001
+                                 The SAS System                               23
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=8 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14958
+                  Number of Observations Not Used        1458
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.5681
+                      UN(2,1)      animal*day      0.5202
+                      UN(2,2)      animal*day      0.3074
+                      UN(3,1)      animal*day     -1.0586
+                      UN(3,2)      animal*day     -0.3875
+                      UN(3,3)      animal*day      0.5512
+                      UN(4,1)      animal*day     -0.1487
+                      UN(4,2)      animal*day     0.02652
+                      UN(4,3)      animal*day    -0.00302
+                      UN(4,4)      animal*day     0.03608
+                      UN(5,1)      animal*day    -0.05521
+                                 The SAS System                               24
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=8 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01024
+                      UN(5,3)      animal*day     0.01834
+                      UN(5,4)      animal*day    0.001959
+                      UN(5,5)      animal*day    0.002630
+                      UN(6,1)      animal*day    -0.08443
+                      UN(6,2)      animal*day    0.008316
+                      UN(6,3)      animal*day    0.004655
+                      UN(6,4)      animal*day     0.01218
+                      UN(6,5)      animal*day    0.002750
+                      UN(6,6)      animal*day    0.008787
+                      Residual                   0.001153
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -71205.1
+                     AIC (smaller is better)      -71161.1
+                     AICC (smaller is better)     -71161.0
+                     BIC (smaller is better)      -71116.2
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      50056.93          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.5857      0.2460      47       6.44      <.0001
+  reticph                    0.1352    0.003533    15E3      38.27      <.0001
+  lag1p                      0.6436     0.03562      51      18.07      <.0001
+  lag2r                      0.2043     0.02588      51       7.89      <.0001
+  lag7r                     0.08938    0.007727      51      11.57      <.0001
+  lag9r                     0.09348     0.01336      51       7.00      <.0001
+  silage         12         -0.5146      0.1383    15E3      -3.72      0.0002
+  silage         20         -0.3475      0.1344    15E3      -2.59      0.0097
+  silage         30         -0.3334      0.1283    15E3      -2.60      0.0094
+  silage         40         -0.1759      0.1342    15E3      -1.31      0.1902
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               25
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=8 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1464.58    <.0001
+                 lag1p           1      51     326.57    <.0001
+                 lag2r           1      51      62.32    <.0001
+                 lag7r           1      51     133.82    <.0001
+                 lag9r           1      51      48.96    <.0001
+                 silage          4    15E3       4.06    0.0027
+                                 The SAS System                               26
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=9 ---------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14928
+                  Number of Observations Not Used        1488
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.6253
+                      UN(2,1)      animal*day      0.6168
+                      UN(2,2)      animal*day      0.2773
+                      UN(3,1)      animal*day     -1.1635
+                      UN(3,2)      animal*day     -0.3709
+                      UN(3,3)      animal*day      0.5498
+                      UN(4,1)      animal*day     -0.1203
+                      UN(4,2)      animal*day     0.02140
+                      UN(4,3)      animal*day    -0.00234
+                      UN(4,4)      animal*day     0.03781
+                      UN(5,1)      animal*day    -0.05675
+                                 The SAS System                               27
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=9 ---------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01277
+                      UN(5,3)      animal*day     0.02111
+                      UN(5,4)      animal*day    0.001897
+                      UN(5,5)      animal*day    0.002586
+                      UN(6,1)      animal*day    -0.07718
+                      UN(6,2)      animal*day    0.003166
+                      UN(6,3)      animal*day    0.008766
+                      UN(6,4)      animal*day     0.01280
+                      UN(6,5)      animal*day    0.002884
+                      UN(6,6)      animal*day    0.009272
+                      Residual                   0.001384
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -68343.0
+                     AIC (smaller is better)      -68299.0
+                     AICC (smaller is better)     -68298.9
+                     BIC (smaller is better)      -68254.1
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      47842.89          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.8856      0.2340      47       8.06      <.0001
+  reticph                    0.1353    0.003891    15E3      34.76      <.0001
+  lag1p                      0.6038     0.03358      51      17.98      <.0001
+  lag2r                      0.1965     0.02679      51       7.34      <.0001
+  lag7r                     0.08214    0.007594      51      10.82      <.0001
+  lag9r                     0.08377     0.01392      51       6.02      <.0001
+  silage         12         -0.5806      0.1504    15E3      -3.86      0.0001
+  silage         20         -0.4124      0.1426    15E3      -2.89      0.0038
+  silage         30         -0.3942      0.1460    15E3      -2.70      0.0070
+  silage         40         -0.1784      0.1424    15E3      -1.25      0.2103
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               28
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=9 ---------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1208.58    <.0001
+                 lag1p           1      51     323.36    <.0001
+                 lag2r           1      51      53.84    <.0001
+                 lag7r           1      51     117.00    <.0001
+                 lag9r           1      51      36.22    <.0001
+                 silage          4    15E3       4.67    0.0009
+                                 The SAS System                               29
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=10 --------------------------
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.XV                  
+             Dependent Variable           new_rumpred              
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            MIVQUE0                  
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           16416
+                  Number of Observations Used           14919
+                  Number of Observations Not Used        1497
+
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(1,1)      animal*day      3.9256
+                      UN(2,1)      animal*day      0.5702
+                      UN(2,2)      animal*day      0.2680
+                      UN(3,1)      animal*day     -1.1625
+                      UN(3,2)      animal*day     -0.3558
+                      UN(3,3)      animal*day      0.5347
+                      UN(4,1)      animal*day     -0.1323
+                      UN(4,2)      animal*day     0.03323
+                      UN(4,3)      animal*day    -0.01261
+                      UN(4,4)      animal*day     0.03313
+                      UN(5,1)      animal*day    -0.05686
+                                 The SAS System                               30
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=10 --------------------------
+
+                              The Mixed Procedure
+
+                        Covariance Parameter Estimates
+ 
+                      Cov Parm     Subject       Estimate
+
+                      UN(5,2)      animal*day    -0.01079
+                      UN(5,3)      animal*day     0.01915
+                      UN(5,4)      animal*day    0.001816
+                      UN(5,5)      animal*day    0.002256
+                      UN(6,1)      animal*day    -0.08106
+                      UN(6,2)      animal*day    0.009562
+                      UN(6,3)      animal*day    0.002933
+                      UN(6,4)      animal*day     0.01149
+                      UN(6,5)      animal*day    0.002356
+                      UN(6,6)      animal*day    0.008478
+                      Residual                   0.000903
+
+
+                                Fit Statistics
+
+                     -2 Res Log Likelihood        -74229.0
+                     AIC (smaller is better)      -74185.0
+                     AICC (smaller is better)     -74184.9
+                     BIC (smaller is better)      -74140.1
+
+
+                        Null Model Likelihood Ratio Test
+ 
+                          DF    Chi-Square      Pr > ChiSq
+
+                          21      53523.14          <.0001
+
+
+                           Solution for Fixed Effects
+ 
+                                       Standard
+  Effect         silage    Estimate       Error      DF    t Value    Pr > |t|
+
+  Intercept                  1.7955      0.2444      47       7.35      <.0001
+  reticph                    0.1354    0.003137    15E3      43.17      <.0001
+  lag1p                      0.6044     0.03559      51      16.98      <.0001
+  lag2r                      0.2195     0.02401      51       9.14      <.0001
+  lag7r                     0.08334    0.006901      51      12.08      <.0001
+  lag9r                     0.08849     0.01295      51       6.83      <.0001
+  silage         12         -0.3958      0.1323    15E3      -2.99      0.0028
+  silage         20         -0.3078      0.1165    15E3      -2.64      0.0082
+  silage         30         -0.2904      0.1139    15E3      -2.55      0.0108
+  silage         40         -0.1358      0.1162    15E3      -1.17      0.2425
+  silage         50               0           .       .        .         .    
+
+
+                                 The SAS System                               31
+                                                09:41 Thursday, November 5, 2015
+
+-------------------------- Sample Replicate Number=10 --------------------------
+
+                              The Mixed Procedure
+
+                         Type 3 Tests of Fixed Effects
+ 
+                               Num     Den
+                 Effect         DF      DF    F Value    Pr > F
+
+                 reticph         1    15E3    1863.61    <.0001
+                 lag1p           1      51     288.38    <.0001
+                 lag2r           1      51      83.56    <.0001
+                 lag7r           1      51     145.83    <.0001
+                 lag9r           1      51      46.71    <.0001
+                 silage          4    15E3       3.25    0.0113
+                                 The SAS System                               32
+                                                09:41 Thursday, November 5, 2015
+
+                 Obs    _TYPE_    _FREQ_      RMSE       MAE
+
+                  1        0       14400    0.39323    0.23810

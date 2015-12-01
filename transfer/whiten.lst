@@ -1,0 +1,18 @@
+                                 The SAS System                                1
+                                 Raw Variables   09:23 Tuesday, December 1, 2015
+
+    Obs    animal    _MODEL_     _RMSE_     _RSQ_     _ADJRSQ_      _AIC_
+
+     1        52       Raw      0.13025    0.73520     0.73187    -14044.95
+     2        64       Raw      0.13075    0.79559     0.79353    -17534.12
+     3       138       Raw      0.15392    0.85902     0.85759    -16012.07
+     4       183       Raw      0.15823    0.80187     0.79988    -15885.82
+                                 The SAS System                                2
+                                Log Transformed  09:23 Tuesday, December 1, 2015
+
+    Obs    animal    _MODEL_     _RMSE_      _RSQ_     _ADJRSQ_      _AIC_
+
+     1        52       Log      0.020062    0.73227     0.72890    -26974.71
+     2        64       Log      0.020631    0.79150     0.78941    -33487.79
+     3       138       Log      0.024005    0.86141     0.86001    -31955.28
+     4       183       Log      0.024785    0.79887     0.79685    -31902.77

@@ -1,0 +1,331 @@
+1                                                          The SAS System                                11:57 Monday, July 13, 2015
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+1          options linesize=80;
+2          data xv;
+3              infile 'xv.dat';
+4              input replicate selected animal day silage dmi time reticph
+4        ! retpred retresid rumenph rumpred rumresid new_rumpred lag1p lag3p
+4        ! lag2r lag4r lag7r lag9r;
+5          run;
+
+NOTE: The infile 'xv.dat' is:
+      Filename=/home/seymourd/ph/cv/xv.dat,
+2                                The SAS System      11:57 Monday, July 13, 2015
+
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Sun Jul 12 17:29:41 2015,
+      File Size (bytes)=31440665
+
+NOTE: 164160 records were read from the infile 'xv.dat'.
+      The minimum record length was 81.
+      The maximum record length was 195.
+NOTE: The data set WORK.XV has 164160 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.28 seconds
+      cpu time            0.25 seconds
+      
+
+6          
+7          /* Get predicted values for the missing new_rumpred in each replicate
+7        !  */
+8          proc mixed data=xv itdetails method=mivque0 lognote;
+9               by replicate;
+10             class animal day silage;
+11             model new_rumpred = reticph lag1p lag2r lag7r lag9r silage /
+11       ! solution outp=out1(where=(new_rumpred=.));
+12             random intercept retpred lag1p lag2r lag7r lag9r / type=un
+12       ! subject = animal*day;
+13         run;
+
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 1488 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=1
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=2
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+3                                The SAS System      11:57 Monday, July 13, 2015
+
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=3
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 336 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=4
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=5
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=6
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+4                                The SAS System      11:57 Monday, July 13, 2015
+
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=7
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=8
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 336 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=9
+NOTE: Levelizing effects.
+NOTE: Processing subject and group effects.
+NOTE: Setting up data.
+NOTE: Loading data.
+NOTE: 57 observations are not included because of missing values.
+NOTE: Computing likelihood in iteration 0.
+NOTE: Computing G derivatives in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing likelihood in iteration 1.
+NOTE: Computing Cholesky root of cross-products matrix.
+NOTE: Computing H matrix.
+NOTE: Computing Type 3 sums of squares.
+NOTE: The above message was for the following BY group:
+      replicate=10
+NOTE: The data set WORK.OUT1 has 2502 observations and 27 variables.
+NOTE: The PROCEDURE MIXED printed pages 1-30.
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           1.72 seconds
+      cpu time            1.65 seconds
+      
+
+14         
+5                                The SAS System      11:57 Monday, July 13, 2015
+
+15         data out1;
+16             set out1;
+17             if selected ne 0 then delete;
+18         
+19         /* Summarize the results of the cross-validations */
+20         
+
+NOTE: There were 2502 observations read from the data set WORK.OUT1.
+NOTE: The data set WORK.OUT1 has 2016 observations and 27 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+21         data out2;
+22             set out1;
+23             cv_rumpred = Pred;
+24             new_resid=rumpred - cv_rumpred;
+25             absr=abs(new_resid);
+26             drop Pred;
+27             file '10fcv_vc.dat';
+28             put Replicate animal day silage dmi time reticph retpred retresid
+28       !  rumenph rumpred rumresid cv_rumpred new_resid absr;
+29         run;
+
+NOTE: The file '10fcv_vc.dat' is:
+      Filename=/home/seymourd/ph/cv/10fcv_vc.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Jul 13 11:57:07 2015
+
+NOTE: 2016 records were written to the file '10fcv_vc.dat'.
+      The minimum record length was 71.
+      The maximum record length was 139.
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      27 at 24:23   27 at 25:10   
+NOTE: There were 2016 observations read from the data set WORK.OUT1.
+NOTE: The data set WORK.OUT2 has 2016 observations and 29 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+30         
+31         proc export
+32             data = out2
+33             file = '10fcv_vc.xls'
+34             dbms = xls
+35             replace;
+36             sheet = 'Cross-Validation';
+37         
+
+NOTE: The export data set has 2016 observations and 29 variables.
+NOTE: "/home/seymourd/ph/cv/10fcv_vc.xls" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.01 seconds
+6                                The SAS System      11:57 Monday, July 13, 2015
+
+      cpu time            0.00 seconds
+      
+
+38         proc summary data=out2;
+39             var new_resid absr;
+40             output out=out3 std(new_resid)=rmse mean(absr)=mae;
+41         run;
+
+NOTE: There were 2016 observations read from the data set WORK.OUT2.
+NOTE: The data set WORK.OUT3 has 1 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+42         
+43         proc print data=out3;
+NOTE: There were 1 observations read from the data set WORK.OUT3.
+NOTE: The PROCEDURE PRINT printed page 31.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.06 seconds
+      cpu time            1.93 seconds
+      

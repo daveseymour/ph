@@ -1,0 +1,114 @@
+1                                                          The SAS System                             09:14 Friday, November 6, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+1          /* residual analysis of model output */
+2          title 'Rumen vs. Reticular pH - Analysis of Residuals';
+3          
+4          options linesize=80;
+5          
+6          data aormixed;
+7              infile '~/ph/resid/aormixed.dat';
+8              input animal day silage dmi time reticph retpred retresid rumenph
+8        !  rumpred rumresid lag1p lag3p lag2r lag4r lag7r lag9r;
+9              if animal = 52 and day > 12 then delete;
+10             timecourse = time + (day-1);
+11         
+
+NOTE: The infile '~/ph/resid/aormixed.dat' is:
+      Filename=/home/seymourd/ph/resid/aormixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+2                                The SAS System   09:14 Friday, November 6, 2015
+
+      Last Modified=Thu Jul  9 10:59:56 2015,
+      File Size (bytes)=2916745
+
+NOTE: 17280 records were read from the infile '~/ph/resid/aormixed.dat'.
+      The minimum record length was 46.
+      The maximum record length was 177.
+NOTE: The data set WORK.AORMIXED has 16416 observations and 18 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+12         proc sort;
+13             by animal timecourse;
+14         run;
+
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.AORMIXED has 16416 observations and 18 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+15         
+16         proc sgplot;
+17             scatter x=retpred y=retresid;
+18             scatter x=timecourse y=retresid;
+19             scatter x=silage y=retresid;
+20             scatter x=animal y=retresid;
+21             scatter x=dmi y=retresid;
+22         run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           2.03 seconds
+      cpu time            0.03 seconds
+      
+ERROR: The Java proxy is not responding.
+ERROR: The Java proxy's JNI call to start the VM failed.
+ERROR: Unable to load the Java Virtual Machine. Please see the installation 
+       instructions or system administrator.
+ERROR: Unable to load the Java Virtual Machine. Please see the installation 
+       instructions or system administrator.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.11 seconds
+      cpu time            0.10 seconds
+      

@@ -1,0 +1,117 @@
+1                                                          The SAS System                              09:35 Tuesday, April 28, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+1          title 'pH Prediction - AUTOREG';
+2          
+3          /* Set output to 80 character width */
+4          options linesize=80;
+5          
+6          /* Data Translation */
+7          data read;
+8              infile 'ph.dat';
+9              input day animal silage dmi time rumenph reticph;
+10         
+11         oldreticph=reticph;
+12         oldrumenph=rumenph;
+13         
+14         /* Delete data except for first animal, first day for testing
+14       ! purposes */
+15         if animal ne 52 then delete;
+16         if day ne 1 then delete;
+17         
+18         lag1=lag1(reticph);
+19         lag2=lag2(reticph);
+20         lag3=lag3(reticph);
+21         lag4=lag4(reticph);
+22         lag5=lag5(reticph);
+23         lag6=lag6(reticph);
+24         lag7=lag7(reticph);
+25         lag8=lag8(reticph);
+26         lag9=lag9(reticph);
+27         lag10=lag10(reticph);
+28         lag11=lag11(reticph);
+29         lag12=lag12(reticph);
+30         
+31         /* regression of rumen ph on past 4 reticph values, with correction
+31       ! for
+32         autocorrelation b/w resids */
+33         
+2                                The SAS System    09:35 Tuesday, April 28, 2015
+
+
+NOTE: The infile 'ph.dat' is:
+      Filename=/home/seymourd/pH/ph.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Apr 27 09:43:56 2015,
+      File Size (bytes)=806856
+
+NOTE: 17280 records were read from the infile 'ph.dat'.
+      The minimum record length was 28.
+      The maximum record length was 48.
+NOTE: The data set WORK.READ has 288 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+34         proc autoreg data=read;
+35              by animal day;
+36              model rumenph=reticph lag1 lag2 lag3 lag4 lag5 lag6 lag7 lag8
+36       ! lag9 lag10
+37                 lag11 lag12 / nlag=10 method=ml backstep;
+38         
+39         /* nlag=1 specifies autoregressive correction of reticph inputs from
+39       ! previous 1
+40         reticph */
+41         
+42         output out=new p=pred rm=residph transform=rumenph transform=reticph;
+43         
+
+NOTE: The data set WORK.NEW has 288 observations and 23 variables.
+NOTE: The PROCEDURE AUTOREG printed pages 1-4.
+NOTE: PROCEDURE AUTOREG used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+44         proc export
+45         	data=new
+46         	outfile="phregdev.xls"
+47         	dbms=xls
+48         	replace;
+49         	sheet="autoreg";
+NOTE: The export data set has 288 observations and 23 variables.
+NOTE: "/home/seymourd/pH/phregdev.xls" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.43 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.49 seconds
+      cpu time            0.09 seconds
+      

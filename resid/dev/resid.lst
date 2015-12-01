@@ -1,0 +1,164 @@
+                                 Rumen pH Model                                1
+             Generation of 4th-order Polynomial - Reticph vs. Time
+                                                     09:46 Friday, June 26, 2015
+
+------------------------------- animal=52 day=13 -------------------------------
+
+                               The REG Procedure
+                                 Model: Order4
+                    Dependent Variable: reticph Reticular pH
+
+             Number of Observations Read                        288
+             Number of Observations Used                          0
+             Number of Observations with Missing Values         288
+                                 Rumen pH Model                                2
+             Generation of 4th-order Polynomial - Reticph vs. Time
+                                                     09:46 Friday, June 26, 2015
+
+------------------------------- animal=52 day=14 -------------------------------
+
+                               The REG Procedure
+                                 Model: Order4
+                    Dependent Variable: reticph Reticular pH
+
+             Number of Observations Read                        288
+             Number of Observations Used                          0
+             Number of Observations with Missing Values         288
+                                 Rumen pH Model                                3
+             Generation of 4th-order Polynomial - Reticph vs. Time
+                                                     09:46 Friday, June 26, 2015
+
+------------------------------- animal=52 day=15 -------------------------------
+
+                               The REG Procedure
+                                 Model: Order4
+                    Dependent Variable: reticph Reticular pH
+
+             Number of Observations Read                        288
+             Number of Observations Used                          0
+             Number of Observations with Missing Values         288
+                                 Rumen pH Model                                4
+                           Residual Plots - X,X Fits
+                                                     09:46 Friday, June 26, 2015
+
+                            The UNIVARIATE Procedure
+                        Variable:  rumresid  (rumresid)
+
+                                    Moments
+
+        N                       13768    Sum Weights              13768
+        Mean                        0    Sum Observations             0
+        Std Deviation      0.10171946    Variance            0.01034685
+        Skewness           -0.3221387    Kurtosis            1.24229587
+        Uncorrected SS      142.44507    Corrected SS         142.44507
+        Coeff Variation             .    Std Error Mean       0.0008669
+
+
+                           Basic Statistical Measures
+ 
+                 Location                    Variability
+
+             Mean     0.000000     Std Deviation            0.10172
+             Median   0.001608     Variance                 0.01035
+             Mode     0.000000     Range                    1.06961
+                                   Interquartile Range      0.12040
+
+
+                           Tests for Location: Mu0=0
+ 
+                Test           -Statistic-    -----p Value------
+
+                Student's t    t         0    Pr > |t|    1.0000
+                Sign           M     169.5    Pr >= |M|   0.0038
+                Signed Rank    S   1099019    Pr >= |S|   0.0167
+
+
+                              Tests for Normality
+ 
+           Test                  --Statistic---    -----p Value------
+
+           Kolmogorov-Smirnov    D     0.034804    Pr > D     <0.0100
+           Cramer-von Mises      W-Sq  5.557422    Pr > W-Sq  <0.0050
+           Anderson-Darling      A-Sq  33.84929    Pr > A-Sq  <0.0050
+
+
+                           Quantiles (Definition 5)
+ 
+                           Quantile         Estimate
+
+                           100% Max       0.41380180
+                           99%            0.23769579
+                           95%            0.16139539
+                           90%            0.12326271
+                           75% Q3         0.06233208
+                           50% Median     0.00160763
+                           25% Q1        -0.05807055
+                           10%           -0.12116477
+                           5%            -0.17199231
+                           1%            -0.28922728
+                           0% Min        -0.65581096
+                                 Rumen pH Model                                5
+                           Residual Plots - X,X Fits
+                                                     09:46 Friday, June 26, 2015
+
+                            The UNIVARIATE Procedure
+                        Variable:  rumresid  (rumresid)
+
+                              Extreme Observations
+ 
+                  ------Lowest------        ------Highest-----
+ 
+                      Value      Obs            Value      Obs
+
+                  -0.655811     9737         0.365489    10030
+                  -0.537971    14577         0.378790     9641
+                  -0.502812    14576         0.405696    11696
+                  -0.486823    11681         0.407716    11683
+                  -0.481554     9741         0.413802     8789
+
+
+                                 Missing Values
+ 
+                                         -----Percent Of-----
+                  Missing                             Missing
+                    Value       Count     All Obs         Obs
+
+                        .        2654       16.16      100.00
+                                 Rumen pH Model                                6
+                           Residual Plots - X,X Fits
+                                                     09:46 Friday, June 26, 2015
+
+                            The UNIVARIATE Procedure
+               Fitted Normal Distribution for rumresid (rumresid)
+
+                       Parameters for Normal Distribution
+ 
+                         Parameter   Symbol   Estimate
+
+                         Mean        Mu              0
+                         Std Dev     Sigma    0.101719
+
+
+                 Goodness-of-Fit Tests for Normal Distribution
+ 
+         Test                  ----Statistic-----   ------p Value------
+
+         Kolmogorov-Smirnov    D        0.0348045   Pr > D       <0.010
+         Cramer-von Mises      W-Sq     5.5574221   Pr > W-Sq    <0.005
+         Anderson-Darling      A-Sq    33.8492876   Pr > A-Sq    <0.005
+
+
+                        Quantiles for Normal Distribution
+ 
+                                   ------Quantile------
+                         Percent   Observed   Estimated
+
+                             1.0   -0.28923    -0.23663
+                             5.0   -0.17199    -0.16731
+                            10.0   -0.12116    -0.13036
+                            25.0   -0.05807    -0.06861
+                            50.0    0.00161     0.00000
+                            75.0    0.06233     0.06861
+                            90.0    0.12326     0.13036
+                            95.0    0.16140     0.16731
+                            99.0    0.23770     0.23663

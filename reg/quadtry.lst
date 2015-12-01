@@ -1,0 +1,197 @@
+                            Reticular vs. Ruminal pH                           1
+                        Ruminal vs. Lagged Reticular pH
+                                                    08:39 Tuesday, June 30, 2015
+
+                              The PDLREG Procedure
+
+                         Dependent Variable    rumenph
+
+
+                       Ordinary Least Squares Estimates
+
+         SSE              5.19376695    DFE                        272
+         MSE                 0.01909    Root MSE               0.13818
+         SBC              -290.79621    AIC                 -305.27782
+         MAE               0.1017882    AICC                -305.13022
+         MAPE             1.60080011    HQC                 -299.46659
+         Durbin-Watson        0.1787    Regress R-Square        0.7943
+                                        Total R-Square          0.7943
+
+
+                           Durbin-Watson Statistics
+ 
+                   Order            DW    Pr < DW    Pr > DW
+
+                     1          0.1787     <.0001     1.0000
+
+ NOTE: Pr<DW is the p-value for testing positive autocorrelation, and Pr>DW is 
+               the p-value for testing negative autocorrelation.
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1       3.1290       0.1052      29.73      <.0001
+      reticph**0       1       0.1456     0.004549      32.00      <.0001
+      reticph**1       1      -0.1157       0.0228      -5.08      <.0001
+      reticph**2       1       0.1886       0.0451       4.18      <.0001
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        reticph(0)          0.184577       0.0246       7.51      <.0001
+        reticph(1)          0.129630       0.0141       9.17      <.0001
+        reticph(2)          0.083113     0.007213      11.52      <.0001
+        reticph(3)          0.045028     0.007134       6.31      <.0001
+        reticph(4)          0.015373       0.0105       1.46      0.1459
+        reticph(5)         -0.005850       0.0131      -0.45      0.6556
+        reticph(6)         -0.018643       0.0140      -1.33      0.1840
+        reticph(7)         -0.023005       0.0131      -1.76      0.0803
+        reticph(8)         -0.018935       0.0105      -1.80      0.0736
+        reticph(9)         -0.006435     0.007135      -0.90      0.3679
+        reticph(10)         0.014496     0.007216       2.01      0.0455
+        reticph(11)         0.043858       0.0141       3.10      0.0021
+        reticph(12)         0.081651       0.0246       3.32      0.0010
+
+                            Reticular vs. Ruminal pH                           2
+                        Ruminal vs. Lagged Reticular pH
+                                                    08:39 Tuesday, June 30, 2015
+
+                              The PDLREG Procedure
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        -0.023                               0.1846
+
+          reticph(0)      |    |************************************|
+          reticph(1)      |    |*************************           |
+          reticph(2)      |    |****************                    |
+          reticph(3)      |    |********                            |
+          reticph(4)      |    |***                                 |
+          reticph(5)      |   *|                                    |
+          reticph(6)      | ***|                                    |
+          reticph(7)      |****|                                    |
+          reticph(8)      | ***|                                    |
+          reticph(9)      |   *|                                    |
+          reticph(10)     |    |**                                  |
+          reticph(11)     |    |********                            |
+          reticph(12)     |    |****************                    |
+
+
+                         Estimates of Autocorrelations
+ 
+  Lag   Covariance    Correlation   -1 9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9 1 
+
+    0       0.0188       1.000000   |                    |********************|
+    1       0.0171       0.909427   |                    |******************  |
+    2       0.0153       0.814488   |                    |****************    |
+
+
+                          Preliminary MSE     0.00324
+
+
+                     Estimates of Autoregressive Parameters
+ 
+                                             Standard
+                  Lag     Coefficient           Error    t Value
+
+                    1       -0.975523        0.060697     -16.07
+                    2        0.072679        0.060697       1.20
+
+
+                             Yule-Walker Estimates
+
+         SSE              0.85495355    DFE                        270
+         MSE                 0.00317    Root MSE               0.05627
+         SBC              -775.74022    AIC                 -797.46263
+         MAE              0.04140786    AICC                -797.15036
+         MAPE             0.64807993    HQC                 -788.74579
+         Durbin-Watson        2.0616    Regress R-Square        0.1914
+                                        Total R-Square          0.9661
+                            Reticular vs. Ruminal pH                           3
+                        Ruminal vs. Lagged Reticular pH
+                                                    08:39 Tuesday, June 30, 2015
+
+                              The PDLREG Procedure
+
+                           Durbin-Watson Statistics
+ 
+                   Order            DW    Pr < DW    Pr > DW
+
+                     1          2.0616     0.6852     0.3148
+
+ NOTE: Pr<DW is the p-value for testing positive autocorrelation, and Pr>DW is 
+               the p-value for testing negative autocorrelation.
+
+
+                              Parameter Estimates
+ 
+                                          Standard                 Approx
+      Variable        DF     Estimate        Error    t Value    Pr > |t|
+
+      Intercept        1       3.3732       0.3973       8.49      <.0001
+      reticph**0       1       0.1351       0.0171       7.92      <.0001
+      reticph**1       1      -0.0272       0.0372      -0.73      0.4649
+      reticph**2       1       0.0986       0.0508       1.94      0.0535
+
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        reticph(0)          0.098055       0.0309       3.17      0.0017
+        reticph(1)          0.071803       0.0196       3.66      0.0003
+        reticph(2)          0.049957       0.0123       4.05      <.0001
+        reticph(3)          0.032517       0.0107       3.03      0.0027
+        reticph(4)          0.019484       0.0129       1.51      0.1316
+        reticph(5)          0.010856       0.0151       0.72      0.4723
+        reticph(6)          0.006635       0.0159       0.42      0.6771
+        reticph(7)          0.006820       0.0151       0.45      0.6517
+        reticph(8)          0.011412       0.0129       0.88      0.3770
+        reticph(9)          0.020409       0.0107       1.90      0.0586
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.0981
+
+          reticph(0)      |*****************************************|
+          reticph(1)      |******************************           |
+          reticph(2)      |*********************                    |
+          reticph(3)      |**************                           |
+          reticph(4)      |********                                 |
+          reticph(5)      |*****                                    |
+          reticph(6)      |***                                      |
+          reticph(7)      |***                                      |
+          reticph(8)      |*****                                    |
+          reticph(9)      |*********                                |
+                            Reticular vs. Ruminal pH                           4
+                        Ruminal vs. Lagged Reticular pH
+                                                    08:39 Tuesday, June 30, 2015
+
+                              The PDLREG Procedure
+
+                          Estimate of Lag Distribution
+ 
+                                         Standard                 Approx
+        Variable            Estimate        Error    t Value    Pr > |t|
+
+        reticph(10)         0.033813       0.0124       2.74      0.0066
+        reticph(11)         0.051623       0.0196       2.63      0.0091
+        reticph(12)         0.073839       0.0309       2.39      0.0176
+
+                         Estimate of Lag Distribution
+ 
+                          
+          Variable        0                                    0.0981
+
+          reticph(10)     |**************                           |
+          reticph(11)     |**********************                   |
+          reticph(12)     |*******************************          |

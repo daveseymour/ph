@@ -1,0 +1,89 @@
+1                                                          The SAS System                                 13:46 Monday, July 6, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.45 seconds
+      cpu time            0.02 seconds
+      
+1          title 'Rumen pH Model - Analysis of Residuals';
+2          options linesize=80;
+3          
+4          data first;
+5              infile 'resid33.dat';
+6              input animal day silage dmi time reticph retpred retresid rumenph
+6        !  rumpred rumresid;
+7          
+
+NOTE: The infile 'resid33.dat' is:
+      Filename=/home/seymourd/pH/resid/resid33.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Jul  6 13:18:36 2015,
+      File Size (bytes)=1597115
+
+NOTE: 16416 records were read from the infile 'resid33.dat'.
+2                                The SAS System       13:46 Monday, July 6, 2015
+
+      The minimum record length was 48.
+      The maximum record length was 99.
+NOTE: The data set WORK.FIRST has 16416 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+8          proc glm;
+9              class silage dmi time retpred;
+10             model rumresid = retpred / ss3;
+11         run;
+
+ERROR: User asked for termination
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: The PROCEDURE GLM printed page 1.
+NOTE: PROCEDURE GLM used (Total process time):
+      real time           2:50.99
+      cpu time            9:06.21
+      
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2:51.48
+      cpu time            9:06.24
+      

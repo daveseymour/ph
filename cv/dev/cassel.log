@@ -1,0 +1,185 @@
+1                                                          The SAS System                               08:59 Thursday, July 9, 2015
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+1          /* Example from Cassel (2007) */
+2          options linesize=80;
+3          
+4          data temp1;
+5              x=1; y=45; output;
+6              do x = 2 to 29;
+7              y = 3*x + 6*rannor(1234);
+8              output;
+9              end;
+10             x=30; y=45; output;
+2                                The SAS System     08:59 Thursday, July 9, 2015
+
+11         run;
+
+NOTE: The data set WORK.TEMP1 has 30 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+12         
+13         proc print;
+14         run;
+
+NOTE: There were 30 observations read from the data set WORK.TEMP1.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+15         
+16         %let K=3;
+17          %let rate=%sysevalf((&K-1)/&K);
+18         
+19         /* generate the cross-validation sample */
+20         proc surveyselect data=temp1 out=xv seed=495857
+21             samprate=&RATE outall rep=3;
+22         run;
+
+NOTE: The data set WORK.XV has 90 observations and 4 variables.
+NOTE: The PROCEDURE SURVEYSELECT printed page 2.
+NOTE: PROCEDURE SURVEYSELECT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+23         
+24         data xv;
+25             set xv;
+26             if selected then new_y=y;
+27         run;
+
+NOTE: There were 90 observations read from the data set WORK.XV.
+NOTE: The data set WORK.XV has 90 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+28         
+29         proc print;
+30         run;
+
+NOTE: There were 90 observations read from the data set WORK.XV.
+NOTE: The PROCEDURE PRINT printed pages 3-4.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+3                                The SAS System     08:59 Thursday, July 9, 2015
+
+
+31         
+32         /* get predicted values for the missing new_y in each replicate */
+33         proc reg data=xv;
+34             model new_y=x;
+35             by replicate;
+36             output out=out1(where=(new_y=.)) p=yhat;
+37         run;
+
+NOTE: Interactivity disabled with BY processing.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+NOTE: The data set WORK.OUT1 has 30 observations and 6 variables.
+NOTE: The PROCEDURE REG printed pages 5-7.
+
+38         
+39         /* summarize the results of the cross-validations */
+40         data out2;
+41             set out1;
+42             d=y-yhat;
+43             absd=abs(d);
+44         run;
+
+NOTE: There were 30 observations read from the data set WORK.OUT1.
+NOTE: The data set WORK.OUT2 has 30 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+45         
+46         proc print;
+47         run;
+
+NOTE: There were 30 observations read from the data set WORK.OUT2.
+NOTE: The PROCEDURE PRINT printed page 8.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+48         
+49         proc summary data=out2;
+50             var d absd;
+51             output out=out3 std(d)=rmse mean(absd)=mae;
+52         run;
+
+NOTE: There were 30 observations read from the data set WORK.OUT2.
+NOTE: The data set WORK.OUT3 has 1 observations and 4 variables.
+NOTE: PROCEDURE SUMMARY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+4                                The SAS System     08:59 Thursday, July 9, 2015
+
+      real time           0.08 seconds
+      cpu time            0.05 seconds
+      

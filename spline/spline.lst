@@ -1,0 +1,20 @@
+                 Reticular pH Prediction - 4th Order vs. Spline                1
+                           4th-Order Polynomial Fits
+                                               13:32 Thursday, November 26, 2015
+
+   Obs    animal     _MODEL_       _RMSE_     _RSQ_     _ADJRSQ_      _AIC_
+
+    2        52     TimeCourse    0.23406    0.13516     0.13416    -10032.48
+    4        64     TimeCourse    0.26827    0.13161     0.13081    -11363.24
+    6       138     TimeCourse    0.37245    0.16699     0.16621     -8469.09
+    8       183     TimeCourse    0.32127    0.17576     0.17500     -9805.54
+                 Reticular pH Prediction - 4th Order vs. Spline                2
+                        Cubic Spline with 44 Knots Fits
+                                               13:32 Thursday, November 26, 2015
+
+    Obs    animal    _MODEL_     _RMSE_     _RSQ_     _ADJRSQ_      _AIC_
+
+     1        52     Spline     0.13025    0.73520     0.73187    -14044.95
+     2        64     Spline     0.13075    0.79559     0.79353    -17534.12
+     3       138     Spline     0.15392    0.85902     0.85759    -16012.07
+     4       183     Spline     0.15823    0.80187     0.79988    -15885.82

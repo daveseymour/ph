@@ -1,0 +1,186 @@
+1                                                          The SAS System                           09:08 Tuesday, November 10, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.06 seconds
+      cpu time            0.02 seconds
+      
+1          title 'Ruminal vs. Reticular pH';
+2          options linesize=80;
+3          
+4          data first;
+5          	infile 'ph.dat';
+6              input day animal silage dmi time rumenph reticph;
+7          
+8          	time2=time**2;
+9          	time3=time**3;
+10         	time4=time**4;
+11         
+
+ERROR: Physical file does not exist, /home/seymourd/ph/dev/ph.dat.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: SAS set option OBS=0 and will continue to check statements. 
+      This might cause NOTE: No observations in data set.
+WARNING: The data set WORK.FIRST may be incomplete.  When this step was stopped 
+2                                The SAS System 09:08 Tuesday, November 10, 2015
+
+         there were 0 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+12         proc sort;
+13         	by animal day time;
+14         
+15         /** Calculate regression coefficients with AIC and R square & output
+15       ! to data file **/
+16         /** SAS encounters errors for animal 52 days 13,14,15 due to no data
+16       ! **/
+
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+17         proc reg outest=coeff aic rsquare;
+18         	by animal day;
+19         	Order2 : model reticph=time time2;
+20         	Order3 : model reticph=time time2 time3;
+21         	Order4 : model reticph=time time2 time3 time4;
+22         	output out=third p=retpred r=retresid;
+23         run;
+
+WARNING: RUN statement ignored due to previous errors. Submit QUIT; to 
+         terminate the procedure.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+NOTE: The data set WORK.COEFF has 0 observations and 0 variables.
+NOTE: The data set WORK.THIRD has 0 observations and 0 variables.
+
+24         
+25         data coeff;
+26             set coeff;
+27             drop _TYPE_ _DEPVAR_ _IN_ _P_ _EDF_;
+28         
+29         /** Export datasets to Excel file **/
+
+WARNING: The variable _TYPE_ in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+WARNING: The variable _DEPVAR_ in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+WARNING: The variable _IN_ in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+WARNING: The variable _P_ in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+WARNING: The variable _EDF_ in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+NOTE: The data set WORK.COEFF has 0 observations and 0 variables.
+WARNING: Data set WORK.COEFF was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+3                                The SAS System 09:08 Tuesday, November 10, 2015
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+30         proc export
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+31         	data=first
+32         	outfile="procreg.xls"
+33         	dbms=xls
+34         	replace;
+
+35         	sheet="data";
+            _____
+            180
+
+ERROR 180-322: Statement is not valid or it is used out of proper order.
+
+36         
+37         proc export
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+38         	data=coeff
+39         	outfile="procreg.xls"
+40         	dbms=xls
+41         	replace;
+
+42         	sheet="coeff";
+            _____
+            180
+
+ERROR 180-322: Statement is not valid or it is used out of proper order.
+
+43         
+44         proc export
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+45         	data=third
+46         	outfile="procreg.xls"
+47         	dbms=xls
+48         	replace;
+
+49         	sheet="reg";
+            _____
+            180
+
+ERROR 180-322: Statement is not valid or it is used out of proper order.
+
+50         run;
+
+ERROR: Errors printed on pages 1,3.
+4                                The SAS System 09:08 Tuesday, November 10, 2015
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.21 seconds
+      cpu time            0.04 seconds
+      

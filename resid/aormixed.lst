@@ -1,0 +1,56 @@
+                       Analysis of Residuals - PROC MIXED                      1
+                               Reticph Prediction    17:31 Sunday, July 12, 2015
+
+                              The Mixed Procedure
+
+                               Model Information
+
+             Data Set                     WORK.QUADFIT             
+             Dependent Variable           rumenph                  
+             Covariance Structure         Unstructured             
+             Subject Effect               animal*day               
+             Estimation Method            REML                     
+             Residual Variance Method     Profile                  
+             Fixed Effects SE Method      Model-Based              
+             Degrees of Freedom Method    Containment              
+
+
+                            Class Level Information
+ 
+               Class     Levels    Values
+
+               animal         4    52 64 138 183                 
+               day           15    1 2 3 4 5 6 7 8 9 10 11 12 13 
+                                   14 15                         
+               silage         5    12 20 30 40 50                
+
+
+                                  Dimensions
+
+                      Covariance Parameters            22
+                      Columns in X                     11
+                      Columns in Z Per Subject          6
+                      Subjects                         57
+                      Max Obs Per Subject             288
+
+
+                            Number of Observations
+
+                  Number of Observations Read           17280
+                  Number of Observations Used           16304
+                  Number of Observations Not Used         976
+
+
+                               Iteration History
+ 
+          Iteration    Evaluations    -2 Res Log Like       Criterion
+
+                  0              1     -9740.93660047                
+                  1              2    -18293.19075854      0.64428696
+                  2              1    -18329.77926519      2.70902113
+                  3              1    -18379.12824822     16.96688273
+                  4              1    -18401.46406319     13.54534313
+                  5              2    -18413.87443082      3.92970239
+                  6              2    -18425.97463622     19.39614035
+                  7              1    -18433.81548724      0.00756517
+                  8              2    -18445.60562069      0.00242154

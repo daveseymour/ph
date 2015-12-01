@@ -1,0 +1,209 @@
+1                                                          The SAS System                          10:10 Thursday, November 19, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+1          options linesize=80; /* Set SAS output to 80 character width */
+2          data first;
+3              infile '~/ph/ph.dat';
+4              input day animal silage dmi time rumenph reticph;
+5              label   dmi = 'DMI (kg)'
+6                      rumenph = 'Ruminal pH'
+7                      reticph = 'Reticular pH';
+8          
+9              *if animal ne 183 then delete;
+10             *if day ne 15 then delete;
+11         
+12             time2 = time**2;
+13             time3 = time**3;
+14             time4 = time**4;
+15             tc = time + (day-1);
+16             tc2 = tc**2;
+17             tc3 = tc**3;
+2                                The SAS System
+                                               10:10 Thursday, November 19, 2015
+
+18             tc4 = tc**4;
+19         
+
+NOTE: The infile '~/ph/ph.dat' is:
+      Filename=/home/seymourd/ph/ph.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Mon Apr 27 09:43:56 2015,
+      File Size (bytes)=806856
+
+NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
+      The minimum record length was 28.
+      The maximum record length was 48.
+NOTE: The data set WORK.FIRST has 17280 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.01 seconds
+      
+
+20         proc sort data=first;
+21             by animal day;
+22         
+
+NOTE: There were 17280 observations read from the data set WORK.FIRST.
+NOTE: The data set WORK.FIRST has 17280 observations and 14 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+23         proc reg data=first;
+24             title2 'Step 1: Generate 4th-Order Polynomial Regression of
+24       ! Reticular pH vs. Time';
+25             by animal day;
+26             Time: model reticph = time time2 time3 time4;
+27             TimeCourse: model reticph = tc tc2 tc3 tc4;
+28             output out=order4 p=retpred r=retresid;
+29         
+
+ERROR: No valid observations are found.
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=13
+ERROR: No valid observations are found.
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=14
+ERROR: No valid observations are found.
+ERROR: No valid observations are found.
+NOTE: The above message was for the following BY group:
+      animal=52 day=15
+NOTE: The data set WORK.ORDER4 has 17280 observations and 16 variables.
+NOTE: The PROCEDURE REG printed pages 1-117.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.11 seconds
+      
+3                                The SAS System
+                                               10:10 Thursday, November 19, 2015
+
+
+30         data second;
+31             set order4;
+32             by animal day;
+33             lag1r = lag1(retresid); /* Lagged Residual Reticular pH */
+34         
+
+NOTE: There were 17280 observations read from the data set WORK.ORDER4.
+NOTE: The data set WORK.SECOND has 17280 observations and 17 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35         proc pdlreg;
+36             by animal day;
+37             model rumenph = retpred(3,3) lag1r / method=ml nlag=1;
+38             output out=third p=rumpred r=rumresid;
+39         
+
+ERROR: No non-missing observations are available to analyze the model.
+ERROR: No valid model.
+NOTE: The above message was for the following BY group:
+      animal=52 day=13
+ERROR: No non-missing observations are available to analyze the model.
+ERROR: No valid model.
+NOTE: The above message was for the following BY group:
+      animal=52 day=14
+ERROR: No non-missing observations are available to analyze the model.
+ERROR: No valid model.
+NOTE: The above message was for the following BY group:
+      animal=52 day=15
+NOTE: The data set WORK.THIRD has 16416 observations and 19 variables.
+NOTE: The PROCEDURE PDLREG printed pages 118-291.
+NOTE: PROCEDURE PDLREG used (Total process time):
+      real time           0.38 seconds
+      cpu time            0.15 seconds
+      
+
+40         data fourth;
+41             retain animal day silage dmi time rumenph rumpred rumresid
+41       ! reticph retpred retresid;
+42             set third;
+43             drop time2 time3 time4 lag1r;
+44         
+
+NOTE: There were 16416 observations read from the data set WORK.THIRD.
+NOTE: The data set WORK.FOURTH has 16416 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+45         proc print data=fourth;
+46         
+
+NOTE: There were 16416 observations read from the data set WORK.FOURTH.
+4                                The SAS System
+                                               10:10 Thursday, November 19, 2015
+
+NOTE: The PROCEDURE PRINT printed pages 292-948.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.24 seconds
+      cpu time            0.24 seconds
+      
+
+47         proc export
+48             data=fourth
+49             file='phreg.xls'
+50             dbms=xls
+51             replace;
+52             sheet="NLAG1";
+NOTE: The export data set has 16416 observations and 15 variables.
+NOTE: "/home/seymourd/ph/reg/phreg.xls" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           2.19 seconds
+      cpu time            0.14 seconds
+      
+
+ERROR: Errors printed on pages 2,3.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           3.27 seconds
+      cpu time            0.69 seconds
+      

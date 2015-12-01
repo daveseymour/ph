@@ -1,0 +1,205 @@
+1                                                          The SAS System                          13:32 Thursday, November 26, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+1          title 'Reticular pH Prediction - 4th Order vs. Spline';
+2          
+3          options linesize = 80;
+4          
+5          data aormixed;
+6              infile '~/ph/resid/aormixed.dat';
+7              input animal day silage dmi time reticph retpred retresid rumenph
+7        !  rumpred
+8                  rumresid lag1p lag3p lag2r lag4r lag7r lag9r;
+9              if animal = 52 and day > 12 then delete;
+10             tc = time + (day-1);
+11             time2 = time**2;
+12             time3 = time**3;
+13             time4 = time**4;
+14             tc2 = tc**2;
+15             tc3 = tc**3;
+16             tc4 = tc**4;
+2                                The SAS System
+                                               13:32 Thursday, November 26, 2015
+
+17         run;
+
+NOTE: The infile '~/ph/resid/aormixed.dat' is:
+      Filename=/home/seymourd/ph/resid/aormixed.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Thu Jul  9 10:59:56 2015,
+      File Size (bytes)=2916745
+
+NOTE: 17280 records were read from the infile '~/ph/resid/aormixed.dat'.
+      The minimum record length was 46.
+      The maximum record length was 177.
+NOTE: The data set WORK.AORMIXED has 16416 observations and 24 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+18         
+19         proc reg noprint outest=quadfits;
+20             title2 '4th Order Polynomial';
+21             by animal;
+22             Day: model reticph = time time2 time3 time4 / rsquare adjrsq aic;
+23             TimeCourse: model reticph = tc tc2 tc3 tc4 / rsquare adjrsq aic;
+24         run;
+
+NOTE: Interactivity disabled with BY processing.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+NOTE: The data set WORK.QUADFITS has 8 observations and 21 variables.
+
+25         
+26         proc transreg data=aormixed noprint;
+27             title2 'Cubic Spline w/ 44 Knots';
+28             by animal;
+29             model identity(reticph) = pspline(tc / nknots=44);
+30             output out=spline coefficients;
+31         run;
+
+NOTE: 30 observations were deleted from the analysis due to missing values.
+NOTE: Algorithm converged.
+NOTE: The above message was for the following BY group:
+      animal=138
+NOTE: There were 16416 observations read from the data set WORK.AORMIXED.
+NOTE: The data set WORK.SPLINE has 16420 observations and 102 variables.
+NOTE: PROCEDURE TRANSREG used (Total process time):
+      real time           0.33 seconds
+      cpu time            0.34 seconds
+      
+
+32         
+33         /*proc print data=spline;
+34             where _TYPE_ eq 'M COEFFI';
+35         run;
+36         */
+3                                The SAS System
+                                               13:32 Thursday, November 26, 2015
+
+37         proc reg data=spline outest=splinefits noprint;
+38             by animal;
+39             Spline: model reticph = tc_1 tc_2 tc_3 tc_4 tc_5 tc_6 tc_7 tc_8
+39       ! tc_9 tc_10
+40                 tc_11 tc_12 tc_13 tc_14 tc_15 tc_16 tc_17 tc_18 tc_19 tc_20
+40       ! tc_21 tc_22
+41                 tc_23 tc_24 tc_25 tc_26 tc_27 tc_28 tc_29 tc_30 tc_31 tc_32
+41       ! tc_33 tc_34
+42                 tc_35 tc_36 tc_37 tc_38 tc_39 tc_40 tc_41 tc_42 tc_43 tc_44
+42       ! tc_45 tc_46
+43                 tc_47 / rsquare adjrsq aic;
+44             output out=spline_reg predicted=pred;
+45         run;
+
+WARNING: The variable _NAME_ or _TYPE_ exists in a data set that is not 
+         TYPE=CORR, COV, SSCP, etc.
+NOTE: Interactivity disabled with BY processing.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.08 seconds
+      
+NOTE: The data set WORK.SPLINEFITS has 4 observations and 60 variables.
+NOTE: The data set WORK.SPLINE_REG has 16420 observations and 103 variables.
+
+46         
+47         data quadfits;
+48             set quadfits;
+49             keep Obs animal _MODEL_ _RMSE_ _RSQ_ _ADJRSQ_ _AIC_;
+50         
+
+WARNING: The variable Obs in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+NOTE: There were 8 observations read from the data set WORK.QUADFITS.
+NOTE: The data set WORK.QUADFITS has 8 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+51         data splinefits;
+52             set splinefits;
+53             keep Obs animal _MODEL_ _RMSE_ _RSQ_ _ADJRSQ_ _AIC_;
+54         
+
+WARNING: The variable Obs in the DROP, KEEP, or RENAME list has never been 
+         referenced.
+NOTE: There were 4 observations read from the data set WORK.SPLINEFITS.
+NOTE: The data set WORK.SPLINEFITS has 4 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+55         proc print data=quadfits;
+56             title2 '4th-Order Polynomial Fits';
+57             where _MODEL_ eq 'TimeCourse';
+
+4                                The SAS System
+                                               13:32 Thursday, November 26, 2015
+
+NOTE: There were 4 observations read from the data set WORK.QUADFITS.
+      WHERE _MODEL_='TimeCourse';
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+58         proc print data=splinefits;
+59             title2 'Cubic Spline with 44 Knots Fits';
+NOTE: There were 4 observations read from the data set WORK.SPLINEFITS.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.57 seconds
+      cpu time            0.52 seconds
+      

@@ -1,0 +1,84 @@
+1                                                          The SAS System                          20:20 Wednesday, December 2, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+1          options linesize=80;
+2          
+3          /* adding 300 to a datetime16 format variable increments in 5 minutes
+3        !  ahead */
+4          
+5          data an52;
+6              start = '23jan2014:05:58:16'dt;
+7              end = '07feb2014:05:53:16'dt;
+8              date_time = start;
+9              do while (date_time <= end);
+10                 output;
+11                 date_time = date_time + 300;
+12             end;
+13             format date_time datetime16.;
+14         run;
+
+NOTE: The data set WORK.AN52 has 4320 observations and 3 variables.
+2                                The SAS System
+                                               20:20 Wednesday, December 2, 2015
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+15         
+16         proc print data=an52(keep=date_time);
+17         run;
+
+NOTE: There were 4320 observations read from the data set WORK.AN52.
+NOTE: The PROCEDURE PRINT printed pages 1-79.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      

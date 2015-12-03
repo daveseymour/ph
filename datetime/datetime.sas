@@ -49,6 +49,13 @@ data total;
     by animal;
 run;
 
+data total;
+    set total;
+    file 'datetime.dat';
+    put dat_time animal day silage dmi time tc rumenph reticph;
+run;
+
 proc print data=total;
     where timepart(date_time)='05:58:16't;
 run;
+

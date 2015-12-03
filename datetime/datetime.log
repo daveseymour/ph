@@ -1,4 +1,4 @@
-1                                                          The SAS System                           10:18 Thursday, December 3, 2015
+1                                                          The SAS System                           12:57 Thursday, December 3, 2015
 
 NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
 NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
@@ -39,7 +39,7 @@ The command line option "-nonews" will prevent this display.
 
 NOTE: SAS initialization used:
       real time           0.03 seconds
-      cpu time            0.03 seconds
+      cpu time            0.02 seconds
       
 1          options linesize=80;
 2          
@@ -58,7 +58,7 @@ NOTE: The infile '~/ph/ph.dat' is:
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
       Last Modified=Mon Apr 27 09:43:56 2015,
-2                                The SAS System 10:18 Thursday, December 3, 2015
+2                                The SAS System 12:57 Thursday, December 3, 2015
 
       File Size (bytes)=806856
 
@@ -67,7 +67,7 @@ NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
       The maximum record length was 48.
 NOTE: The data set WORK.RAW has 17280 observations and 8 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
+      real time           0.01 seconds
       cpu time            0.01 seconds
       
 
@@ -93,7 +93,7 @@ NOTE: DATA statement used (Total process time):
 NOTE: The data set WORK.AN52 has 4320 observations and 2 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 28         
@@ -117,7 +117,7 @@ NOTE: DATA statement used (Total process time):
 
 NOTE: There were 4320 observations read from the data set WORK.AN52.
 NOTE: The data set WORK.AN138 has 4320 observations and 2 variables.
-3                                The SAS System 10:18 Thursday, December 3, 2015
+3                                The SAS System 12:57 Thursday, December 3, 2015
 
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
@@ -148,7 +148,7 @@ NOTE: There were 4320 observations read from the data set WORK.AN138.
 NOTE: There were 4320 observations read from the data set WORK.AN183.
 NOTE: The data set WORK.DATES has 17280 observations and 2 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
+      real time           0.00 seconds
       cpu time            0.00 seconds
       
 
@@ -163,26 +163,52 @@ NOTE: There were 17280 observations read from the data set WORK.DATES.
 NOTE: The data set WORK.TOTAL has 17280 observations and 9 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
       
 
 51         
-52         proc print data=total;
-53             where timepart(date_time)='05:58:16't;
-54         run;
+52         data total;
+53             set total;
+54             file 'datetime.dat';
+55             put dat_time animal day silage dmi time tc rumenph reticph;
+56         run;
+
+NOTE: Variable dat_time is uninitialized.
+NOTE: The file 'datetime.dat' is:
+      Filename=/home/seymourd/ph/datetime/datetime.dat,
+4                                The SAS System 12:57 Thursday, December 3, 2015
+
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Thu Dec  3 12:57:30 2015
+
+NOTE: 17280 records were written to the file 'datetime.dat'.
+      The minimum record length was 31.
+      The maximum record length was 62.
+NOTE: There were 17280 observations read from the data set WORK.TOTAL.
+NOTE: The data set WORK.TOTAL has 17280 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+57         
+58         proc print data=total;
+59             where timepart(date_time)='05:58:16't;
+60         run;
 
 NOTE: There were 60 observations read from the data set WORK.TOTAL.
       WHERE TIMEPART(date_time)=' 5:58:16'T;
 NOTE: The PROCEDURE PRINT printed pages 1-2.
 NOTE: PROCEDURE PRINT used (Total process time):
       real time           0.02 seconds
-4                                The SAS System 10:18 Thursday, December 3, 2015
-
-      cpu time            0.02 seconds
+      cpu time            0.03 seconds
       
+
+61         
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
 NOTE: The SAS System used:
-      real time           0.12 seconds
-      cpu time            0.09 seconds
+      real time           0.13 seconds
+      cpu time            0.11 seconds
       

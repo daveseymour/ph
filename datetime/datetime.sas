@@ -51,8 +51,9 @@ run;
 
 data total;
     set total;
+    format date_time best.;
     file 'datetime.dat';
-    put dat_time animal day silage dmi time tc rumenph reticph;
+    put date_time animal day silage dmi time tc rumenph reticph;
 run;
 
 proc print data=total;

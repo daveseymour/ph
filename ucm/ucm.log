@@ -1,0 +1,126 @@
+1                                                          The SAS System                             08:18 Tuesday, January 5, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           1.86 seconds
+      cpu time            0.04 seconds
+      
+1          /*  unobserved components model                                              */
+2          /*  simple explanations of model components can be found in Lavery (2004). An
+3              Animated Guide: Proc UCM (Unobserved Components Model). NESUG 17         */
+4          
+5          options linesize=80;
+6          ods graphics on;
+7          
+8          data datetime;
+9              infile '~/ph/datetime/datetime.dat';
+10             input date_time animal day time dmi time tc rumenph reticph;
+11             format date_time datetime16.;
+12             logret = log(reticph);
+13         run;
+
+NOTE: The infile '~/ph/datetime/datetime.dat' is:
+      Filename=/home/seymourd/ph/datetime/datetime.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+2                                The SAS System   08:18 Tuesday, January 5, 2016
+
+      Access Permission=-rw-r-----,
+      Last Modified=Thu Dec  3 13:14:04 2015,
+      File Size (bytes)=1181202
+
+NOTE: 17280 records were read from the infile '~/ph/datetime/datetime.dat'.
+      The minimum record length was 40.
+      The maximum record length was 71.
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      894 at 12:14   
+NOTE: The data set WORK.DATETIME has 17280 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.41 seconds
+      cpu time            0.02 seconds
+      
+
+14         
+15         /*
+16         proc timeseries data=datetime plot=series seasonality=144;
+17             by animal;
+18             id date_time interval=dtmin5;
+19             var logret;
+20         run;
+21         */
+22         
+23         /* dtmin5 is the notation for a 5-minute interval in datetime format
+23       ! */
+24         
+25         proc ucm data=datetime;
+26             id date_time interval=dtmin5;
+27             by animal;
+28         
+29             model logret;
+30             level variance=0 noest;
+31             slope;
+32             *season length=864 type=trig;
+33             *autoreg;
+34             cycle;
+35         run;
+
+NOTE: The PROCEDURE UCM printed pages 1-13.
+NOTE: PROCEDURE UCM used (Total process time):
+      real time           2.74 seconds
+      cpu time            1.92 seconds
+      
+
+36         
+37         /* NOTES:
+38         
+39         - No significant irregular error term
+40         - No significant variation from level, but significant component
+41         - No significant season error term
+42         - No significant autoregressive term
+43         
+44         */
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+3                                The SAS System   08:18 Tuesday, January 5, 2016
+
+NOTE: The SAS System used:
+      real time           5.85 seconds
+      cpu time            1.99 seconds
+      

@@ -1,0 +1,681 @@
+                                 The SAS System                                1
+                                                  08:18 Tuesday, January 5, 2016
+
+                               The UCM Procedure
+
+                                Input Data Set
+
+                       Name                WORK.DATETIME
+                       Time ID Variable        date_time
+                                 The SAS System                                2
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  04FEB14:05:53    3456       0      1.72704
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.97281        1.89201        0.03853
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  04FEB14:05:53    3456       0      1.72704
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.97281        1.89201        0.03853
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Slope               Error Variance        0.27211
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              170.66667
+               Cycle               Error Variance        0.45351
+
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                    11519
+                  Diffuse Part of Log Likelihood        21E-17
+                  Non-Missing Observations Used           3456
+                  Estimated Parameters                       4
+                                 The SAS System                                3
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares      3454
+                  AIC (smaller is better)               -23030
+                  BIC (smaller is better)               -23005
+                  AICC (smaller is better)              -23030
+                  HQIC (smaller is better)              -23021
+                  CAIC (smaller is better)              -23001
+
+Likelihood Optimization Algorithm Converged in 16 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Slope             Error Variance  1.521331E-8  3.71592E-9     4.09    <.0001
+  Cycle             Damping Factor      0.90921   0.0071367   127.40    <.0001
+  Cycle             Period             56.98350     7.33431     7.77    <.0001
+  Cycle             Error Variance   0.00006654  5.51706E-6    12.06    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                 0.00007423
+                 Root Mean Squared Error               0.00862
+                 Mean Absolute Percentage Error        0.33084
+                 Maximum Percent Error                 4.42772
+                 R-Square                              0.95002
+                 Adjusted R-Square                     0.94997
+                 Random Walk R-Square                  0.00201
+                 Amemiya's Adjusted R-Square           0.94990
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 3454
+
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       19732.9        <.0001
+             Slope                    1          0.00        0.9984
+             Cycle                    2          0.94        0.6241
+                                 The SAS System                                4
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               1.924709542    0.0137016
+                  Slope               -1.35385E-6    0.0006569
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary        56.98350     0.11026     0.90921     0.01269
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         0.65927     0.00038388     0.00006654
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+   426 24JAN14:17:23 Additive Outlier     0.04186  0.006068      47.60      1
+   667 25JAN14:13:28 Additive Outlier    -0.03464  0.006068      32.59      1
+    55 23JAN14:10:28 Additive Outlier     0.03328  0.006068      30.08      1
+   425 24JAN14:17:18 Additive Outlier    -0.03006  0.006068      24.53      1
+   521 25JAN14:01:18 Additive Outlier     0.02866  0.006068      22.31      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                  426 24JAN14:17:23 Additive Outlier     <.0001
+                  667 25JAN14:13:28 Additive Outlier     <.0001
+                   55 23JAN14:10:28 Additive Outlier     <.0001
+                  425 24JAN14:17:18 Additive Outlier     <.0001
+                  521 25JAN14:01:18 Additive Outlier     <.0001
+                                 The SAS System                                5
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      1.68677
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.97233        1.87173        0.04496
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      1.68677
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.97233        1.87173        0.04496
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Slope               Error Variance        0.26666
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              341.33333
+               Cycle               Error Variance        0.44443
+
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                    14632
+                  Diffuse Part of Log Likelihood        26E-17
+                  Non-Missing Observations Used           4320
+                  Estimated Parameters                       4
+                                 The SAS System                                6
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares      4318
+                  AIC (smaller is better)               -29256
+                  BIC (smaller is better)               -29231
+                  AICC (smaller is better)              -29256
+                  HQIC (smaller is better)              -29247
+                  CAIC (smaller is better)              -29227
+
+Likelihood Optimization Algorithm Converged in 15 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Slope             Error Variance  5.367904E-8  1.20421E-8     4.46    <.0001
+  Cycle             Damping Factor      0.88753   0.0073929   120.05    <.0001
+  Cycle             Period             37.08503     3.44418    10.77    <.0001
+  Cycle             Error Variance   0.00005555   4.0905E-6    13.58    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                 0.00006678
+                 Root Mean Squared Error               0.00817
+                 Mean Absolute Percentage Error        0.31037
+                 Maximum Percent Error                 4.23127
+                 R-Square                              0.96696
+                 Adjusted R-Square                     0.96694
+                 Random Walk R-Square                 -0.00225
+                 Amemiya's Adjusted R-Square           0.96690
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 4318
+
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       26591.5        <.0001
+             Slope                    1          0.03        0.8636
+             Cycle                    2          0.64        0.7275
+                                 The SAS System                                7
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level                1.91667617    0.0117538
+                  Slope                0.00016396    0.0009543
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary        37.08503     0.16943     0.88753     0.00896
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         0.46756     0.00026165     0.00005555
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+   999 26JAN14:17:08 Additive Outlier    -0.04230 0.0056426      56.20      1
+  1000 26JAN14:17:13 Additive Outlier     0.03456 0.0056426      37.51      1
+   335 24JAN14:09:48 Additive Outlier    -0.03155 0.0056426      31.27      1
+  1269 27JAN14:15:38 Additive Outlier     0.03047 0.0056426      29.16      1
+  1728 29JAN14:05:53 Additive Outlier     0.02804 0.0056426      24.70      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                  999 26JAN14:17:08 Additive Outlier     <.0001
+                 1000 26JAN14:17:13 Additive Outlier     <.0001
+                  335 24JAN14:09:48 Additive Outlier     <.0001
+                 1269 27JAN14:15:38 Additive Outlier     <.0001
+                 1728 29JAN14:05:53 Additive Outlier     <.0001
+                                 The SAS System                                8
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320      30      1.62023
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      2.01495        1.87956        0.06416
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320      30      1.62023
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      2.01495        1.87956        0.06416
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Slope               Error Variance        0.26971
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              256.00000
+               Cycle               Error Variance        0.44951
+
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                    13921
+                  Diffuse Part of Log Likelihood        -4E-16
+                  Non-Missing Observations Used           4290
+                  Estimated Parameters                       4
+                                 The SAS System                                9
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares      4288
+                  AIC (smaller is better)               -27833
+                  BIC (smaller is better)               -27808
+                  AICC (smaller is better)              -27833
+                  HQIC (smaller is better)              -27824
+                  CAIC (smaller is better)              -27804
+
+Likelihood Optimization Algorithm Converged in 12 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Slope             Error Variance  5.034534E-8  1.00828E-8     4.99    <.0001
+  Cycle             Damping Factor      0.90088   0.0062950   143.11    <.0001
+  Cycle             Period             39.75570     3.10224    12.82    <.0001
+  Cycle             Error Variance   0.00007485  5.08881E-6    14.71    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                 0.00008871
+                 Root Mean Squared Error               0.00942
+                 Mean Absolute Percentage Error        0.35483
+                 Maximum Percent Error                 4.18591
+                 R-Square                              0.97845
+                 Adjusted R-Square                     0.97844
+                 Random Walk R-Square                  0.00334
+                 Amemiya's Adjusted R-Square           0.97841
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 4288
+
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       19614.7        <.0001
+             Slope                    1          0.29        0.5881
+             Cycle                    2          0.05        0.9773
+                                 The SAS System                               10
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level                1.97200317    0.0140805
+                  Slope               0.000537838    0.0009931
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary        39.75570     0.15804     0.90088     0.00320
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         0.16219     0.00039725     0.00007485
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+   999 26JAN14:17:08 Additive Outlier    -0.04230 0.0064971      42.39      1
+  1866 29JAN14:17:23 Additive Outlier     0.04135 0.0064971      40.51      1
+  1865 29JAN14:17:18 Additive Outlier    -0.04027 0.0064971      38.41      1
+  3224 03FEB14:10:33 Additive Outlier    -0.03720 0.0064971      32.79      1
+  3225 03FEB14:10:38 Additive Outlier     0.03641 0.0064971      31.40      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                  999 26JAN14:17:08 Additive Outlier     <.0001
+                 1866 29JAN14:17:23 Additive Outlier     <.0001
+                 1865 29JAN14:17:18 Additive Outlier     <.0001
+                 3224 03FEB14:10:33 Additive Outlier     <.0001
+                 3225 03FEB14:10:38 Additive Outlier     <.0001
+                                 The SAS System                               11
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      1.67931
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.98376        1.86880        0.05499
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ logret    Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      1.67931
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         logret    Dependent      1.98376        1.86880        0.05499
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Slope               Error Variance        0.26358
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              256.00000
+               Cycle               Error Variance        0.43930
+
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                    13837
+                  Diffuse Part of Log Likelihood        -2E-17
+                  Non-Missing Observations Used           4320
+                  Estimated Parameters                       4
+                                 The SAS System                               12
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares      4318
+                  AIC (smaller is better)               -27666
+                  BIC (smaller is better)               -27640
+                  AICC (smaller is better)              -27666
+                  HQIC (smaller is better)              -27657
+                  CAIC (smaller is better)              -27636
+
+Likelihood Optimization Algorithm Converged in 17 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Slope             Error Variance  9.999304E-8   1.7519E-8     5.71    <.0001
+  Cycle             Damping Factor      0.88488   0.0059494   148.74    <.0001
+  Cycle             Period             25.61735     1.17378    21.82    <.0001
+  Cycle             Error Variance   0.00007449  4.06115E-6    18.34    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                 0.00009639
+                 Root Mean Squared Error               0.00982
+                 Mean Absolute Percentage Error        0.36801
+                 Maximum Percent Error                 4.49521
+                 R-Square                              0.96813
+                 Adjusted R-Square                     0.96811
+                 Random Walk R-Square                  0.02535
+                 Amemiya's Adjusted R-Square           0.96807
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 4318
+
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       25646.3        <.0001
+             Slope                    1          0.16        0.6864
+             Cycle                    2          0.63        0.7302
+                                 The SAS System                               13
+                                                  08:18 Tuesday, January 5, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               1.960311021    0.0122409
+                  Slope               0.000486544    0.0012051
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary        25.61735     0.24527     0.88488     0.00893
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         0.45556     0.00034331     0.00007449
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+  1507 28JAN14:11:28 Additive Outlier     0.04381 0.0066217      43.77      1
+  1502 28JAN14:11:03 Additive Outlier     0.04117 0.0066217      38.65      1
+  1506 28JAN14:11:23 Additive Outlier    -0.04033 0.0066217      37.09      1
+  2171 30JAN14:18:48 Additive Outlier     0.03906 0.0066217      34.79      1
+  2989 02FEB14:14:58 Additive Outlier     0.03660 0.0066217      30.56      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1507 28JAN14:11:28 Additive Outlier     <.0001
+                 1502 28JAN14:11:03 Additive Outlier     <.0001
+                 1506 28JAN14:11:23 Additive Outlier     <.0001
+                 2171 30JAN14:18:48 Additive Outlier     <.0001
+                 2989 02FEB14:14:58 Additive Outlier     <.0001

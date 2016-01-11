@@ -211,3 +211,22 @@ run;
 
 proc print data=summary;
 run;
+
+/* alternate method: prediction from reticph using PROC UCM */
+
+proc ucm data = ph;
+    title2 'UCM with Cyclical Component';
+    id date_time interval=dtmin5;
+    by animal;
+
+    model rumenph = reticph;
+    level variance=0 noest;
+    cycle;
+    forecast print=none outfor=ucm;
+run;
+
+data ucm;
+    set ucm;
+    file 'ucm.dat';
+    put animal date_time rumenph reticph FORECAST RESIDUAL STD;
+run;

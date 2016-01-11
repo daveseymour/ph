@@ -1,35 +1,6 @@
-                                 The SAS System                                1
-                                                  12:11 Monday, January 11, 2016
-
-                            The TIMESERIES Procedure
-
-                                Input Data Set
-
-                     Name                          WORK.PH
-                     Label                                
-                     Time ID Variable            date_time
-                     Time Interval                  DTMIN5
-                     Length of Seasonal Cycle          144
-
-
-                              Variable Information
-
-                  Name                                 rumenph
-                  Label                                       
-                  First                          31JAN14:06:03
-                  Last                           04FEB14:05:53
-                  Number of Observations Read             1151
-
-
-                              Variable Information
-
-                  Name                                 reticph
-                  Label                                       
-                  First                          31JAN14:06:03
-                  Last                           04FEB14:05:53
-                  Number of Observations Read             1151
-                                 The SAS System                                2
-                                                  12:11 Monday, January 11, 2016
+                      Rumen pH Unobserved Components Model                     1
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
 
                                The UCM Procedure
 
@@ -37,8 +8,9 @@
 
                          Name                  WORK.PH
                          Time ID Variable    date_time
-                                 The SAS System                                3
-                                                  12:11 Monday, January 11, 2016
+                      Rumen pH Unobserved Components Model                     2
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -48,23 +20,23 @@
  
  Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
 
- rumenph   Dependent  23JAN14:05:58  03FEB14:17:53    3312      27      5.85885
- reticph   Predictor  23JAN14:05:58  03FEB14:17:53    3312       0      5.62396
+ rumenph   Dependent  23JAN14:05:58  04FEB14:05:53    3456      27      5.85885
+ reticph   Predictor  23JAN14:05:58  04FEB14:05:53    3456       0      5.62396
 
                             Estimation Span Summary
  
                                                                Standard
          Variable  Type               Max           Mean      Deviation
 
-         rumenph   Dependent      7.09862        6.56378        0.22251
-         reticph   Predictor      7.19083        6.63213        0.25456
+         rumenph   Dependent      7.09862        6.56667        0.21949
+         reticph   Predictor      7.19083        6.63752        0.25154
 
 
                              Forecast Span Summary
  
  Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
 
- rumenph   Dependent  23JAN14:05:58  03FEB14:17:53    3312      27      5.85885
+ rumenph   Dependent  23JAN14:05:58  04FEB14:05:53    3456      27      5.85885
  reticph   Predictor  23JAN14:05:58  04FEB14:05:53    3456       0      5.62396
 
                              Forecast Span Summary
@@ -72,5 +44,513 @@
                                                                Standard
          Variable  Type               Max           Mean      Deviation
 
-         rumenph   Dependent      7.09862        6.56378        0.22251
+         rumenph   Dependent      7.09862        6.56667        0.21949
          reticph   Predictor      7.19083        6.63752        0.25154
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              170.66667
+               Cycle               Error Variance        0.02447
+
+
+                      Rumen pH Unobserved Components Model                     3
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                   5145.7
+                  Diffuse Part of Log Likelihood        4.7371
+                  Non-Missing Observations Used           3429
+                  Estimated Parameters                       3
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares    3426.8
+                  AIC (smaller is better)               -10285
+                  BIC (smaller is better)               -10267
+                  AICC (smaller is better)              -10285
+                  HQIC (smaller is better)              -10279
+                  CAIC (smaller is better)              -10264
+
+Likelihood Optimization Algorithm Converged in 19 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Cycle             Damping Factor      0.96487   0.0046363   208.11    <.0001
+  Cycle             Period                88296   7534114.4     0.01    0.9906
+  Cycle             Error Variance      0.00290   0.0003823     7.58    <.0001
+  reticph           Coefficient         0.09044     0.01638     5.52    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                    0.00291
+                 Root Mean Squared Error               0.05395
+                 Mean Absolute Percentage Error        0.60521
+                 Maximum Percent Error                 6.73491
+                 R-Square                              0.93960
+                 Adjusted R-Square                     0.93956
+                 Random Walk R-Square                  0.02513
+                 Amemiya's Adjusted R-Square           0.93949
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 3427
+
+
+                      Rumen pH Unobserved Components Model                     4
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       2850.21        <.0001
+             Cycle                    2         25.31        <.0001
+
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               5.965929561     0.111748
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary           88296  0.00007116     0.96487     0.13064
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         2.18980        0.04200        0.00290
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+  1313 27JAN14:19:18 Additive Outlier     0.25278 0.0387461      42.56      1
+  1728 29JAN14:05:53 Additive Outlier     0.25202 0.0387488      42.30      1
+  1303 27JAN14:18:28 Additive Outlier    -0.21966 0.0387727      32.10      1
+  1006 26JAN14:17:43 Additive Outlier    -0.19229 0.0387455      24.63      1
+  1007 26JAN14:17:48 Additive Outlier     0.18198 0.0387545      22.05      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1313 27JAN14:19:18 Additive Outlier     <.0001
+                 1728 29JAN14:05:53 Additive Outlier     <.0001
+                 1303 27JAN14:18:28 Additive Outlier     <.0001
+                 1006 26JAN14:17:43 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                     5
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=52 -----------------------------------
+
+                               The UCM Procedure
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1007 26JAN14:17:48 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                     6
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      5.52039
+ reticph   Predictor  23JAN14:05:58  07FEB14:05:53    4320       0      5.40199
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.16093        6.44787        0.23169
+         reticph   Predictor      7.18739        6.50601        0.28775
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  07FEB14:05:53    4320       0      5.52039
+ reticph   Predictor  23JAN14:05:58  07FEB14:05:53    4320       0      5.40199
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.16093        6.44787        0.23169
+         reticph   Predictor      7.18739        6.50601        0.28775
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              341.33333
+               Cycle               Error Variance        0.02682
+
+
+                      Rumen pH Unobserved Components Model                     7
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                   6494.4
+                  Diffuse Part of Log Likelihood        3.0925
+                  Non-Missing Observations Used           4320
+                  Estimated Parameters                       3
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares    4317.9
+                  AIC (smaller is better)               -12983
+                  BIC (smaller is better)               -12964
+                  AICC (smaller is better)              -12983
+                  HQIC (smaller is better)              -12976
+                  CAIC (smaller is better)              -12961
+
+Likelihood Optimization Algorithm Converged in 17 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Cycle             Damping Factor      0.97187   0.0036289   267.82    <.0001
+  Cycle             Period               160055    14343210     0.01    0.9911
+  Cycle             Error Variance      0.00289   0.0003724     7.75    <.0001
+  reticph           Coefficient         0.06217     0.01573     3.95    <.0001
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                    0.00289
+                 Root Mean Squared Error               0.05380
+                 Mean Absolute Percentage Error        0.63854
+                 Maximum Percent Error                 4.37305
+                 R-Square                              0.94609
+                 Adjusted R-Square                     0.94606
+                 Random Walk R-Square                  0.01465
+                 Amemiya's Adjusted R-Square           0.94601
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 4318
+
+
+                      Rumen pH Unobserved Components Model                     8
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       3232.71        <.0001
+             Cycle                    2         60.32        <.0001
+
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               6.046177421    0.1063402
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary          160055  0.00003926     0.97187     0.22592
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         3.73654        0.05205        0.00289
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+  1220 27JAN14:11:33 Additive Outlier     0.18645 0.0385343      23.41      1
+  3608 04FEB14:18:33 Additive Outlier    -0.18004 0.0385492      21.81      1
+  1805 29JAN14:12:18 Additive Outlier     0.16923 0.0385341      19.29      1
+  4125 06FEB14:13:38 Additive Outlier     0.16679 0.0385336      18.74      1
+  1116 27JAN14:02:53 Additive Outlier     0.16310  0.038534      17.92      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1220 27JAN14:11:33 Additive Outlier     <.0001
+                 3608 04FEB14:18:33 Additive Outlier     <.0001
+                 1805 29JAN14:12:18 Additive Outlier     <.0001
+                 4125 06FEB14:13:38 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                     9
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=64 -----------------------------------
+
+                               The UCM Procedure
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1116 27JAN14:02:53 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                    10
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  07FEB14:05:53    4320      28      5.45145
+ reticph   Predictor  23JAN14:05:58  07FEB14:05:53    4320       0      5.36187
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.05167        6.38620        0.31731
+         reticph   Predictor      7.27006        6.49028        0.35370
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  07FEB14:05:53    4320      28      5.45145
+ reticph   Predictor  23JAN14:05:58  07FEB14:05:53    4320       0      5.36187
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.05167        6.38620        0.31731
+         reticph   Predictor      7.27006        6.49028        0.35370
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              256.00000
+               Cycle               Error Variance        0.04984
+
+
+                      Rumen pH Unobserved Components Model                    11
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                   5662.4
+                  Diffuse Part of Log Likelihood        4.9398
+                  Non-Missing Observations Used           4292
+                  Estimated Parameters                       3
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares    4289.9
+                  AIC (smaller is better)               -11319
+                  BIC (smaller is better)               -11300
+                  AICC (smaller is better)              -11319
+                  HQIC (smaller is better)              -11312
+                  CAIC (smaller is better)              -11297
+
+Likelihood Optimization Algorithm Converged in 14 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Cycle             Damping Factor      0.97838   0.0033087   295.70    <.0001
+  Cycle             Period           1011.27026      1556.7     0.65    0.5159
+  Cycle             Error Variance      0.00417   0.0006341     6.57    <.0001
+  reticph           Coefficient         0.03393     0.01570     2.16    0.0306
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                    0.00421
+                 Root Mean Squared Error               0.06491
+                 Mean Absolute Percentage Error        0.75346
+                 Maximum Percent Error                 8.25086
+                 R-Square                              0.95816
+                 Adjusted R-Square                     0.95814
+                 Random Walk R-Square                  0.00483
+                 Amemiya's Adjusted R-Square           0.95810
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 4290
+
+
+                      Rumen pH Unobserved Components Model                    12
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       3103.15        <.0001
+             Cycle                    2         35.57        <.0001
+
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               6.168921503    0.1107408
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary      1011.27026     0.00621     0.97838     0.26340
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         4.26981        0.09742        0.00417
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+  2828 02FEB14:01:33 Additive Outlier    -0.29731 0.0461415      41.52      1
+    90 23JAN14:13:23 Additive Outlier     0.29169 0.0461381      39.97      1
+  2829 02FEB14:01:38 Additive Outlier     0.28147 0.0461378      37.22      1
+  3854 05FEB14:15:03 Additive Outlier     0.25412 0.0461377      30.34      1
+   930 26JAN14:11:23 Additive Outlier     0.22377 0.0461377      23.52      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 2828 02FEB14:01:33 Additive Outlier     <.0001
+                   90 23JAN14:13:23 Additive Outlier     <.0001
+                 2829 02FEB14:01:38 Additive Outlier     <.0001
+                 3854 05FEB14:15:03 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                    13
+                          UCM with Cyclical Component
+                                                  15:44 Monday, January 11, 2016
+
+---------------------------------- animal=183 ----------------------------------
+
+                               The UCM Procedure
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                  930 26JAN14:11:23 Additive Outlier     <.0001

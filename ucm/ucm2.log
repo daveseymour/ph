@@ -1,4 +1,4 @@
-1                                                          The SAS System                             12:11 Monday, January 11, 2016
+1                                                          The SAS System                             15:44 Monday, January 11, 2016
 
 NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
 NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
@@ -38,28 +38,29 @@ The command line option "-nonews" will prevent this display.
 
 
 NOTE: SAS initialization used:
-      real time           0.03 seconds
-      cpu time            0.02 seconds
+      real time           0.02 seconds
+      cpu time            0.00 seconds
       
 1          /* UCM to describe forecast rumen ph directly from reticular ph timecourse */
 2          
 3          options linesize=80;
 4          ods graphics on;
-5          
-6          data ph;
-7              infile '~/ph/ph.dat';
-8              input date_time animal day silage dmi time tc rumenph reticph;
-9              format date_time datetime16.;
-10             logret = log(reticph);
-11             logrum = log(rumenph);
-12             if reticph = . then delete;
-13             if animal ne 52 then delete;
-14             /* program will fail if any missing observations are included */
-15         run;
+5          title 'Rumen pH Unobserved Components Model';
+6          
+7          data ph;
+8              infile '~/ph/ph.dat';
+9              input date_time animal day silage dmi time tc rumenph reticph;
+10             format date_time datetime16.;
+11             logret = log(reticph);
+12             logrum = log(rumenph);
+13             if reticph = . then delete;
+14             /* program will fail if any missing dependant variable
+15             observations are included */
+16         run;
+
+2                                The SAS System   15:44 Monday, January 11, 2016
 
 NOTE: The infile '~/ph/ph.dat' is:
-2                                The SAS System   12:11 Monday, January 11, 2016
-
       Filename=/home/seymourd/ph/ph.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
@@ -72,82 +73,69 @@ NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
 NOTE: Missing values were generated as a result of performing an operation on 
       missing values.
       Each place is given by: (Number of times) at (Line):(Column).
-      894 at 10:14   55 at 11:14    
-NOTE: The data set WORK.PH has 3456 observations and 11 variables.
+      894 at 11:14   55 at 12:14    
+NOTE: The data set WORK.PH has 16386 observations and 11 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.03 seconds
+      real time           0.01 seconds
+      cpu time            0.01 seconds
       
 
-16         
-17         proc timeseries data=ph
-18             (where=('31jan2014:06:00:00'dt < date_time <
-18       ! '06feb2014:06:00:00'dt))
-19             plot = (series corr decomp) seasonality=144;
+17         
+18         proc ucm data = ph;
+19             title2 'UCM with Cyclical Component';
 20             id date_time interval=dtmin5;
-21             var rumenph reticph;
-22         run;
+21             by animal;
+22         
+23             model rumenph = reticph;
+24             /*  logret AICC -23117 AdjRsq 0.93882
+25                 lag3r AICC -20857 AdjRsq 0.88249 */
+26         
+27             level variance=0 noest;
+28             cycle;
+29         
+30             estimate plot=panel;
+31             forecast print=none outfor=forecast;
+32         run;
 
-NOTE: Number of series processed: 2
-NOTE: There were 1151 observations read from the data set WORK.PH.
-      WHERE (date_time>'  31JAN2014:06:00:00'DT and date_time<'  
-      06FEB2014:06:00:00'DT);
-NOTE: The data set WORK.DATA1 has 1151 observations and 3 variables.
-NOTE: The PROCEDURE TIMESERIES printed page 1.
-NOTE: PROCEDURE TIMESERIES used (Total process time):
-      real time           3.50 seconds
-      cpu time            0.30 seconds
-      
-
-23         
-24         
-25         proc ucm data = ph;
-26             id date_time interval=dtmin5;
-27             by animal;
-28         
-29             model rumenph = reticph;
-30             /*  logret AICC -23117 AdjRsq 0.93882
-31                 lag3r AICC -20857 AdjRsq 0.88249 */
-32         
-33         
-34             level variance=0 noest;
-35             cycle;
-36             deplag lags=2;
-37         
-38             /*
-39             level variance=0 noest;
-40             autoreg;
-41             */
-3                                The SAS System   12:11 Monday, January 11, 2016
-
-42         
-43             estimate back=144 plot=panel;
-44             forecast back=144 lead=144 print=forecasts;
-45         run;
-
-ERROR: Parameter estimation failed because the likelihood function or its 
-       gradient could not be evaluated at some stage of estimation. No further 
-       computations will be done.
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
+      in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       animal=52
-NOTE: The PROCEDURE UCM printed pages 2-3.
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
+      in the LEAD= option is reduced to 0.
+NOTE: The above message was for the following BY group:
+      animal=64
+ERROR: The ID value at observation number 2732 is invalid.
+NOTE: The above message was for the following BY group:
+      animal=138
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
+      in the LEAD= option is reduced to 0.
+NOTE: The above message was for the following BY group:
+      animal=183
+NOTE: The data set WORK.FORECAST has 12096 observations and 24 variables.
+NOTE: The PROCEDURE UCM printed pages 1-13.
 NOTE: PROCEDURE UCM used (Total process time):
-      real time           0.07 seconds
-      cpu time            0.08 seconds
+3                                The SAS System   15:44 Monday, January 11, 2016
+
+      real time           4.44 seconds
+      cpu time            1.36 seconds
       
 
-46         
-47         /* Model testing:
-48         
-49         level variance=0 noest, cycle: AICC -9888 AdjRSQ 0.94181
-50         level variance=0 noest, autoreg: AICC -9890 AdjRSQ 0.94184
-51         
-52         */
+33         
+34         /* Model testing:
+35         
+36         level variance=0 noest, cycle: AICC -9888 AdjRSQ 0.94181
+37         level variance=0 noest, autoreg: AICC -9890 AdjRSQ 0.94184
+38         
+39         */
 
-ERROR: Errors printed on page 3.
+ERROR: Errors printed on page 2.
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
 NOTE: The SAS System used:
-      real time           3.65 seconds
-      cpu time            0.44 seconds
+      real time           4.49 seconds
+      cpu time            1.39 seconds
       

@@ -2,6 +2,7 @@
 
 options linesize=80;
 ods graphics on;
+title 'Rumen pH Unobserved Components Model';
 
 data ph;
     infile '~/ph/ph.dat';
@@ -10,19 +11,12 @@ data ph;
     logret = log(reticph);
     logrum = log(rumenph);
     if reticph = . then delete;
-    if animal ne 52 then delete;
-    /* program will fail if any missing observations are included */
+    /* program will fail if any missing dependant variable
+    observations are included */
 run;
-
-proc timeseries data=ph
-    (where=('31jan2014:06:00:00'dt < date_time < '06feb2014:06:00:00'dt))
-    plot = (series corr decomp) seasonality=144;
-    id date_time interval=dtmin5;
-    var rumenph reticph;
-run;
-
 
 proc ucm data = ph;
+    title2 'UCM with Cyclical Component';
     id date_time interval=dtmin5;
     by animal;
 
@@ -31,10 +25,10 @@ proc ucm data = ph;
         lag3r AICC -20857 AdjRsq 0.88249 */
 
     level variance=0 noest;
-    autoreg;
+    cycle;
 
-    estimate back=144 plot=panel;
-    forecast back=144 lead=144 print=forecasts;
+    estimate plot=panel;
+    forecast print=none outfor=forecast;
 run;
 
 /* Model testing:

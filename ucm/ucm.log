@@ -1,4 +1,4 @@
-1                                                          The SAS System                             08:18 Tuesday, January 5, 2016
+1                                                          The SAS System                           11:39 Wednesday, January 6, 2016
 
 NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
 NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
@@ -38,8 +38,8 @@ The command line option "-nonews" will prevent this display.
 
 
 NOTE: SAS initialization used:
-      real time           1.86 seconds
-      cpu time            0.04 seconds
+      real time           0.02 seconds
+      cpu time            0.01 seconds
       
 1          /*  unobserved components model                                              */
 2          /*  simple explanations of model components can be found in Lavery (2004). An
@@ -58,7 +58,7 @@ NOTE: SAS initialization used:
 NOTE: The infile '~/ph/datetime/datetime.dat' is:
       Filename=/home/seymourd/ph/datetime/datetime.dat,
       Owner Name=seymourd,Group Name=seymourd,
-2                                The SAS System   08:18 Tuesday, January 5, 2016
+2                                The SAS System 11:39 Wednesday, January 6, 2016
 
       Access Permission=-rw-r-----,
       Last Modified=Thu Dec  3 13:14:04 2015,
@@ -73,7 +73,7 @@ NOTE: Missing values were generated as a result of performing an operation on
       894 at 12:14   
 NOTE: The data set WORK.DATETIME has 17280 observations and 9 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.41 seconds
+      real time           0.02 seconds
       cpu time            0.02 seconds
       
 
@@ -92,35 +92,47 @@ NOTE: DATA statement used (Total process time):
 25         proc ucm data=datetime;
 26             id date_time interval=dtmin5;
 27             by animal;
-28         
-29             model logret;
-30             level variance=0 noest;
-31             slope;
-32             *season length=864 type=trig;
-33             *autoreg;
-34             cycle;
-35         run;
+28             estimate outest=params;
+29         
+30             model logret;
+31             level variance=0 noest;
+32             slope;
+33             *season length=864 type=trig;
+34             *autoreg;
+35             cycle;
+36         run;
 
+NOTE: The data set WORK.PARAMS has 24 observations and 9 variables.
 NOTE: The PROCEDURE UCM printed pages 1-13.
 NOTE: PROCEDURE UCM used (Total process time):
-      real time           2.74 seconds
-      cpu time            1.92 seconds
+      real time           2.04 seconds
+      cpu time            2.03 seconds
       
 
-36         
-37         /* NOTES:
-38         
-39         - No significant irregular error term
-40         - No significant variation from level, but significant component
-41         - No significant season error term
-42         - No significant autoregressive term
-43         
-44         */
+37         
+38         /* NOTES:
+39         
+40         - No significant irregular error term
+41         - No significant variation from level, but significant component
+42         - No significant season error term
+43         - No significant autoregressive term
+44         
+3                                The SAS System 11:39 Wednesday, January 6, 2016
+
+45         */
+46         
+47         proc print data=params;
+48         run;
+
+NOTE: There were 24 observations read from the data set WORK.PARAMS.
+NOTE: The PROCEDURE PRINT printed page 14.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
-3                                The SAS System   08:18 Tuesday, January 5, 2016
-
 NOTE: The SAS System used:
-      real time           5.85 seconds
-      cpu time            1.99 seconds
+      real time           2.10 seconds
+      cpu time            2.07 seconds
       

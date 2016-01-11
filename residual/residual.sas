@@ -20,3 +20,5 @@ proc sgplot;
     scatter x=animal y=retresid;
     scatter x=dmi y=retresid;
 run;
+
+/* significant silage effect - included as class effect in mixed model */

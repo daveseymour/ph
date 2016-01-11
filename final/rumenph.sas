@@ -11,9 +11,7 @@ title 'Predicting the timecourse of ruminal pH from continuous reticular pH meas
 
 data raw;
     infile '~/ph/ph.dat';
-    input day animal silage dmi time rumenph reticph;
-    tc = time + (day-1); /* convert all observations to continuous timecourse */
-run;
+    input date_time animal day silage dmi time tc rumenph reticph;
 
 /*  generate predictions of reticph (Preticph) */
 
@@ -40,8 +38,8 @@ data merged;
     lag4r = lag4(Rreticph);
     lag7r = lag7(Rreticph);
     lag9r = lag9(Rreticph);
-    keep animal day silage dmi time tc reticph Preticph Rreticph rumenph lag1p
-        lag3p lag2r lag4r lag7r lag9r;
+    keep date_time animal day silage dmi time tc reticph Preticph Rreticph
+        rumenph lag1p lag3p lag2r lag4r lag7r lag9r;
 run;
 
 /*  model rumen ph based on reticular ph predictions and residuals */
@@ -64,8 +62,8 @@ data mixed;
     Rrumenph = Resid;
     drop Pred Resid Alpha DF Upper Lower;
     file 'mixed.dat';
-    put animal day silage dmi time tc reticph Preticph Rreticph rumenph Prumenph
-        Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+    put date_time animal day silage dmi time tc reticph Preticph Rreticph
+        rumenph Prumenph Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
 
 /*  perform 10-fold cross validation */
 /*  generate list of animal-day subsets */
@@ -200,8 +198,8 @@ data xv_pred;
     xv_Rrumenph = rumenph - xv_Prumenph;
     absr = abs(xv_Rrumenph);
     file 'xv_pred.dat';
-    put replicate animal day silage dmi time tc reticph Preticph Rreticph
-        rumenph Prumenph Rrumenph xv_Prumenph xv_Rrumenph absr;
+    put replicate date_time animal day silage dmi time tc reticph Preticph
+        Rreticph rumenph Prumenph Rrumenph xv_Prumenph xv_Rrumenph absr;
 run;
 
 proc summary data=xv_pred;

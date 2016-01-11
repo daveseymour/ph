@@ -1,0 +1,129 @@
+1                                                          The SAS System                              11:58 Friday, January 8, 2016
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
+      Licensed to UNIVERSITY OF GUELPH, Site 70095643.
+NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 12.3 (maintenance)
+      SAS/ETS 12.3 (maintenance)
+      SAS/OR 12.3 (maintenance)
+      SAS/IML 12.3 (maintenance)
+      SAS/QC 12.3 (maintenance)
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+1          /* UCM to describe forecast rumen ph directly from reticular ph timecourse */
+2          
+3          options linesize=80;
+4          ods graphics on;
+5          
+6          data ph;
+7              infile '~/ph/ph.dat';
+8              input date_time animal day silage dmi time tc rumenph reticph;
+9              format date_time datetime16.;
+10             logret = log(reticph);
+11             logrum = log(rumenph);
+12             if reticph = . then delete;
+13             if animal ne 52 then delete;
+14             /* program will fail if any missing observations are included */
+15         run;
+
+NOTE: The infile '~/ph/ph.dat' is:
+2                                The SAS System    11:58 Friday, January 8, 2016
+
+      Filename=/home/seymourd/ph/ph.dat,
+      Owner Name=seymourd,Group Name=seymourd,
+      Access Permission=-rw-r-----,
+      Last Modified=Thu Jan  7 08:51:46 2016,
+      File Size (bytes)=1181202
+
+NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
+      The minimum record length was 40.
+      The maximum record length was 71.
+NOTE: Missing values were generated as a result of performing an operation on 
+      missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      894 at 10:14   55 at 11:14    
+NOTE: The data set WORK.PH has 3456 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16         
+17         proc timeseries data=ph
+18             (where=('31jan2014:06:00:00'dt < date_time <
+18       ! '06feb2014:06:00:00'dt))
+19             plot = series;;
+20             id date_time interval=dtmin5;
+21             var rumenph reticph;
+22         run;
+
+NOTE: Number of series processed: 2
+NOTE: There were 1151 observations read from the data set WORK.PH.
+      WHERE (date_time>'  31JAN2014:06:00:00'DT and date_time<'  
+      06FEB2014:06:00:00'DT);
+NOTE: The data set WORK.DATA1 has 1151 observations and 3 variables.
+NOTE: The PROCEDURE TIMESERIES printed page 1.
+NOTE: PROCEDURE TIMESERIES used (Total process time):
+      real time           2.63 seconds
+      cpu time            0.11 seconds
+      
+
+23         
+24         
+25         proc ucm data = ph;
+26             id date_time interval=dtmin5;
+27             by animal;
+28         
+29             model rumenph = reticph;
+30             * logret AICC -23117 AdjRsq 0.93882
+31             * lag3r AICC -20857 AdjRsq 0.88249
+32         
+33             level variance=0 noest;
+34             cycle;
+35             forecast back=144 lead=144 print=forecasts;
+36         run;
+
+NOTE: The PROCEDURE UCM printed pages 2-153.
+NOTE: PROCEDURE UCM used (Total process time):
+      real time           0.45 seconds
+      cpu time            0.24 seconds
+3                                The SAS System    11:58 Friday, January 8, 2016
+
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           3.14 seconds
+      cpu time            0.41 seconds
+      

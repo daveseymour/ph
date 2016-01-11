@@ -1,9 +1,9 @@
 options linesize=80;
 
-/* adding 300 to a datetime16 format variable increments in 5 minutes ahead */
+/* adding 300 to a datetime16 format variable increments it 5 minutes ahead */
 
 data raw;
-    infile '~/ph/ph.dat';
+    infile '~/ph/ph_old.dat';
     input day animal silage dmi time rumenph reticph;
     tc = time + (day-1); /* convert all observations to continuous timecourse */
 run;

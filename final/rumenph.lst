@@ -1,6 +1,6 @@
 Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
               Prediction of Rumen pH Using Predicted Reticular pH
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
                               The Mixed Procedure
 
@@ -42,84 +42,25 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                   Number of Observations Not Used         976
 
 
-                               Iteration History
+                        Covariance Parameter Estimates
  
-          Iteration    Evaluations    -2 Res Log Like       Criterion
+                                            Standard         Z
+     Cov Parm     Subject       Estimate       Error     Value        Pr Z
 
-                  0              1     -9857.60325768                
-                  1              2    -18952.41546850      0.00035634
-                  2              1    -19110.17543989      0.00032296
-                  3              1    -19172.60818138      0.00067500
-                  4              1    -19206.92984716      0.00162879
-                  5              1    -19231.63672687      0.00215771
-                  6              1    -19248.08530407      0.00814037
-                  7              1    -19320.34271663      0.00110882
-                  8              1    -19406.50119802      0.01490597
-                  9              1    -19511.15332403      0.01293614
-                 10              1    -19588.59197545      0.09556464
+     UN(1,1)      animal*day      5.1844      1.0172      5.10      <.0001
+     UN(2,1)      animal*day     -2.4710      4.0956     -0.60      0.5463
+     UN(2,2)      animal*day      141.21     27.9771      5.05      <.0001
+     UN(3,1)      animal*day      1.6978      4.0771      0.42      0.6771
+     UN(3,2)      animal*day     -140.78     27.9215     -5.04      <.0001
+     UN(3,3)      animal*day      140.47     27.8795      5.04      <.0001
+     UN(4,1)      animal*day     -0.1021     0.09032     -1.13      0.2581
+     UN(4,2)      animal*day      1.9623      0.5482      3.58      0.0003
+     UN(4,3)      animal*day     -1.9456      0.5460     -3.56      0.0004
+     UN(4,4)      animal*day     0.07281     0.01570      4.64      <.0001
+     UN(5,1)      animal*day    -0.03452     0.04207     -0.82      0.4119
 Predicting the timecourse of ruminal pH from continuous reticular pH measureme 2
               Prediction of Rumen pH Using Predicted Reticular pH
-                                                 08:08 Friday, November 27, 2015
-
-                              The Mixed Procedure
-
-                               Iteration History
- 
-          Iteration    Evaluations    -2 Res Log Like       Criterion
-
-                 11              1    -19623.51259609      0.02324029
-                 12              1    -19643.63049935      0.02033921
-                 13              1    -19685.09184910      0.06077954
-                 14              1    -19785.43311383      0.26187340
-                 15              1    -19847.74481343      0.03647062
-                 16              1    -19892.75305046      0.02481441
-                 17              1    -19930.43867654      0.01643840
-                 18              1    -19936.77963282      0.03065164
-                 19              1    -19987.57111972      1.08676295
-                 20              1    -20062.99026141      0.38876785
-                 21              1    -20105.62999773      0.44919199
-                 22              1    -20151.36504717      0.70652912
-                 23              1    -20190.15570029     17.28161887
-                 24              1    -20210.84512478     15.71525132
-                 25              1    -20246.75733337     24.87572334
-                 26              1    -20286.46519493     42.07351777
-                 27              1    -20352.54264323    402.05356694
-                 28              1    -20471.41736577    1209.5474611
-                 29              3    -20512.45786078      0.00677479
-                 30              1    -20625.30178714      0.00531207
-                 31              1    -20803.62757570      0.00337228
-                 32              1    -20916.88296859      0.00205941
-                 33              1    -20985.82529761      0.00118221
-                 34              1    -21025.16431010      0.00062272
-                 35              1    -21045.67442375      0.00028337
-                 36              1    -21054.80883663      0.00009577
-                 37              1    -21057.76658658      0.00001741
-                 38              1    -21058.26599408      0.00000084
-                 39              1    -21058.28829708      0.00000000
-
-
-                           Convergence criteria met.                    
-
-
-                        Covariance Parameter Estimates
- 
-                                            Standard         Z
-     Cov Parm     Subject       Estimate       Error     Value        Pr Z
-
-     UN(1,1)      animal*day      5.1843      1.0172      5.10      <.0001
-     UN(2,1)      animal*day     -2.4682      4.0901     -0.60      0.5462
-     UN(2,2)      animal*day      141.02     27.9423      5.05      <.0001
-     UN(3,1)      animal*day      1.6951      4.0717      0.42      0.6772
-     UN(3,2)      animal*day     -140.59     27.8868     -5.04      <.0001
-     UN(3,3)      animal*day      140.28     27.8448      5.04      <.0001
-     UN(4,1)      animal*day     -0.1021     0.09028     -1.13      0.2581
-     UN(4,2)      animal*day      1.9598      0.5475      3.58      0.0003
-     UN(4,3)      animal*day     -1.9431      0.5453     -3.56      0.0004
-     UN(4,4)      animal*day     0.07278     0.01569      4.64      <.0001
-     UN(5,1)      animal*day    -0.03452     0.04206     -0.82      0.4118
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 3
-              Prediction of Rumen pH Using Predicted Reticular pH
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
                               The Mixed Procedure
 
@@ -128,14 +69,14 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                             Standard         Z
      Cov Parm     Subject       Estimate       Error     Value        Pr Z
 
-     UN(5,2)      animal*day     -0.1490      0.2627     -0.57      0.5706
-     UN(5,3)      animal*day      0.1543      0.2620      0.59      0.5558
-     UN(5,4)      animal*day    -0.00009    0.005941     -0.02      0.9874
-     UN(5,5)      animal*day    0.008963    0.003559      2.52      0.0059
+     UN(5,2)      animal*day     -0.1491      0.2630     -0.57      0.5709
+     UN(5,3)      animal*day      0.1544      0.2623      0.59      0.5561
+     UN(5,4)      animal*day    -0.00010    0.005944     -0.02      0.9870
+     UN(5,5)      animal*day    0.008964    0.003559      2.52      0.0059
      UN(6,1)      animal*day     0.01569     0.05040      0.31      0.7556
-     UN(6,2)      animal*day     0.06186      0.3004      0.21      0.8368
-     UN(6,3)      animal*day    -0.06350      0.2995     -0.21      0.8321
-     UN(6,4)      animal*day     0.01040    0.007010      1.48      0.1378
+     UN(6,2)      animal*day     0.06193      0.3008      0.21      0.8369
+     UN(6,3)      animal*day    -0.06356      0.2999     -0.21      0.8322
+     UN(6,4)      animal*day     0.01041    0.007014      1.48      0.1379
      UN(6,5)      animal*day    0.004574    0.003126      1.46      0.1434
      UN(6,6)      animal*day     0.01854    0.005399      3.43      0.0003
      Residual                    0.01502    0.000168     89.30      <.0001
@@ -143,8 +84,8 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -21058.3
-                     AIC (smaller is better)      -21014.3
+                     -2 Res Log Likelihood        -21058.2
+                     AIC (smaller is better)      -21014.2
                      AICC (smaller is better)     -21014.2
                      BIC (smaller is better)      -20969.3
 
@@ -153,7 +94,14 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      11200.69          <.0001
+                          21      11200.64          <.0001
+
+
+                              Information Criteria
+ 
+  Neg2LogLike    Parms        AIC       AICC       HQIC        BIC       CAIC
+
+       -21058       22     -21014     -21014     -20997     -20969     -20947
 
 
                            Solution for Fixed Effects
@@ -161,39 +109,44 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                       Standard
    Effect       silage    Estimate       Error      DF    t Value    Pr > |t|
 
-   Intercept                1.0210      0.3059      52       3.34      0.0016
+   Intercept                1.0211      0.3059      52       3.34      0.0016
    reticph                  0.1542     0.01225    16E3      12.59      <.0001
    lag1p                    0.7001     0.04707      56      14.87      <.0001
-   lag2r                    0.2318     0.03167      56       7.32      <.0001
+   lag2r                    0.2318     0.03168      56       7.32      <.0001
    lag7r                    0.1041     0.01849      56       5.63      <.0001
    lag9r                    0.1229     0.02205      56       5.57      <.0001
    silage       12         -0.3003     0.04700    16E3      -6.39      <.0001
    silage       20         -0.2344     0.04352    16E3      -5.39      <.0001
    silage       30         -0.2200     0.04349    16E3      -5.06      <.0001
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 3
+              Prediction of Rumen pH Using Predicted Reticular pH
+                                                 09:01 Thursday, January 7, 2016
+
+                              The Mixed Procedure
+
+                           Solution for Fixed Effects
+ 
+                                      Standard
+   Effect       silage    Estimate       Error      DF    t Value    Pr > |t|
+
    silage       40         -0.1790     0.04338    16E3      -4.13      <.0001
    silage       50               0           .       .        .         .    
 
-
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 4
-              Prediction of Rumen pH Using Predicted Reticular pH
-                                                 08:08 Friday, November 27, 2015
-
-                              The Mixed Procedure
 
                          Type 3 Tests of Fixed Effects
  
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    16E3     158.54    <.0001
-                 lag1p           1      56     221.21    <.0001
-                 lag2r           1      56      53.58    <.0001
+                 reticph         1    16E3     158.53    <.0001
+                 lag1p           1      56     221.20    <.0001
+                 lag2r           1      56      53.57    <.0001
                  lag7r           1      56      31.68    <.0001
                  lag9r           1      56      31.07    <.0001
                  silage          4    16E3      12.61    <.0001
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 5
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 4
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
                            The SURVEYSELECT Procedure
 
@@ -208,9 +161,9 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Number of Replicates             10
                       Total Sample Size               520
                       Output Data Set               TRAIN
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 6
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 5
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=1 ---------------------------
 
@@ -258,19 +211,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     17.1615
-                      UN(2,1)      animal*day      3.5818
-                      UN(2,2)      animal*day     12.9742
-                      UN(3,1)      animal*day     -4.1662
-                      UN(3,2)      animal*day     -0.2466
-                      UN(3,3)      animal*day     14.1853
+                      UN(1,1)      animal*day     17.1620
+                      UN(2,1)      animal*day      3.5814
+                      UN(2,2)      animal*day     12.9746
+                      UN(3,1)      animal*day     -4.1658
+                      UN(3,2)      animal*day     -0.2465
+                      UN(3,3)      animal*day     14.1855
                       UN(4,1)      animal*day    -0.09487
-                      UN(4,2)      animal*day    -0.06223
-                      UN(4,3)      animal*day     0.07698
-                      UN(4,4)      animal*day     13.3164
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 7
+                      UN(4,2)      animal*day    -0.06228
+                      UN(4,3)      animal*day     0.07704
+                      UN(4,4)      animal*day     13.3168
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 6
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=1 ---------------------------
 
@@ -281,32 +234,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09505
-                      UN(5,2)      animal*day    -0.07052
-                      UN(5,3)      animal*day     0.08463
+                      UN(5,2)      animal*day    -0.07051
+                      UN(5,3)      animal*day     0.08461
                       UN(5,4)      animal*day    0.002791
-                      UN(5,5)      animal*day     13.2909
+                      UN(5,5)      animal*day     13.2913
                       UN(6,1)      animal*day    -0.05068
                       UN(6,2)      animal*day     -0.1583
                       UN(6,3)      animal*day      0.1660
                       UN(6,4)      animal*day    0.009908
                       UN(6,5)      animal*day    0.005410
-                      UN(6,6)      animal*day     13.3017
+                      UN(6,6)      animal*day     13.3021
                       Residual                   0.003453
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -53376.6
-                     AIC (smaller is better)      -53332.6
-                     AICC (smaller is better)     -53332.5
-                     BIC (smaller is better)      -53287.7
+                     -2 Res Log Likelihood        -53376.2
+                     AIC (smaller is better)      -53332.2
+                     AICC (smaller is better)     -53332.1
+                     BIC (smaller is better)      -53287.2
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      35061.99          <.0001
+                          21      35061.61          <.0001
 
 
                           Solution for Fixed Effects
@@ -314,20 +267,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.6421      1.1832      47       3.92      0.0003
+ Intercept                   4.6416      1.1832      47       3.92      0.0003
  reticph                     0.1537    0.006124    15E3      25.09      <.0001
- lag1p                       5.3589      0.5386      51       9.95      <.0001
- lag2r                       0.1375      0.5061      51       0.27      0.7870
+ lag1p                       5.3590      0.5386      51       9.95      <.0001
+ lag2r                       0.1374      0.5061      51       0.27      0.7870
  lag7r                      0.08246      0.5056      51       0.16      0.8711
- lag9r                      0.06395      0.5058      51       0.13      0.8999
- silage          12         -2.6020      1.7566    15E3      -1.48      0.1386
- silage          20         -1.3903      1.7102    15E3      -0.81      0.4163
- silage          30         -4.0184      1.6661    15E3      -2.41      0.0159
- silage          40         -3.6561      1.6581    15E3      -2.20      0.0275
+ lag9r                      0.06394      0.5058      51       0.13      0.8999
+ silage          12         -2.6016      1.7567    15E3      -1.48      0.1386
+ silage          20         -1.3900      1.7103    15E3      -0.81      0.4164
+ silage          30         -4.0180      1.6661    15E3      -2.41      0.0159
+ silage          40         -3.6555      1.6582    15E3      -2.20      0.0275
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 8
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 7
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=1 ---------------------------
 
@@ -338,15 +291,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     629.58    <.0001
+                 reticph         1    15E3     629.55    <.0001
                  lag1p           1      51      98.99    <.0001
                  lag2r           1      51       0.07    0.7870
                  lag7r           1      51       0.03    0.8711
                  lag9r           1      51       0.02    0.8999
-                 silage          4    15E3       1.97    0.0963
-Predicting the timecourse of ruminal pH from continuous reticular pH measureme 9
+                 silage          4    15E3       1.97    0.0964
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 8
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=2 ---------------------------
 
@@ -394,19 +347,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     16.2080
-                      UN(2,1)      animal*day      3.4485
-                      UN(2,2)      animal*day     11.9761
-                      UN(3,1)      animal*day     -4.0467
-                      UN(3,2)      animal*day     -0.2741
-                      UN(3,3)      animal*day     13.1453
+                      UN(1,1)      animal*day     16.2084
+                      UN(2,1)      animal*day      3.4480
+                      UN(2,2)      animal*day     11.9764
+                      UN(3,1)      animal*day     -4.0463
+                      UN(3,2)      animal*day     -0.2740
+                      UN(3,3)      animal*day     13.1455
                       UN(4,1)      animal*day    -0.09264
-                      UN(4,2)      animal*day    -0.07328
-                      UN(4,3)      animal*day     0.08796
-                      UN(4,4)      animal*day     12.2660
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 10
+                      UN(4,2)      animal*day    -0.07333
+                      UN(4,3)      animal*day     0.08800
+                      UN(4,4)      animal*day     12.2664
+Predicting the timecourse of ruminal pH from continuous reticular pH measureme 9
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=2 ---------------------------
 
@@ -417,32 +370,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09977
-                      UN(5,2)      animal*day    -0.07579
-                      UN(5,3)      animal*day     0.09057
+                      UN(5,2)      animal*day    -0.07578
+                      UN(5,3)      animal*day     0.09055
                       UN(5,4)      animal*day    0.002072
-                      UN(5,5)      animal*day     12.2435
+                      UN(5,5)      animal*day     12.2439
                       UN(6,1)      animal*day    -0.05426
                       UN(6,2)      animal*day     -0.1626
                       UN(6,3)      animal*day      0.1709
                       UN(6,4)      animal*day     0.01042
                       UN(6,5)      animal*day    0.005374
-                      UN(6,6)      animal*day     12.2550
+                      UN(6,6)      animal*day     12.2554
                       Residual                   0.003181
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -54513.1
-                     AIC (smaller is better)      -54469.1
-                     AICC (smaller is better)     -54469.0
-                     BIC (smaller is better)      -54424.1
+                     -2 Res Log Likelihood        -54512.6
+                     AIC (smaller is better)      -54468.6
+                     AICC (smaller is better)     -54468.6
+                     BIC (smaller is better)      -54423.7
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      36190.22          <.0001
+                          21      36189.86          <.0001
 
 
                           Solution for Fixed Effects
@@ -450,20 +403,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.5405      1.1457      47       3.96      0.0003
+ Intercept                   4.5400      1.1458      47       3.96      0.0003
  reticph                     0.1534    0.005890    15E3      26.04      <.0001
  lag1p                       4.8216      0.5199      51       9.27      <.0001
  lag2r                       0.1396      0.4857      51       0.29      0.7750
  lag7r                      0.08227      0.4853      51       0.17      0.8660
- lag9r                      0.07051      0.4855      51       0.15      0.8851
- silage          12         -2.8268      1.7588    15E3      -1.61      0.1080
- silage          20         -1.8285      1.6583    15E3      -1.10      0.2702
- silage          30         -3.5267      1.5796    15E3      -2.23      0.0256
- silage          40         -3.4433      1.6042    15E3      -2.15      0.0319
+ lag9r                      0.07050      0.4855      51       0.15      0.8851
+ silage          12         -2.8264      1.7589    15E3      -1.61      0.1081
+ silage          20         -1.8284      1.6583    15E3      -1.10      0.2702
+ silage          30         -3.5263      1.5797    15E3      -2.23      0.0256
+ silage          40         -3.4427      1.6043    15E3      -2.15      0.0319
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 11
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 10
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=2 ---------------------------
 
@@ -474,15 +427,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     678.17    <.0001
+                 reticph         1    15E3     678.14    <.0001
                  lag1p           1      51      86.00    <.0001
                  lag2r           1      51       0.08    0.7750
                  lag7r           1      51       0.03    0.8660
                  lag9r           1      51       0.02    0.8851
-                 silage          4    15E3       1.67    0.1545
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 12
+                 silage          4    15E3       1.67    0.1546
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 11
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=3 ---------------------------
 
@@ -530,19 +483,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     16.8327
-                      UN(2,1)      animal*day      3.6862
-                      UN(2,2)      animal*day     13.0465
-                      UN(3,1)      animal*day     -4.2165
-                      UN(3,2)      animal*day     -0.2721
-                      UN(3,3)      animal*day     14.2716
+                      UN(1,1)      animal*day     16.8331
+                      UN(2,1)      animal*day      3.6858
+                      UN(2,2)      animal*day     13.0469
+                      UN(3,1)      animal*day     -4.2161
+                      UN(3,2)      animal*day     -0.2720
+                      UN(3,3)      animal*day     14.2718
                       UN(4,1)      animal*day    -0.07228
-                      UN(4,2)      animal*day    -0.08200
-                      UN(4,3)      animal*day     0.09352
-                      UN(4,4)      animal*day     13.3734
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 13
+                      UN(4,2)      animal*day    -0.08205
+                      UN(4,3)      animal*day     0.09356
+                      UN(4,4)      animal*day     13.3738
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 12
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=3 ---------------------------
 
@@ -553,32 +506,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.08574
-                      UN(5,2)      animal*day    -0.07890
-                      UN(5,3)      animal*day     0.09168
-                      UN(5,4)      animal*day    0.002548
-                      UN(5,5)      animal*day     13.3484
-                      UN(6,1)      animal*day    -0.02870
-                      UN(6,2)      animal*day     -0.1734
+                      UN(5,2)      animal*day    -0.07889
+                      UN(5,3)      animal*day     0.09166
+                      UN(5,4)      animal*day    0.002547
+                      UN(5,5)      animal*day     13.3489
+                      UN(6,1)      animal*day    -0.02871
+                      UN(6,2)      animal*day     -0.1735
                       UN(6,3)      animal*day      0.1780
                       UN(6,4)      animal*day    0.008395
                       UN(6,5)      animal*day    0.005099
-                      UN(6,6)      animal*day     13.3581
+                      UN(6,6)      animal*day     13.3585
                       Residual                   0.003468
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -53339.8
-                     AIC (smaller is better)      -53295.8
-                     AICC (smaller is better)     -53295.7
-                     BIC (smaller is better)      -53250.8
+                     -2 Res Log Likelihood        -53339.3
+                     AIC (smaller is better)      -53295.3
+                     AICC (smaller is better)     -53295.2
+                     BIC (smaller is better)      -53250.3
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      32835.93          <.0001
+                          21      32835.56          <.0001
 
 
                           Solution for Fixed Effects
@@ -586,20 +539,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.1283      1.2901      47       3.20      0.0025
+ Intercept                   4.1278      1.2901      47       3.20      0.0025
  reticph                     0.1536    0.006142    15E3      25.01      <.0001
- lag1p                       5.1483      0.5418      51       9.50      <.0001
- lag2r                       0.1431      0.5072      51       0.28      0.7789
- lag7r                      0.08412      0.5067      51       0.17      0.8688
- lag9r                      0.06829      0.5068      51       0.13      0.8934
- silage          12         -1.9938      1.8185    15E3      -1.10      0.2729
- silage          20         -1.2007      1.7782    15E3      -0.68      0.4995
- silage          30         -3.2092      1.7017    15E3      -1.89      0.0593
- silage          40         -3.0439      1.6930    15E3      -1.80      0.0722
+ lag1p                       5.1484      0.5418      51       9.50      <.0001
+ lag2r                       0.1431      0.5072      51       0.28      0.7790
+ lag7r                      0.08413      0.5067      51       0.17      0.8688
+ lag9r                      0.06828      0.5069      51       0.13      0.8934
+ silage          12         -1.9935      1.8185    15E3      -1.10      0.2730
+ silage          20         -1.2005      1.7782    15E3      -0.68      0.4996
+ silage          30         -3.2088      1.7018    15E3      -1.89      0.0594
+ silage          40         -3.0434      1.6931    15E3      -1.80      0.0723
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 14
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 13
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=3 ---------------------------
 
@@ -610,15 +563,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     625.56    <.0001
+                 reticph         1    15E3     625.53    <.0001
                  lag1p           1      51      90.30    <.0001
-                 lag2r           1      51       0.08    0.7789
+                 lag2r           1      51       0.08    0.7790
                  lag7r           1      51       0.03    0.8688
                  lag9r           1      51       0.02    0.8934
-                 silage          4    15E3       1.23    0.2965
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 15
+                 silage          4    15E3       1.23    0.2967
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 14
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=4 ---------------------------
 
@@ -666,19 +619,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     16.8180
-                      UN(2,1)      animal*day      3.6002
-                      UN(2,2)      animal*day     12.6056
-                      UN(3,1)      animal*day     -4.1893
-                      UN(3,2)      animal*day     -0.2527
-                      UN(3,3)      animal*day     13.8231
+                      UN(1,1)      animal*day     16.8184
+                      UN(2,1)      animal*day      3.5997
+                      UN(2,2)      animal*day     12.6059
+                      UN(3,1)      animal*day     -4.1889
+                      UN(3,2)      animal*day     -0.2526
+                      UN(3,3)      animal*day     13.8233
                       UN(4,1)      animal*day    -0.09025
-                      UN(4,2)      animal*day    -0.05822
-                      UN(4,3)      animal*day     0.07231
-                      UN(4,4)      animal*day     12.9440
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 16
+                      UN(4,2)      animal*day    -0.05827
+                      UN(4,3)      animal*day     0.07236
+                      UN(4,4)      animal*day     12.9443
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 15
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=4 ---------------------------
 
@@ -689,32 +642,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09946
-                      UN(5,2)      animal*day    -0.07016
-                      UN(5,3)      animal*day     0.08491
+                      UN(5,2)      animal*day    -0.07015
+                      UN(5,3)      animal*day     0.08490
                       UN(5,4)      animal*day    0.003178
-                      UN(5,5)      animal*day     12.9194
+                      UN(5,5)      animal*day     12.9197
                       UN(6,1)      animal*day    -0.05277
                       UN(6,2)      animal*day     -0.1280
-                      UN(6,3)      animal*day      0.1359
+                      UN(6,3)      animal*day      0.1360
                       UN(6,4)      animal*day    0.009739
                       UN(6,5)      animal*day    0.005196
-                      UN(6,6)      animal*day     12.9275
+                      UN(6,6)      animal*day     12.9279
                       Residual                   0.003357
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -53813.3
-                     AIC (smaller is better)      -53769.3
-                     AICC (smaller is better)     -53769.2
-                     BIC (smaller is better)      -53724.3
+                     -2 Res Log Likelihood        -53812.9
+                     AIC (smaller is better)      -53768.9
+                     AICC (smaller is better)     -53768.8
+                     BIC (smaller is better)      -53723.9
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      35692.04          <.0001
+                          21      35691.69          <.0001
 
 
                           Solution for Fixed Effects
@@ -722,20 +675,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   5.1668      1.2238      47       4.22      0.0001
+ Intercept                   5.1663      1.2239      47       4.22      0.0001
  reticph                     0.1535    0.006021    15E3      25.50      <.0001
- lag1p                       5.1780      0.5329      51       9.72      <.0001
- lag2r                       0.1404      0.4990      51       0.28      0.7796
- lag7r                      0.08623      0.4985      51       0.17      0.8634
- lag9r                      0.08548      0.4986      51       0.17      0.8646
- silage          12         -2.1309      1.9018    15E3      -1.12      0.2625
- silage          20         -2.7062      1.6870    15E3      -1.60      0.1087
- silage          30         -4.2470      1.6512    15E3      -2.57      0.0101
- silage          40         -4.1156      1.6423    15E3      -2.51      0.0122
+ lag1p                       5.1781      0.5329      51       9.72      <.0001
+ lag2r                       0.1403      0.4990      51       0.28      0.7796
+ lag7r                      0.08623      0.4985      51       0.17      0.8633
+ lag9r                      0.08547      0.4986      51       0.17      0.8646
+ silage          12         -2.1306      1.9018    15E3      -1.12      0.2626
+ silage          20         -2.7059      1.6871    15E3      -1.60      0.1088
+ silage          30         -4.2466      1.6513    15E3      -2.57      0.0101
+ silage          40         -4.1150      1.6423    15E3      -2.51      0.0122
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 17
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 16
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=4 ---------------------------
 
@@ -746,15 +699,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     650.13    <.0001
+                 reticph         1    15E3     650.11    <.0001
                  lag1p           1      51      94.42    <.0001
                  lag2r           1      51       0.08    0.7796
-                 lag7r           1      51       0.03    0.8634
+                 lag7r           1      51       0.03    0.8633
                  lag9r           1      51       0.03    0.8646
-                 silage          4    15E3       2.15    0.0714
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 18
+                 silage          4    15E3       2.15    0.0715
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 17
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=5 ---------------------------
 
@@ -802,19 +755,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     17.5986
-                      UN(2,1)      animal*day      3.7027
-                      UN(2,2)      animal*day     13.4442
-                      UN(3,1)      animal*day     -4.2774
-                      UN(3,2)      animal*day     -0.2316
-                      UN(3,3)      animal*day     14.6924
+                      UN(1,1)      animal*day     17.5990
+                      UN(2,1)      animal*day      3.7023
+                      UN(2,2)      animal*day     13.4446
+                      UN(3,1)      animal*day     -4.2769
+                      UN(3,2)      animal*day     -0.2315
+                      UN(3,3)      animal*day     14.6926
                       UN(4,1)      animal*day    -0.09040
-                      UN(4,2)      animal*day    -0.09910
+                      UN(4,2)      animal*day    -0.09915
                       UN(4,3)      animal*day      0.1132
-                      UN(4,4)      animal*day     13.8205
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 19
+                      UN(4,4)      animal*day     13.8209
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 18
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=5 ---------------------------
 
@@ -825,32 +778,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09478
-                      UN(5,2)      animal*day    -0.07838
-                      UN(5,3)      animal*day     0.09247
+                      UN(5,2)      animal*day    -0.07837
+                      UN(5,3)      animal*day     0.09246
                       UN(5,4)      animal*day    0.003043
-                      UN(5,5)      animal*day     13.7952
+                      UN(5,5)      animal*day     13.7956
                       UN(6,1)      animal*day    -0.05128
                       UN(6,2)      animal*day     -0.1836
-                      UN(6,3)      animal*day      0.1913
+                      UN(6,3)      animal*day      0.1914
                       UN(6,4)      animal*day    0.009308
                       UN(6,5)      animal*day    0.005770
-                      UN(6,6)      animal*day     13.8056
+                      UN(6,6)      animal*day     13.8060
                       Residual                   0.003584
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -52860.6
-                     AIC (smaller is better)      -52816.6
-                     AICC (smaller is better)     -52816.5
-                     BIC (smaller is better)      -52771.6
+                     -2 Res Log Likelihood        -52860.1
+                     AIC (smaller is better)      -52816.1
+                     AICC (smaller is better)     -52816.1
+                     BIC (smaller is better)      -52771.2
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      33582.51          <.0001
+                          21      33582.16          <.0001
 
 
                           Solution for Fixed Effects
@@ -858,20 +811,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.6044      1.1982      47       3.84      0.0004
+ Intercept                   4.6039      1.1982      47       3.84      0.0004
  reticph                     0.1534    0.006249    15E3      24.55      <.0001
- lag1p                       5.4830      0.5497      51       9.97      <.0001
+ lag1p                       5.4831      0.5497      51       9.97      <.0001
  lag2r                       0.1282      0.5156      51       0.25      0.8046
  lag7r                      0.08211      0.5151      51       0.16      0.8740
- lag9r                      0.05643      0.5153      51       0.11      0.9132
- silage          12         -1.2863      1.9116    15E3      -0.67      0.5010
- silage          20         -2.7817      1.6570    15E3      -1.68      0.0932
- silage          30         -3.9730      1.6896    15E3      -2.35      0.0187
- silage          40         -3.1056      1.6792    15E3      -1.85      0.0644
+ lag9r                      0.05642      0.5153      51       0.11      0.9132
+ silage          12         -1.2861      1.9117    15E3      -0.67      0.5011
+ silage          20         -2.7815      1.6571    15E3      -1.68      0.0933
+ silage          30         -3.9725      1.6896    15E3      -2.35      0.0187
+ silage          40         -3.1051      1.6792    15E3      -1.85      0.0645
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 20
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 19
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=5 ---------------------------
 
@@ -882,15 +835,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     602.73    <.0001
+                 reticph         1    15E3     602.71    <.0001
                  lag1p           1      51      99.48    <.0001
                  lag2r           1      51       0.06    0.8046
                  lag7r           1      51       0.03    0.8740
                  lag9r           1      51       0.01    0.9132
-                 silage          4    15E3       1.69    0.1481
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 21
+                 silage          4    15E3       1.69    0.1483
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 20
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=6 ---------------------------
 
@@ -938,19 +891,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     17.2299
-                      UN(2,1)      animal*day      3.9111
-                      UN(2,2)      animal*day     13.2667
-                      UN(3,1)      animal*day     -4.4573
-                      UN(3,2)      animal*day     -0.2434
-                      UN(3,3)      animal*day     14.5664
+                      UN(1,1)      animal*day     17.2303
+                      UN(2,1)      animal*day      3.9106
+                      UN(2,2)      animal*day     13.2670
+                      UN(3,1)      animal*day     -4.4569
+                      UN(3,2)      animal*day     -0.2433
+                      UN(3,3)      animal*day     14.5667
                       UN(4,1)      animal*day    -0.07479
-                      UN(4,2)      animal*day    -0.08182
-                      UN(4,3)      animal*day     0.09365
-                      UN(4,4)      animal*day     13.6585
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 22
+                      UN(4,2)      animal*day    -0.08187
+                      UN(4,3)      animal*day     0.09370
+                      UN(4,4)      animal*day     13.6589
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 21
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=6 ---------------------------
 
@@ -961,32 +914,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09305
-                      UN(5,2)      animal*day    -0.08139
-                      UN(5,3)      animal*day     0.09525
+                      UN(5,2)      animal*day    -0.08138
+                      UN(5,3)      animal*day     0.09524
                       UN(5,4)      animal*day    0.002973
-                      UN(5,5)      animal*day     13.6337
-                      UN(6,1)      animal*day    -0.02793
+                      UN(5,5)      animal*day     13.6341
+                      UN(6,1)      animal*day    -0.02794
                       UN(6,2)      animal*day     -0.1754
                       UN(6,3)      animal*day      0.1798
                       UN(6,4)      animal*day    0.008101
                       UN(6,5)      animal*day    0.005325
-                      UN(6,6)      animal*day     13.6431
+                      UN(6,6)      animal*day     13.6435
                       Residual                   0.003542
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -52983.9
-                     AIC (smaller is better)      -52939.9
-                     AICC (smaller is better)     -52939.9
-                     BIC (smaller is better)      -52895.0
+                     -2 Res Log Likelihood        -52983.5
+                     AIC (smaller is better)      -52939.5
+                     AICC (smaller is better)     -52939.4
+                     BIC (smaller is better)      -52894.5
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      33159.44          <.0001
+                          21      33159.09          <.0001
 
 
                           Solution for Fixed Effects
@@ -994,20 +947,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.5929      1.2995      47       3.53      0.0009
+ Intercept                   4.5925      1.2996      47       3.53      0.0009
  reticph                     0.1534    0.006203    15E3      24.73      <.0001
- lag1p                       5.1874      0.5469      51       9.49      <.0001
- lag2r                       0.1313      0.5125      51       0.26      0.7989
- lag7r                      0.08216      0.5121      51       0.16      0.8732
- lag9r                      0.06226      0.5122      51       0.12      0.9037
- silage          12         -1.7981      1.8860    15E3      -0.95      0.3404
- silage          20         -2.3203      1.7493    15E3      -1.33      0.1847
- silage          30         -3.6395      1.7135    15E3      -2.12      0.0337
- silage          40         -3.5479      1.7040    15E3      -2.08      0.0374
+ lag1p                       5.1875      0.5469      51       9.49      <.0001
+ lag2r                       0.1313      0.5126      51       0.26      0.7989
+ lag7r                      0.08217      0.5121      51       0.16      0.8732
+ lag9r                      0.06225      0.5122      51       0.12      0.9037
+ silage          12         -1.7979      1.8861    15E3      -0.95      0.3405
+ silage          20         -2.3200      1.7494    15E3      -1.33      0.1848
+ silage          30         -3.6391      1.7135    15E3      -2.12      0.0337
+ silage          40         -3.5473      1.7041    15E3      -2.08      0.0374
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 23
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 22
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=6 ---------------------------
 
@@ -1018,15 +971,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     611.47    <.0001
+                 reticph         1    15E3     611.44    <.0001
                  lag1p           1      51      89.98    <.0001
                  lag2r           1      51       0.07    0.7989
                  lag7r           1      51       0.03    0.8732
                  lag9r           1      51       0.01    0.9037
-                 silage          4    15E3       1.48    0.2048
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 24
+                 silage          4    15E3       1.48    0.2050
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 23
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=7 ---------------------------
 
@@ -1074,19 +1027,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     13.7083
-                      UN(2,1)      animal*day      4.2255
-                      UN(2,2)      animal*day      9.7883
-                      UN(3,1)      animal*day     -4.7385
-                      UN(3,2)      animal*day     -0.1508
-                      UN(3,3)      animal*day     11.1909
+                      UN(1,1)      animal*day     13.7086
+                      UN(2,1)      animal*day      4.2250
+                      UN(2,2)      animal*day      9.7887
+                      UN(3,1)      animal*day     -4.7380
+                      UN(3,2)      animal*day     -0.1507
+                      UN(3,3)      animal*day     11.1911
                       UN(4,1)      animal*day     -0.1313
-                      UN(4,2)      animal*day    0.009915
-                      UN(4,3)      animal*day     0.01061
-                      UN(4,4)      animal*day     10.3264
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 25
+                      UN(4,2)      animal*day    0.009847
+                      UN(4,3)      animal*day     0.01068
+                      UN(4,4)      animal*day     10.3268
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 24
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=7 ---------------------------
 
@@ -1097,32 +1050,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day     -0.1072
-                      UN(5,2)      animal*day    -0.06852
-                      UN(5,3)      animal*day     0.08450
-                      UN(5,4)      animal*day    0.001466
-                      UN(5,5)      animal*day     10.3031
+                      UN(5,2)      animal*day    -0.06851
+                      UN(5,3)      animal*day     0.08449
+                      UN(5,4)      animal*day    0.001465
+                      UN(5,5)      animal*day     10.3035
                       UN(6,1)      animal*day    -0.08472
-                      UN(6,2)      animal*day    -0.08970
-                      UN(6,3)      animal*day      0.1026
+                      UN(6,2)      animal*day    -0.08974
+                      UN(6,3)      animal*day      0.1027
                       UN(6,4)      animal*day    0.006079
                       UN(6,5)      animal*day    0.004338
-                      UN(6,6)      animal*day     10.3095
+                      UN(6,6)      animal*day     10.3099
                       Residual                   0.002677
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -56752.7
-                     AIC (smaller is better)      -56708.7
-                     AICC (smaller is better)     -56708.6
-                     BIC (smaller is better)      -56663.8
+                     -2 Res Log Likelihood        -56752.2
+                     AIC (smaller is better)      -56708.2
+                     AICC (smaller is better)     -56708.2
+                     BIC (smaller is better)      -56663.3
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      36877.96          <.0001
+                          21      36877.60          <.0001
 
 
                           Solution for Fixed Effects
@@ -1130,20 +1083,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   5.7006      0.9424      47       6.05      <.0001
+ Intercept                   5.7000      0.9424      47       6.05      <.0001
  reticph                     0.1534    0.005564    15E3      27.57      <.0001
- lag1p                       4.9098      0.4799      51      10.23      <.0001
+ lag1p                       4.9099      0.4799      51      10.23      <.0001
  lag2r                       0.1690      0.4457      51       0.38      0.7061
- lag7r                      0.07943      0.4452      51       0.18      0.8591
- lag9r                      0.08376      0.4453      51       0.19      0.8515
- silage          12         -3.0986      1.4767    15E3      -2.10      0.0359
- silage          20         -1.7313      1.3573    15E3      -1.28      0.2021
- silage          30         -3.6673      1.3860    15E3      -2.65      0.0082
- silage          40         -5.7828      1.3302    15E3      -4.35      <.0001
+ lag7r                      0.07944      0.4452      51       0.18      0.8591
+ lag9r                      0.08374      0.4453      51       0.19      0.8516
+ silage          12         -3.0982      1.4767    15E3      -2.10      0.0359
+ silage          20         -1.7312      1.3574    15E3      -1.28      0.2022
+ silage          30         -3.6668      1.3861    15E3      -2.65      0.0082
+ silage          40         -5.7819      1.3303    15E3      -4.35      <.0001
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 26
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 25
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=7 ---------------------------
 
@@ -1154,15 +1107,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     760.05    <.0001
+                 reticph         1    15E3     760.01    <.0001
                  lag1p           1      51     104.68    <.0001
                  lag2r           1      51       0.14    0.7061
                  lag7r           1      51       0.03    0.8591
-                 lag9r           1      51       0.04    0.8515
-                 silage          4    15E3       5.21    0.0003
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 27
+                 lag9r           1      51       0.04    0.8516
+                 silage          4    15E3       5.20    0.0003
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 26
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=8 ---------------------------
 
@@ -1210,19 +1163,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     15.5643
-                      UN(2,1)      animal*day      3.2402
-                      UN(2,2)      animal*day     11.5551
-                      UN(3,1)      animal*day     -3.8081
-                      UN(3,2)      animal*day     -0.2592
-                      UN(3,3)      animal*day     12.6607
+                      UN(1,1)      animal*day     15.5646
+                      UN(2,1)      animal*day      3.2398
+                      UN(2,2)      animal*day     11.5554
+                      UN(3,1)      animal*day     -3.8077
+                      UN(3,2)      animal*day     -0.2590
+                      UN(3,3)      animal*day     12.6608
                       UN(4,1)      animal*day     -0.1111
-                      UN(4,2)      animal*day    -0.09974
+                      UN(4,2)      animal*day    -0.09978
                       UN(4,3)      animal*day      0.1173
-                      UN(4,4)      animal*day     11.8352
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 28
+                      UN(4,4)      animal*day     11.8356
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 27
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=8 ---------------------------
 
@@ -1233,32 +1186,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09884
-                      UN(5,2)      animal*day    -0.07000
-                      UN(5,3)      animal*day     0.08468
+                      UN(5,2)      animal*day    -0.06999
+                      UN(5,3)      animal*day     0.08467
                       UN(5,4)      animal*day    0.003674
-                      UN(5,5)      animal*day     11.8083
+                      UN(5,5)      animal*day     11.8086
                       UN(6,1)      animal*day    -0.05808
                       UN(6,2)      animal*day     -0.1853
                       UN(6,3)      animal*day      0.1942
                       UN(6,4)      animal*day     0.01011
-                      UN(6,5)      animal*day    0.005652
-                      UN(6,6)      animal*day     11.8185
+                      UN(6,5)      animal*day    0.005651
+                      UN(6,6)      animal*day     11.8188
                       Residual                   0.003068
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -55301.0
-                     AIC (smaller is better)      -55257.0
-                     AICC (smaller is better)     -55257.0
-                     BIC (smaller is better)      -55212.1
+                     -2 Res Log Likelihood        -55300.6
+                     AIC (smaller is better)      -55256.6
+                     AICC (smaller is better)     -55256.6
+                     BIC (smaller is better)      -55211.7
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      36221.85          <.0001
+                          21      36221.51          <.0001
 
 
                           Solution for Fixed Effects
@@ -1266,20 +1219,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   5.1879      1.1259      47       4.61      <.0001
+ Intercept                   5.1874      1.1260      47       4.61      <.0001
  reticph                     0.1536    0.005788    15E3      26.54      <.0001
- lag1p                       4.6718      0.5109      51       9.14      <.0001
- lag2r                       0.1307      0.4771      51       0.27      0.7852
+ lag1p                       4.6719      0.5109      51       9.14      <.0001
+ lag2r                       0.1307      0.4771      51       0.27      0.7853
  lag7r                      0.08567      0.4766      51       0.18      0.8581
- lag9r                      0.05600      0.4767      51       0.12      0.9070
- silage          12         -2.9416      1.6710    15E3      -1.76      0.0784
- silage          20         -5.0291      1.6307    15E3      -3.08      0.0020
- silage          30         -4.1636      1.5526    15E3      -2.68      0.0073
- silage          40         -4.2337      1.6161    15E3      -2.62      0.0088
+ lag9r                      0.05599      0.4767      51       0.12      0.9070
+ silage          12         -2.9413      1.6710    15E3      -1.76      0.0784
+ silage          20         -5.0287      1.6308    15E3      -3.08      0.0020
+ silage          30         -4.1631      1.5526    15E3      -2.68      0.0073
+ silage          40         -4.2332      1.6162    15E3      -2.62      0.0088
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 29
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 28
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=8 ---------------------------
 
@@ -1290,15 +1243,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     704.36    <.0001
+                 reticph         1    15E3     704.33    <.0001
                  lag1p           1      51      83.63    <.0001
-                 lag2r           1      51       0.08    0.7852
+                 lag2r           1      51       0.08    0.7853
                  lag7r           1      51       0.03    0.8581
                  lag9r           1      51       0.01    0.9070
                  silage          4    15E3       3.05    0.0160
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 30
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 29
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=9 ---------------------------
 
@@ -1346,19 +1299,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     17.9655
-                      UN(2,1)      animal*day      3.5016
-                      UN(2,2)      animal*day     13.9018
-                      UN(3,1)      animal*day     -4.0738
-                      UN(3,2)      animal*day     -0.2731
-                      UN(3,3)      animal*day     15.0816
+                      UN(1,1)      animal*day     17.9659
+                      UN(2,1)      animal*day      3.5012
+                      UN(2,2)      animal*day     13.9021
+                      UN(3,1)      animal*day     -4.0734
+                      UN(3,2)      animal*day     -0.2730
+                      UN(3,3)      animal*day     15.0818
                       UN(4,1)      animal*day    -0.09735
-                      UN(4,2)      animal*day    -0.07691
-                      UN(4,3)      animal*day     0.09234
-                      UN(4,4)      animal*day     14.2033
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 31
+                      UN(4,2)      animal*day    -0.07696
+                      UN(4,3)      animal*day     0.09239
+                      UN(4,4)      animal*day     14.2037
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 30
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=9 ---------------------------
 
@@ -1369,32 +1322,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day     -0.1003
-                      UN(5,2)      animal*day    -0.08097
-                      UN(5,3)      animal*day     0.09588
-                      UN(5,4)      animal*day    0.002633
-                      UN(5,5)      animal*day     14.1774
+                      UN(5,2)      animal*day    -0.08096
+                      UN(5,3)      animal*day     0.09586
+                      UN(5,4)      animal*day    0.002632
+                      UN(5,5)      animal*day     14.1778
                       UN(6,1)      animal*day    -0.05747
                       UN(6,2)      animal*day     -0.1731
                       UN(6,3)      animal*day      0.1820
                       UN(6,4)      animal*day    0.008996
-                      UN(6,5)      animal*day    0.005336
-                      UN(6,6)      animal*day     14.1869
+                      UN(6,5)      animal*day    0.005335
+                      UN(6,6)      animal*day     14.1873
                       Residual                   0.003684
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -52490.9
-                     AIC (smaller is better)      -52446.9
-                     AICC (smaller is better)     -52446.8
-                     BIC (smaller is better)      -52402.0
+                     -2 Res Log Likelihood        -52490.5
+                     AIC (smaller is better)      -52446.5
+                     AICC (smaller is better)     -52446.4
+                     BIC (smaller is better)      -52401.5
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      34186.96          <.0001
+                          21      34186.62          <.0001
 
 
                           Solution for Fixed Effects
@@ -1402,20 +1355,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.5243      1.2208      47       3.71      0.0006
+ Intercept                   4.5239      1.2208      47       3.71      0.0006
  reticph                     0.1535    0.006375    15E3      24.08      <.0001
  lag1p                       5.0794      0.5580      51       9.10      <.0001
- lag2r                       0.1420      0.5227      51       0.27      0.7869
- lag7r                      0.08148      0.5222      51       0.16      0.8766
- lag9r                      0.06434      0.5223      51       0.12      0.9025
- silage          12         -2.6220      1.8134    15E3      -1.45      0.1482
- silage          20         -2.6847      1.7255    15E3      -1.56      0.1197
- silage          30         -4.1087      1.7657    15E3      -2.33      0.0200
- silage          40         -2.8926      1.7131    15E3      -1.69      0.0913
+ lag2r                       0.1420      0.5227      51       0.27      0.7870
+ lag7r                      0.08149      0.5222      51       0.16      0.8766
+ lag9r                      0.06433      0.5223      51       0.12      0.9025
+ silage          12         -2.6217      1.8135    15E3      -1.45      0.1483
+ silage          20         -2.6845      1.7255    15E3      -1.56      0.1198
+ silage          30         -4.1083      1.7657    15E3      -2.33      0.0200
+ silage          40         -2.8922      1.7132    15E3      -1.69      0.0914
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 32
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 31
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=9 ---------------------------
 
@@ -1426,15 +1379,15 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     579.92    <.0001
-                 lag1p           1      51      82.87    <.0001
-                 lag2r           1      51       0.07    0.7869
+                 reticph         1    15E3     579.89    <.0001
+                 lag1p           1      51      82.88    <.0001
+                 lag2r           1      51       0.07    0.7870
                  lag7r           1      51       0.02    0.8766
                  lag9r           1      51       0.02    0.9025
-                 silage          4    15E3       1.48    0.2042
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 33
+                 silage          4    15E3       1.48    0.2043
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 32
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=10 --------------------------
 
@@ -1482,19 +1435,19 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
  
                       Cov Parm     Subject       Estimate
 
-                      UN(1,1)      animal*day     15.8060
-                      UN(2,1)      animal*day      3.5396
-                      UN(2,2)      animal*day     11.3987
-                      UN(3,1)      animal*day     -4.1579
-                      UN(3,2)      animal*day     -0.2412
-                      UN(3,3)      animal*day     12.6032
+                      UN(1,1)      animal*day     15.8064
+                      UN(2,1)      animal*day      3.5391
+                      UN(2,2)      animal*day     11.3991
+                      UN(3,1)      animal*day     -4.1575
+                      UN(3,2)      animal*day     -0.2411
+                      UN(3,3)      animal*day     12.6035
                       UN(4,1)      animal*day     -0.1032
-                      UN(4,2)      animal*day    -0.06414
-                      UN(4,3)      animal*day     0.08008
-                      UN(4,4)      animal*day     11.7380
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 34
+                      UN(4,2)      animal*day    -0.06419
+                      UN(4,3)      animal*day     0.08013
+                      UN(4,4)      animal*day     11.7384
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 33
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=10 --------------------------
 
@@ -1505,32 +1458,32 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                       Cov Parm     Subject       Estimate
 
                       UN(5,1)      animal*day    -0.09946
-                      UN(5,2)      animal*day    -0.07097
-                      UN(5,3)      animal*day     0.08581
+                      UN(5,2)      animal*day    -0.07096
+                      UN(5,3)      animal*day     0.08580
                       UN(5,4)      animal*day    0.004644
-                      UN(5,5)      animal*day     11.7144
-                      UN(6,1)      animal*day    -0.05107
+                      UN(5,5)      animal*day     11.7148
+                      UN(6,1)      animal*day    -0.05108
                       UN(6,2)      animal*day     -0.1556
-                      UN(6,3)      animal*day      0.1633
+                      UN(6,3)      animal*day      0.1634
                       UN(6,4)      animal*day    0.009714
                       UN(6,5)      animal*day    0.005215
-                      UN(6,6)      animal*day     11.7254
+                      UN(6,6)      animal*day     11.7259
                       Residual                   0.003044
 
 
                                 Fit Statistics
 
-                     -2 Res Log Likelihood        -55203.9
-                     AIC (smaller is better)      -55159.9
-                     AICC (smaller is better)     -55159.8
-                     BIC (smaller is better)      -55115.0
+                     -2 Res Log Likelihood        -55203.3
+                     AIC (smaller is better)      -55159.3
+                     AICC (smaller is better)     -55159.3
+                     BIC (smaller is better)      -55114.4
 
 
                         Null Model Likelihood Ratio Test
  
                           DF    Chi-Square      Pr > ChiSq
 
-                          21      36723.76          <.0001
+                          21      36723.27          <.0001
 
 
                           Solution for Fixed Effects
@@ -1538,20 +1491,20 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                        Standard
  Effect          silage    Estimate       Error      DF    t Value    Pr > |t|
 
- Intercept                   4.6373      1.1200      47       4.14      0.0001
+ Intercept                   4.6370      1.1200      47       4.14      0.0001
  reticph                     0.1530    0.005785    15E3      26.45      <.0001
- lag1p                       4.2383      0.5092      51       8.32      <.0001
- lag2r                       0.1661      0.4751      51       0.35      0.7281
- lag7r                      0.08179      0.4747      51       0.17      0.8639
- lag9r                      0.06921      0.4749      51       0.15      0.8847
- silage          12         -3.3337      1.7906    15E3      -1.86      0.0626
- silage          20         -2.2668      1.5840    15E3      -1.43      0.1524
- silage          30         -3.3810      1.5439    15E3      -2.19      0.0285
- silage          40         -3.5817      1.5667    15E3      -2.29      0.0223
+ lag1p                       4.2384      0.5092      51       8.32      <.0001
+ lag2r                       0.1661      0.4752      51       0.35      0.7281
+ lag7r                      0.08180      0.4747      51       0.17      0.8639
+ lag9r                      0.06920      0.4749      51       0.15      0.8847
+ silage          12         -3.3336      1.7906    15E3      -1.86      0.0627
+ silage          20         -2.2669      1.5841    15E3      -1.43      0.1524
+ silage          30         -3.3809      1.5440    15E3      -2.19      0.0286
+ silage          40         -3.5814      1.5667    15E3      -2.29      0.0223
  silage          50               0           .       .        .         .    
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 35
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 34
                     Selection of Training & Testing Datasets
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
 -------------------------- Sample Replicate Number=10 --------------------------
 
@@ -1562,17 +1515,17 @@ Predicting the timecourse of ruminal pH from continuous reticular pH measureme 1
                                Num     Den
                  Effect         DF      DF    F Value    Pr > F
 
-                 reticph         1    15E3     699.62    <.0001
+                 reticph         1    15E3     699.59    <.0001
                  lag1p           1      51      69.29    <.0001
                  lag2r           1      51       0.12    0.7281
                  lag7r           1      51       0.03    0.8639
                  lag9r           1      51       0.02    0.8847
-                 silage          4    15E3       1.77    0.1308
-Predicting the timecourse of ruminal pH from continuous reticular pH measurem 36
+                 silage          4    15E3       1.77    0.1309
+Predicting the timecourse of ruminal pH from continuous reticular pH measurem 35
                         10-Fold Cross Validation Summary
                             MAE: Mean Absolute Error
-                                                 08:08 Friday, November 27, 2015
+                                                 09:01 Thursday, January 7, 2016
 
                  Obs    _TYPE_    _FREQ_      RMSE       MAE
 
-                  1        0       14400    3.09007    30.0438
+                  1        0       14400    3.08994    30.0440

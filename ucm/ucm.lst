@@ -1,5 +1,5 @@
                                  The SAS System                                1
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
                                The UCM Procedure
 
@@ -8,7 +8,7 @@
                        Name                WORK.DATETIME
                        Time ID Variable        date_time
                                  The SAS System                                2
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -68,7 +68,7 @@
                   Non-Missing Observations Used           3456
                   Estimated Parameters                       4
                                  The SAS System                                3
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -124,7 +124,7 @@ Likelihood Optimization Algorithm Converged in 16 Iterations.
              Slope                    1          0.00        0.9984
              Cycle                    2          0.94        0.6241
                                  The SAS System                                4
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -176,7 +176,7 @@ Cycle            Stationary        56.98350     0.11026     0.90921     0.01269
                   425 24JAN14:17:18 Additive Outlier     <.0001
                   521 25JAN14:01:18 Additive Outlier     <.0001
                                  The SAS System                                5
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -236,7 +236,7 @@ Cycle            Stationary        56.98350     0.11026     0.90921     0.01269
                   Non-Missing Observations Used           4320
                   Estimated Parameters                       4
                                  The SAS System                                6
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -292,7 +292,7 @@ Likelihood Optimization Algorithm Converged in 15 Iterations.
              Slope                    1          0.03        0.8636
              Cycle                    2          0.64        0.7275
                                  The SAS System                                7
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -344,7 +344,7 @@ Cycle            Stationary        37.08503     0.16943     0.88753     0.00896
                  1269 27JAN14:15:38 Additive Outlier     <.0001
                  1728 29JAN14:05:53 Additive Outlier     <.0001
                                  The SAS System                                8
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=138 ----------------------------------
 
@@ -404,7 +404,7 @@ Cycle            Stationary        37.08503     0.16943     0.88753     0.00896
                   Non-Missing Observations Used           4290
                   Estimated Parameters                       4
                                  The SAS System                                9
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=138 ----------------------------------
 
@@ -460,7 +460,7 @@ Likelihood Optimization Algorithm Converged in 12 Iterations.
              Slope                    1          0.29        0.5881
              Cycle                    2          0.05        0.9773
                                  The SAS System                               10
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=138 ----------------------------------
 
@@ -512,7 +512,7 @@ Cycle            Stationary        39.75570     0.15804     0.90088     0.00320
                  3224 03FEB14:10:33 Additive Outlier     <.0001
                  3225 03FEB14:10:38 Additive Outlier     <.0001
                                  The SAS System                               11
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -572,7 +572,7 @@ Cycle            Stationary        39.75570     0.15804     0.90088     0.00320
                   Non-Missing Observations Used           4320
                   Estimated Parameters                       4
                                  The SAS System                               12
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -628,7 +628,7 @@ Likelihood Optimization Algorithm Converged in 17 Iterations.
              Slope                    1          0.16        0.6864
              Cycle                    2          0.63        0.7302
                                  The SAS System                               13
-                                                  08:18 Tuesday, January 5, 2016
+                                                11:39 Wednesday, January 6, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -679,3 +679,59 @@ Cycle            Stationary        25.61735     0.24527     0.88488     0.00893
                  1506 28JAN14:11:23 Additive Outlier     <.0001
                  2171 30JAN14:18:48 Additive Outlier     <.0001
                  2989 02FEB14:14:58 Additive Outlier     <.0001
+                                 The SAS System                               14
+                                                11:39 Wednesday, January 6, 2016
+
+     Obs    animal    COMPONENT    PARAMETER         TYPE         _STATUS_
+
+       1       52      Level       Error Variance    Fixed        Converged
+       2       52      Slope       Error Variance    Estimated    Converged
+       3       52      Cycle_1     Damping Factor    Estimated    Converged
+       4       52      Cycle       Frequency         Estimated    Converged
+       5       52      Cycle_1     Period            Derived      Converged
+       6       52      Cycle_1     Error Variance    Estimated    Converged
+       7       64      Level       Error Variance    Fixed        Converged
+       8       64      Slope       Error Variance    Estimated    Converged
+       9       64      Cycle_1     Damping Factor    Estimated    Converged
+      10       64      Cycle       Frequency         Estimated    Converged
+      11       64      Cycle_1     Period            Derived      Converged
+      12       64      Cycle_1     Error Variance    Estimated    Converged
+      13      138      Level       Error Variance    Fixed        Converged
+      14      138      Slope       Error Variance    Estimated    Converged
+      15      138      Cycle_1     Damping Factor    Estimated    Converged
+      16      138      Cycle       Frequency         Estimated    Converged
+      17      138      Cycle_1     Period            Derived      Converged
+      18      138      Cycle_1     Error Variance    Estimated    Converged
+      19      183      Level       Error Variance    Fixed        Converged
+      20      183      Slope       Error Variance    Estimated    Converged
+      21      183      Cycle_1     Damping Factor    Estimated    Converged
+      22      183      Cycle       Frequency         Estimated    Converged
+      23      183      Cycle_1     Period            Derived      Converged
+      24      183      Cycle_1     Error Variance    Estimated    Converged
+
+     Obs    ESTIMATE      STD       TVALUE        PVALUE
+
+       1      0.0000     .            .       .         
+       2      0.0000    0.00000      4.094    .000042383
+       3      0.9092    0.00714    127.399    .000000000
+       4      0.1103    0.01419      7.769    7.8835E-15
+       5     56.9835    7.33431      7.769    7.8835E-15
+       6      0.0001    0.00001     12.060    1.7138E-33
+       7      0.0000     .            .       .         
+       8      0.0000    0.00000      4.458    .000008287
+       9      0.8875    0.00739    120.051    .000000000
+      10      0.1694    0.01574     10.767    4.9047E-27
+      11     37.0850    3.44418     10.767    4.9047E-27
+      12      0.0001    0.00000     13.580    5.2861E-42
+      13      0.0000     .            .       .         
+      14      0.0000    0.00000      4.993    .000000594
+      15      0.9009    0.00630    143.111    .000000000
+      16      0.1580    0.01233     12.815    1.3489E-37
+      17     39.7557    3.10224     12.815    1.3489E-37
+      18      0.0001    0.00001     14.708    5.7262E-49
+      19      0.0000     .            .       .         
+      20      0.0000    0.00000      5.708    .000000011
+      21      0.8849    0.00595    148.736    .000000000
+      22      0.2453    0.01124     21.825    1.352E-105
+      23     25.6174    1.17378     21.825    1.352E-105
+      24      0.0001    0.00000     18.342    3.8052E-75

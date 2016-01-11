@@ -1,7 +1,7 @@
 /*  unobserved components model                                              */
 /*  simple explanations of model components can be found in Lavery (2004). An
     Animated Guide: Proc UCM (Unobserved Components Model). NESUG 17         */
-    
+
 options linesize=80;
 ods graphics on;
 
@@ -13,7 +13,7 @@ data datetime;
 run;
 
 /*
-proc timeseries data=datetime plot=series seasonality=144;
+proc timeseries data=datetime plot=series;
     by animal;
     id date_time interval=dtmin5;
     var logret;
@@ -25,7 +25,8 @@ run;
 proc ucm data=datetime;
     id date_time interval=dtmin5;
     by animal;
-    
+    estimate outest=params;
+
     model logret;
     level variance=0 noest;
     slope;
@@ -42,3 +43,6 @@ run;
 - No significant autoregressive term
 
 */
+
+proc print data=params;
+run;

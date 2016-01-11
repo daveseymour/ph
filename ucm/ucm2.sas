@@ -16,7 +16,7 @@ run;
 
 proc timeseries data=ph
     (where=('31jan2014:06:00:00'dt < date_time < '06feb2014:06:00:00'dt))
-    plot = (series corr decomp);
+    plot = (series corr decomp) seasonality=144;
     id date_time interval=dtmin5;
     var rumenph reticph;
 run;
@@ -27,10 +27,19 @@ proc ucm data = ph;
     by animal;
 
     model rumenph = reticph;
-    * logret AICC -23117 AdjRsq 0.93882
-    * lag3r AICC -20857 AdjRsq 0.88249
+    /*  logret AICC -23117 AdjRsq 0.93882
+        lag3r AICC -20857 AdjRsq 0.88249 */
 
     level variance=0 noest;
-    cycle;
+    autoreg;
+
+    estimate back=144 plot=panel;
     forecast back=144 lead=144 print=forecasts;
 run;
+
+/* Model testing:
+
+level variance=0 noest, cycle: AICC -9888 AdjRSQ 0.94181
+level variance=0 noest, autoreg: AICC -9890 AdjRSQ 0.94184
+
+*/

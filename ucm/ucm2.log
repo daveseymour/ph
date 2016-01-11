@@ -1,4 +1,4 @@
-1                                                          The SAS System                              11:58 Friday, January 8, 2016
+1                                                          The SAS System                             12:11 Monday, January 11, 2016
 
 NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
 NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
@@ -38,7 +38,7 @@ The command line option "-nonews" will prevent this display.
 
 
 NOTE: SAS initialization used:
-      real time           0.02 seconds
+      real time           0.03 seconds
       cpu time            0.02 seconds
       
 1          /* UCM to describe forecast rumen ph directly from reticular ph timecourse */
@@ -58,7 +58,7 @@ NOTE: SAS initialization used:
 15         run;
 
 NOTE: The infile '~/ph/ph.dat' is:
-2                                The SAS System    11:58 Friday, January 8, 2016
+2                                The SAS System   12:11 Monday, January 11, 2016
 
       Filename=/home/seymourd/ph/ph.dat,
       Owner Name=seymourd,Group Name=seymourd,
@@ -75,15 +75,15 @@ NOTE: Missing values were generated as a result of performing an operation on
       894 at 10:14   55 at 11:14    
 NOTE: The data set WORK.PH has 3456 observations and 11 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.02 seconds
+      cpu time            0.03 seconds
       
 
 16         
 17         proc timeseries data=ph
 18             (where=('31jan2014:06:00:00'dt < date_time <
 18       ! '06feb2014:06:00:00'dt))
-19             plot = series;;
+19             plot = (series corr decomp) seasonality=144;
 20             id date_time interval=dtmin5;
 21             var rumenph reticph;
 22         run;
@@ -95,8 +95,8 @@ NOTE: There were 1151 observations read from the data set WORK.PH.
 NOTE: The data set WORK.DATA1 has 1151 observations and 3 variables.
 NOTE: The PROCEDURE TIMESERIES printed page 1.
 NOTE: PROCEDURE TIMESERIES used (Total process time):
-      real time           2.63 seconds
-      cpu time            0.11 seconds
+      real time           3.50 seconds
+      cpu time            0.30 seconds
       
 
 23         
@@ -106,24 +106,48 @@ NOTE: PROCEDURE TIMESERIES used (Total process time):
 27             by animal;
 28         
 29             model rumenph = reticph;
-30             * logret AICC -23117 AdjRsq 0.93882
-31             * lag3r AICC -20857 AdjRsq 0.88249
+30             /*  logret AICC -23117 AdjRsq 0.93882
+31                 lag3r AICC -20857 AdjRsq 0.88249 */
 32         
-33             level variance=0 noest;
-34             cycle;
-35             forecast back=144 lead=144 print=forecasts;
-36         run;
+33         
+34             level variance=0 noest;
+35             cycle;
+36             deplag lags=2;
+37         
+38             /*
+39             level variance=0 noest;
+40             autoreg;
+41             */
+3                                The SAS System   12:11 Monday, January 11, 2016
 
-NOTE: The PROCEDURE UCM printed pages 2-153.
+42         
+43             estimate back=144 plot=panel;
+44             forecast back=144 lead=144 print=forecasts;
+45         run;
+
+ERROR: Parameter estimation failed because the likelihood function or its 
+       gradient could not be evaluated at some stage of estimation. No further 
+       computations will be done.
+NOTE: The above message was for the following BY group:
+      animal=52
+NOTE: The PROCEDURE UCM printed pages 2-3.
 NOTE: PROCEDURE UCM used (Total process time):
-      real time           0.45 seconds
-      cpu time            0.24 seconds
-3                                The SAS System    11:58 Friday, January 8, 2016
-
+      real time           0.07 seconds
+      cpu time            0.08 seconds
       
+
+46         
+47         /* Model testing:
+48         
+49         level variance=0 noest, cycle: AICC -9888 AdjRSQ 0.94181
+50         level variance=0 noest, autoreg: AICC -9890 AdjRSQ 0.94184
+51         
+52         */
+
+ERROR: Errors printed on page 3.
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
 NOTE: The SAS System used:
-      real time           3.14 seconds
-      cpu time            0.41 seconds
+      real time           3.65 seconds
+      cpu time            0.44 seconds
       

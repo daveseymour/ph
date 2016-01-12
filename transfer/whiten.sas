@@ -5,8 +5,8 @@ options linesize=80;
 
 data raw;
     infile '~/ph/ph.dat';
-    input day animal silage dmi time rumenph reticph;
-    tc = time + (day-1); /* convert all observations to continuous timecourse */
+    input date_time animal day silage dmi time tc rumenph reticph;
+    format date_time datetime16.;
     logrum = log(rumenph);
     logret = log(reticph);
     rumresid = logrum-mean(logrum);

@@ -1,7 +1,7 @@
 options linesize=80; /* Set SAS output to 80 character width */
 data first;
     infile '~/ph/ph.dat';
-    input day animal silage dmi time rumenph reticph;
+    input date_time animal day silage dmi time tc rumenph reticph;
     label   dmi = 'DMI (kg)'
             rumenph = 'Ruminal pH'
             reticph = 'Reticular pH';
@@ -12,7 +12,6 @@ data first;
     time2 = time**2;
     time3 = time**3;
     time4 = time**4;
-    tc = time + (day-1);
     tc2 = tc**2;
     tc3 = tc**3;
     tc4 = tc**4;

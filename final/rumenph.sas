@@ -9,13 +9,14 @@ title 'Predicting the timecourse of ruminal pH from continuous reticular pH meas
         Saskatoon, SK, S7N 5A8
 */
 
-data raw;
+data ph;
     infile '~/ph/ph.dat';
     input date_time animal day silage dmi time tc rumenph reticph;
+    formate date_time datetime16.;
 
 /*  generate predictions of reticph (Preticph) */
 
-proc transreg data=raw noprint;
+proc transreg data=ph noprint;
     title2 'Prediction of Reticular pH Using Smoothing Spline';
     by animal;
     model identity(reticph) = pspline(tc / nknots=44);
@@ -30,7 +31,7 @@ run;
 /*          predicted or residual value of reticph */
 
 data merged;
-    merge transreg raw;
+    merge transreg ph;
     by animal tc;
     lag1p = lag1(Preticph);
     lag3p = lag3(Preticph);
@@ -213,6 +214,12 @@ proc print data=summary;
 run;
 
 /* alternate method: prediction from reticph using PROC UCM */
+
+data ph;
+    set ph;
+    if reticph = . then delete;
+    if animal = 138 and date_time > '01feb14:15:33:16'dt then delete;
+run;
 
 proc ucm data = ph;
     title2 'UCM with Cyclical Component';

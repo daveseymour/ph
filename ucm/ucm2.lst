@@ -1,6 +1,6 @@
                       Rumen pH Unobserved Components Model                     1
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
                                The UCM Procedure
 
@@ -10,7 +10,7 @@
                          Time ID Variable    date_time
                       Rumen pH Unobserved Components Model                     2
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -66,7 +66,7 @@
 
                       Rumen pH Unobserved Components Model                     3
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -119,7 +119,7 @@ Likelihood Optimization Algorithm Converged in 19 Iterations.
 
                       Rumen pH Unobserved Components Model                     4
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -179,7 +179,7 @@ Cycle            Stationary           88296  0.00007116     0.96487     0.13064
                  1006 26JAN14:17:43 Additive Outlier     <.0001
                       Rumen pH Unobserved Components Model                     5
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=52 -----------------------------------
 
@@ -192,7 +192,7 @@ Cycle            Stationary           88296  0.00007116     0.96487     0.13064
                  1007 26JAN14:17:48 Additive Outlier     <.0001
                       Rumen pH Unobserved Components Model                     6
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -248,7 +248,7 @@ Cycle            Stationary           88296  0.00007116     0.96487     0.13064
 
                       Rumen pH Unobserved Components Model                     7
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -301,7 +301,7 @@ Likelihood Optimization Algorithm Converged in 17 Iterations.
 
                       Rumen pH Unobserved Components Model                     8
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -361,7 +361,7 @@ Cycle            Stationary          160055  0.00003926     0.97187     0.22592
                  4125 06FEB14:13:38 Additive Outlier     <.0001
                       Rumen pH Unobserved Components Model                     9
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=64 -----------------------------------
 
@@ -374,7 +374,189 @@ Cycle            Stationary          160055  0.00003926     0.97187     0.22592
                  1116 27JAN14:02:53 Additive Outlier     <.0001
                       Rumen pH Unobserved Components Model                    10
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                            Estimation Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  01FEB14:15:28    2707       0      4.75899
+ reticph   Predictor  23JAN14:05:58  01FEB14:15:28    2707       0      5.05427
+
+                            Estimation Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.17849        6.42300        0.38958
+         reticph   Predictor      7.50036        6.48960        0.46571
+
+
+                             Forecast Span Summary
+ 
+ Variable  Type           First Obs       Last Obs    NObs   NMiss          Min
+
+ rumenph   Dependent  23JAN14:05:58  01FEB14:15:28    2707       0      4.75899
+ reticph   Predictor  23JAN14:05:58  01FEB14:15:28    2707       0      5.05427
+
+                             Forecast Span Summary
+ 
+                                                               Standard
+         Variable  Type               Max           Mean      Deviation
+
+         rumenph   Dependent      7.17849        6.42300        0.38958
+         reticph   Predictor      7.50036        6.48960        0.46571
+
+
+                         Fixed Parameters in the Model
+ 
+               Component           Parameter               Value
+
+               Level               Error Variance              0
+
+
+                 Preliminary  Estimates of the Free Parameters
+ 
+               Component           Parameter            Estimate
+
+               Cycle               Damping Factor        0.90000
+               Cycle               Period              170.66667
+               Cycle               Error Variance        0.07540
+
+
+                      Rumen pH Unobserved Components Model                    11
+                          UCM with Cyclical Component
+                                                 09:01 Tuesday, January 12, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                        Likelihood Based Fit Statistics
+ 
+                  Statistic                              Value
+
+                  Full Log Likelihood                   3422.4
+                  Diffuse Part of Log Likelihood        3.0925
+                  Non-Missing Observations Used           2707
+                  Estimated Parameters                       3
+                  Initialized Diffuse State Elements         2
+                  Normalized Residual Sum of Squares    2704.9
+                  AIC (smaller is better)                -6839
+                  BIC (smaller is better)                -6821
+                  AICC (smaller is better)               -6839
+                  HQIC (smaller is better)               -6832
+                  CAIC (smaller is better)               -6818
+
+Likelihood Optimization Algorithm Converged in 14 Iterations.                   
+
+
+                     Final Estimates of the Free Parameters
+ 
+                                                     Approx             Approx
+  Component         Parameter          Estimate   Std Error  t Value  Pr > |t|
+
+  Cycle             Damping Factor      0.98491   0.0034030   289.42    <.0001
+  Cycle             Period           1041.24949      1318.9     0.79    0.4298
+  Cycle             Error Variance      0.00465   0.0010449     4.45    <.0001
+  reticph           Coefficient         0.01276     0.02007     0.64    0.5250
+
+
+                       Fit Statistics Based on Residuals
+
+                 Mean Squared Error                    0.00467
+                 Root Mean Squared Error               0.06836
+                 Mean Absolute Percentage Error        0.76874
+                 Maximum Percent Error                 6.57073
+                 R-Square                              0.96922
+                 Adjusted R-Square                     0.96920
+                 Random Walk R-Square                  0.00358
+                 Amemiya's Adjusted R-Square           0.96915
+
+                   Number of non-missing residuals used for
+                      computing the fit statistics = 2705
+
+
+                      Rumen pH Unobserved Components Model                    12
+                          UCM with Cyclical Component
+                                                 09:01 Tuesday, January 12, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                      Significance Analysis of Components
+                           (Based on the Final State)
+ 
+             Component               DF    Chi-Square    Pr > ChiSq
+
+             Level                    1       1730.06        <.0001
+             Cycle                    2          9.21        0.0100
+
+
+                  Trend Information (Based on the Final State)
+ 
+                                                      Standard
+                  Name                   Estimate        Error
+
+                  Level               6.337512982    0.1523662
+
+
+                               Summary of Cycles
+ 
+                                                            Damping       Final
+Name             Type                Period   Frequency      Factor   Amplitude
+
+Cycle            Stationary      1041.24949     0.00603     0.98491     0.24319
+
+                               Summary of Cycles
+ 
+                                       Percent
+                                      Relative          Cycle          Error
+   Name             Type              to Level       Variance       Variance
+
+   Cycle            Stationary         3.83734        0.15516        0.00465
+
+
+                                Outlier Summary
+ 
+                                                   Standard
+   Obs     date_time Break Type          Estimate     Error Chi-Square     DF
+
+  1960 30JAN14:01:13 Additive Outlier    -0.43154  0.048573      78.93      1
+  1964 30JAN14:01:33 Additive Outlier    -0.32360 0.0485752      44.38      1
+    90 23JAN14:13:23 Additive Outlier     0.29185 0.0485768      36.10      1
+  1927 29JAN14:22:28 Additive Outlier    -0.24757  0.048631      25.92      1
+   930 26JAN14:11:23 Additive Outlier     0.22376 0.0485716      21.22      1
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                 1960 30JAN14:01:13 Additive Outlier     <.0001
+                 1964 30JAN14:01:33 Additive Outlier     <.0001
+                   90 23JAN14:13:23 Additive Outlier     <.0001
+                 1927 29JAN14:22:28 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                    13
+                          UCM with Cyclical Component
+                                                 09:01 Tuesday, January 12, 2016
+
+---------------------------------- animal=138 ----------------------------------
+
+                               The UCM Procedure
+
+                                 Outlier Summary
+ 
+                  Obs     date_time Break Type       Pr > ChiSq
+
+                  930 26JAN14:11:23 Additive Outlier     <.0001
+                      Rumen pH Unobserved Components Model                    14
+                          UCM with Cyclical Component
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -428,9 +610,9 @@ Cycle            Stationary          160055  0.00003926     0.97187     0.22592
                Cycle               Error Variance        0.04984
 
 
-                      Rumen pH Unobserved Components Model                    11
+                      Rumen pH Unobserved Components Model                    15
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -481,9 +663,9 @@ Likelihood Optimization Algorithm Converged in 14 Iterations.
                       computing the fit statistics = 4290
 
 
-                      Rumen pH Unobserved Components Model                    12
+                      Rumen pH Unobserved Components Model                    16
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 
@@ -541,9 +723,9 @@ Cycle            Stationary      1011.27026     0.00621     0.97838     0.26340
                    90 23JAN14:13:23 Additive Outlier     <.0001
                  2829 02FEB14:01:38 Additive Outlier     <.0001
                  3854 05FEB14:15:03 Additive Outlier     <.0001
-                      Rumen pH Unobserved Components Model                    13
+                      Rumen pH Unobserved Components Model                    17
                           UCM with Cyclical Component
-                                                  15:44 Monday, January 11, 2016
+                                                 09:01 Tuesday, January 12, 2016
 
 ---------------------------------- animal=183 ----------------------------------
 

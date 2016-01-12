@@ -3,7 +3,8 @@ title 'Analysis of Residuals - PROC MIXED';
 
 data raw;
     infile '~/ph/ph.dat';
-    input day animal silage dmi time rumenph reticph;
+    input date_time animal day silage dmi time tc rumenph reticph;
+    format date_time datetime16.;
 
     *if animal ne 52 then delete;
     *if day ne 1 then delete;

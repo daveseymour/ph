@@ -11,6 +11,7 @@ data ph;
     logret = log(reticph);
     logrum = log(rumenph);
     if reticph = . then delete;
+    if animal = 138 and date_time >= '01feb14:15:33:16'dt then delete;
     /* program will fail if any missing dependant variable
     observations are included */
 run;

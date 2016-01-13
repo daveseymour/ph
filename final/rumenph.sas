@@ -7,14 +7,24 @@ title 'Predicting the timecourse of ruminal pH from continuous reticular pH meas
         2W1
     † Department of Animal & Poultry Science, University of Saskatchewan,
         Saskatoon, SK, S7N 5A8
+
+    note on nomenclature:
+        - predicted values are prefixed with P
+        - residuals are prefixed with R
+        - output from TRANSREG has T suffix
+        - output from MIXED has M suffix
+        - output from UCM have U suffix
+        - output from cross-validation is prefixed with xv_
+        - lag variables are named in the style 'lag1p/r' to denote 1 lag of the
+          predicted or residual value of reticph
 */
 
 data ph;
     infile '~/ph/ph.dat';
     input date_time animal day silage dmi time tc rumenph reticph;
-    formate date_time datetime16.;
+    format date_time datetime16.;
 
-/*  generate predictions of reticph (Preticph) */
+/*  generate predictions of reticph (PreticphT) */
 
 proc transreg data=ph noprint;
     title2 'Prediction of Reticular pH Using Smoothing Spline';
@@ -24,13 +34,8 @@ proc transreg data=ph noprint;
 run;
 
 /*  generate lagged variables & merge TRANSREG output with original data*/
-/*  note on nomenclature:
-/*      - predicted values are prefixed with P
-/*      - residuals are prefixed with R
-/*      - lag variables are named in the style 'lag1p/r' to denote 1 lag of the
-/*          predicted or residual value of reticph */
 
-data merged;
+data transph;
     merge transreg ph;
     by animal tc;
     lag1p = lag1(Preticph);
@@ -39,37 +44,88 @@ data merged;
     lag4r = lag4(Rreticph);
     lag7r = lag7(Rreticph);
     lag9r = lag9(Rreticph);
-    keep date_time animal day silage dmi time tc reticph Preticph Rreticph
-        rumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+    PreticphT = Preticph;
+    RreticphT = Rreticph;
+    keep date_time animal day silage dmi time tc rumenph reticph PreticphT
+        RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
 run;
 
 /*  model rumen ph based on reticular ph predictions and residuals */
 
-proc mixed data=merged covtest noitprint ic;
+proc mixed data=transph covtest noitprint ic;
     title2 'Prediction of Rumen pH Using Predicted Reticular pH';
     class animal day silage;
     model rumenph = reticph lag1p lag2r lag7r lag9r silage / solution
         outp=mixed;
-    random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+    random intercept PreticphT lag1p lag2r lag7r lag9r / type=un
         subject=animal*day;
 run;
 
-/*  prepare data for cross-validation of model */
-/*  adapted from Cassel (2007) */
-
 data mixed;
     set mixed;
-    Prumenph = Pred;
-    Rrumenph = Resid;
-    drop Pred Resid Alpha DF Upper Lower;
+    PrumenphM = Pred;
+    RrumenphM = Resid;
+    keep date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
+        reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
     file 'mixed.dat';
-    put date_time animal day silage dmi time tc reticph Preticph Rreticph
-        rumenph Prumenph Rrumenph lag1p lag3p lag2r lag4r lag7r lag9r;
+    put date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
+        reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
+
+/* alternate method: prediction from reticph using PROC UCM */
+
+data ucm_in;
+    set ph;
+    if reticph = . then delete;
+    if animal = 138 and date_time > '01feb14:15:33:16'dt then delete;
+run;
+
+proc ucm data = ucm_in;
+    title2 'UCM with Cyclical Component';
+    id date_time interval=dtmin5;
+    by animal;
+
+    model rumenph = reticph;
+    level variance=0 noest;
+    cycle;
+    forecast print=none outfor=ucm_out;
+run;
+
+data ucm_out;
+    set ucm_out;
+    PrumenphU = FORECAST;
+    RrumenphU = RESIDUAL;
+    keep date_time animal rumenph PrumenphU RrumenphU reticph;
+    file 'ucm.dat';
+    put date_time animal rumenph PrumenphU RrumenphU reticph;
+run;
+
+/* merge all predictions into total dataset */
+
+proc sort data = mixed;
+    by animal date_time;
+run;
+
+proc sort data = ucm_out;
+    by animal date_time;
+run;
+
+data total;
+    merge mixed ucm_out;
+    by animal date_time;
+    keep date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
+        PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p lag2r lag4r
+        lag7r lag9r;
+    file 'total.dat';
+    put date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
+        PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p lag2r lag4r
+        lag7r lag9r;
+run;
 
 /*  perform 10-fold cross validation */
+/*  adapted from Cassel (2007) */
 /*  generate list of animal-day subsets */
 
-proc summary data = mixed;
+proc summary data = total;
     title2 'Generation of Animal-Day Subsets';
     by animal day;
     output out= aniday;
@@ -116,124 +172,132 @@ run;
 */
 
 data xv1;
-    merge train1 mixed;
+    merge train1 total;
     by animal day;
 run;
 
 data xv2;
-    merge train2 mixed;
+    merge train2 total;
     by animal day;
 run;
 
 data xv3;
-    merge train3 mixed;
+    merge train3 total;
     by animal day;
 run;
 
 data xv4;
-    merge train4 mixed;
+    merge train4 total;
     by animal day;
 run;
 
 data xv5;
-    merge train5 mixed;
+    merge train5 total;
     by animal day;
 run;
 
 data xv6;
-    merge train6 mixed;
+    merge train6 total;
     by animal day;
 run;
 
 data xv7;
-    merge train7 mixed;
+    merge train7 total;
     by animal day;
 run;
 
 data xv8;
-    merge train8 mixed;
+    merge train8 total;
     by animal day;
 run;
 
 data xv9;
-    merge train9 mixed;
+    merge train9 total;
     by animal day;
 run;
 
 data xv10;
-    merge train10 mixed;
+    merge train10 total;
     by animal day;
 run;
 
-data xv;
+data xv_in;
     set xv1 xv2 xv3 xv4 xv5 xv6 xv7 xv8 xv9 xv10;
-    if selected then new_Prumenph = Prumenph;
+    if selected then new_PrumenphM = PrumenphM;
+    if selected then new_PrumenphU = PrumenphU;
     if replicate = . then delete;
-    file 'xv.dat';
-    put replicate selected animal day silage dmi time tc reticph Preticph
-        Rreticph rumenph Prumenph Rrumenph new_Prumenph;
+    file 'xv_in.dat';
+    put replicate selected date_time animal day silage dmi time tc rumenph
+        PrumenphM RrumenphM PrumenphU RrumenphU new_PrumenphM new_PrumenphU
+        reticph PreticphT RreticphT;
 run;
 
-proc sort data=xv;
-    by replicate animal day;
+proc sort data=xv_in;
+    by replicate animal date_time;
 run;
 
-/*  get predicted values for new_Prumenph in each replicate */
+/*  get predicted values for new_PrumenphM in each replicate */
 
-proc mixed data=xv method=mivque0;
+proc mixed data=xv_in method=mivque0;
+    title2 '10-Fold Cross Validation - PROC MIXED';
     /* used mivque0 because of 'too many likelihoods' error */
     by replicate;
     class animal day silage;
-    model new_Prumenph = reticph lag1p lag2r lag7r lag9r silage / solution
-        outp=xv_pred(where=(new_Prumenph=.));
-    random intercept Preticph lag1p lag2r lag7r lag9r / type=un
+    model new_PrumenphM = reticph lag1p lag2r lag7r lag9r silage / solution
+        outp=xv_Mixed(where=(new_PrumenphM=.));
+    random intercept PreticphT lag1p lag2r lag7r lag9r / type=un
         subject=animal*day;
+run;
+
+/* get predicted values for new_PrumenphU in each replicate */
+
+proc ucm data=xv_in;
+    title2 '10-Fold Cross Validation - PROC UCM';
+    id date_time interval=dtmin5;
+    by replicate animal;
+
+    model new_PrumenphU = reticph;
+    level variance=0 noest;
+    cycle;
+    forecast print=none outfor=xv_UCM(where=(new_PrumenphU=.));
 run;
 
 /*  summarize results of cross validation */
 
-data xv_pred;
-    set xv_pred;
-    if selected ne 0 then delete;
-    xv_Prumenph = Pred;
-    xv_Rrumenph = rumenph - xv_Prumenph;
-    absr = abs(xv_Rrumenph);
-    file 'xv_pred.dat';
-    put replicate date_time animal day silage dmi time tc reticph Preticph
-        Rreticph rumenph Prumenph Rrumenph xv_Prumenph xv_Rrumenph absr;
+proc sort data = xv_Mixed;
+    by replicate animal date_time;
 run;
 
-proc summary data=xv_pred;
+proc sort data = xv_UCM;
+    by replicate animal date_time;
+run;
+
+data xv_out;
+    merge xv_Mixed xv_UCM;
+    by replicate animal date_time;
+    if selected ne 0 then delete;
+    xv_PrumenphM = Pred;
+    xv_RrumenphM = rumenph - xv_PrumenphM;
+    absrM = abs(xv_RrumenphM);
+    xv_PrumenphU = FORECAST;
+    xv_RrumenphU = rumenph - xv_PrumenphU;
+    absrU = abs(xv_RrumenphU);
+    keep replicate date_time animal day silage dmi rumenph PrumenphM RrumenphM
+        xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU xv_PrumenphU
+        xv_RrumenphU absrU reticph PreticphT RreticphT;
+    file 'xv_pred.dat';
+    put replicate date_time animal day silage dmi rumenph PrumenphM RrumenphM
+        xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU xv_PrumenphU
+        xv_RrumenphU absrU reticph PreticphT RreticphT;
+run;
+
+proc summary data=xv_out;
     title2 '10-Fold Cross Validation Summary';
     title3 'MAE: Mean Absolute Error';
-    var xv_Rrumenph absr;
-    output out=summary std(xv_Rrumenph)=RMSE mean(absr)=MAE;
+    var xv_RrumenphM xv_RrumenphU absrM absrU;
+    output out=summary std(xv_RrumenphM)=RMSE_Mixed mean(absrM)=MAE_Mixed
+        std(xv_RrumenphU)=RMSE_UCM mean(absrU)=MAE_UCM;
 run;
 
 proc print data=summary;
-run;
-
-/* alternate method: prediction from reticph using PROC UCM */
-
-data ph;
-    set ph;
-    if reticph = . then delete;
-    if animal = 138 and date_time > '01feb14:15:33:16'dt then delete;
-run;
-
-proc ucm data = ph;
-    title2 'UCM with Cyclical Component';
-    id date_time interval=dtmin5;
-    by animal;
-
-    model rumenph = reticph;
-    level variance=0 noest;
-    cycle;
-    forecast print=none outfor=ucm;
-run;
-
-data ucm;
-    set ucm;
-    file 'ucm.dat';
-    put animal date_time rumenph reticph FORECAST RESIDUAL STD;
 run;

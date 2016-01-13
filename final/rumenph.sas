@@ -12,7 +12,7 @@ title 'Predicting the timecourse of ruminal pH from continuous reticular pH meas
 data ph;
     infile '~/ph/ph.dat';
     input date_time animal day silage dmi time tc rumenph reticph;
-    formate date_time datetime16.;
+    format date_time datetime16.;
 
 /*  generate predictions of reticph (Preticph) */
 
@@ -198,7 +198,7 @@ data xv_pred;
     xv_Prumenph = Pred;
     xv_Rrumenph = rumenph - xv_Prumenph;
     absr = abs(xv_Rrumenph);
-    file 'xv_pred.dat';
+    file 'xv_predM.dat';
     put replicate date_time animal day silage dmi time tc reticph Preticph
         Rreticph rumenph Prumenph Rrumenph xv_Prumenph xv_Rrumenph absr;
 run;
@@ -218,7 +218,7 @@ run;
 data ph;
     set ph;
     if reticph = . then delete;
-    if animal = 138 and date_time > '01feb14:15:33:16'dt then delete;
+    if animal = 138 and date_time >= '01feb14:15:33:16'dt then delete;
 run;
 
 proc ucm data = ph;

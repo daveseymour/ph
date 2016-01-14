@@ -1,14 +1,14 @@
-1                                                          The SAS System                          12:40 Wednesday, January 13, 2016
+1                                                          The SAS System                          14:22 Wednesday, January 13, 2016
 
-NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA.
-NOTE: SAS (r) Proprietary Software 9.4 (TS1M0)
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M0) 
       Licensed to UNIVERSITY OF GUELPH, Site 70095643.
 NOTE: This session is executing on the Linux 3.6.11-4.fc16.x86_64 (LIN X64) platform.
 
 
 
 NOTE: Updated analytical products:
-
+      
       SAS/STAT 12.3 (maintenance)
       SAS/ETS 12.3 (maintenance)
       SAS/OR 12.3 (maintenance)
@@ -17,14 +17,14 @@ NOTE: Updated analytical products:
 
 NOTE: Additional host information:
 
- Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne)
+ Linux LIN X64 3.6.11-4.fc16.x86_64 #1 SMP Tue Jan 8 20:57:42 UTC 2013 x86_64 Fedora release 16 (Verne) 
 
-You are running SAS 9. Some SAS 8 files will be automatically converted
-by the V9 engine; others are incompatible.  Please see
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
 http://support.sas.com/rnd/migration/planning/platform/64bit.html
 
-PROC MIGRATE will preserve current SAS file attributes and is
-recommended for converting all your SAS libraries from any
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
 SAS 8 release to SAS 9.  For details and examples, please see
 http://support.sas.com/rnd/migration/index.html
 
@@ -38,11 +38,11 @@ The command line option "-nonews" will prevent this display.
 
 
 NOTE: SAS initialization used:
-      real time           0.02 seconds
-      cpu time            0.02 seconds
-
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
 1          options linesize=80;
-2
+2          
 3          title 'Predicting the timecourse of ruminal pH from continuous
 3        ! reticular pH measurements';
 4          /*
@@ -53,13 +53,13 @@ NOTE: SAS initialization used:
 8              † Department of Animal & Poultry Science, University of
 8        ! Saskatchewan,
 9                  Saskatoon, SK, S7N 5A8
-10
+10         
 11             note on nomenclature:
 12                 - predicted values are prefixed with P
 13                 - residuals are prefixed with R
 14                 - output from TRANSREG has T suffix
 2                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 15                 - output from MIXED has M suffix
 16                 - output from UCM have U suffix
@@ -68,14 +68,14 @@ NOTE: SAS initialization used:
 18       ! lag of the
 19                   predicted or residual value of reticph
 20         */
-21
+21         
 22         data ph;
 23             infile '~/ph/ph.dat';
 24             input date_time animal day silage dmi time tc rumenph reticph;
 25             format date_time datetime16.;
-26
+26         
 27         /*  generate predictions of reticph (PreticphT) */
-28
+28         
 
 NOTE: The infile '~/ph/ph.dat' is:
       Filename=/home/seymourd/ph/ph.dat,
@@ -89,6 +89,9 @@ NOTE: 17280 records were read from the infile '~/ph/ph.dat'.
       The maximum record length was 71.
 NOTE: The data set WORK.PH has 17280 observations and 9 variables.
 NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
 
 29         proc transreg data=ph noprint;
 30             title2 'Prediction of Reticular pH Using Smoothing Spline';
@@ -98,8 +101,8 @@ NOTE: DATA statement used (Total process time):
 34         run;
 
 NOTE: 864 observations were deleted from the analysis due to missing values.
-NOTE: Passive observations are beyond the exterior knots.  If you want to
-      interpolate beyond the data, specify exterior knots beyond the passive
+NOTE: Passive observations are beyond the exterior knots.  If you want to 
+      interpolate beyond the data, specify exterior knots beyond the passive 
       observation values.
 NOTE: Algorithm converged.
 NOTE: The above message was for the following BY group:
@@ -111,18 +114,17 @@ NOTE: The above message was for the following BY group:
 NOTE: There were 17280 observations read from the data set WORK.PH.
 NOTE: The data set WORK.TRANSREG has 17280 observations and 104 variables.
 NOTE: PROCEDURE TRANSREG used (Total process time):
-
-      real time           0.37 seconds
-      cpu time            0.37 seconds
-
+      real time           0.31 seconds
+      cpu time            0.31 seconds
+      
 
 3                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
-35
+35         
 36         /*  generate lagged variables & merge TRANSREG output with original
 36       ! data*/
-37
+37         
 38         data transph;
 39             merge transreg ph;
 40             by animal tc;
@@ -145,11 +147,11 @@ NOTE: The data set WORK.TRANSPH has 17280 observations and 17 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.01 seconds
       cpu time            0.01 seconds
+      
 
-
-52
+52         
 53         /*  model rumen ph based on reticular ph predictions and residuals */
-54
+54         
 55         proc mixed data=transph covtest noitprint ic;
 56             title2 'Prediction of Rumen pH Using Predicted Reticular pH';
 57             class animal day silage;
@@ -163,11 +165,11 @@ NOTE: 976 observations are not included because of missing values.
 NOTE: The data set WORK.MIXED has 17280 observations and 24 variables.
 NOTE: The PROCEDURE MIXED printed pages 1-3.
 NOTE: PROCEDURE MIXED used (Total process time):
-      real time           7:34.27
-      cpu time            7:30.96
+      real time           7:44.76
+      cpu time            7:25.58
+      
 
-
-63
+63         
 64         data mixed;
 65             set mixed;
 66             PrumenphM = Pred;
@@ -177,22 +179,22 @@ NOTE: PROCEDURE MIXED used (Total process time):
 69                 reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r
 69       ! lag9r;
 4                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 70             file 'mixed.dat';
 71             put date_time animal day silage dmi time tc rumenph PrumenphM
 71       ! RrumenphM
 72                 reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r
 72       ! lag9r;
-73
+73         
 74         /* alternate method: prediction from reticph using PROC UCM */
-75
+75         
 
 NOTE: The file 'mixed.dat' is:
       Filename=/home/seymourd/ph/final/mixed.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
-      Last Modified=Wed Jan 13 12:48:18 2016
+      Last Modified=Wed Jan 13 14:30:43 2016
 
 NOTE: 17280 records were written to the file 'mixed.dat'.
       The minimum record length was 94.
@@ -200,9 +202,9 @@ NOTE: 17280 records were written to the file 'mixed.dat'.
 NOTE: There were 17280 observations read from the data set WORK.MIXED.
 NOTE: The data set WORK.MIXED has 17280 observations and 19 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.10 seconds
-      cpu time            0.06 seconds
-
+      real time           0.08 seconds
+      cpu time            0.05 seconds
+      
 
 76         data ucm_in;
 77             set ph;
@@ -215,51 +217,51 @@ NOTE: The data set WORK.UCM_IN has 14804 observations and 9 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
       cpu time            0.01 seconds
+      
 
-
-81
+81         
 82         proc ucm data = ucm_in;
 83             title2 'UCM with Cyclical Component';
 84             id date_time interval=dtmin5;
 85             by animal;
-86
+86         
 87             model rumenph = reticph;
 88             level variance=0 noest;
 89             cycle;
 90             forecast print=none outfor=ucm_out;
 91         run;
 
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
 5                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       animal=138
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       animal=183
 NOTE: The data set WORK.UCM_OUT has 14804 observations and 24 variables.
 NOTE: The PROCEDURE UCM printed pages 4-20.
 NOTE: PROCEDURE UCM used (Total process time):
-      real time           1.34 seconds
-      cpu time            1.32 seconds
+      real time           1.38 seconds
+      cpu time            1.31 seconds
+      
 
-
-92
+92         
 93         data ucm_out;
 94             set ucm_out;
 95             PrumenphU = FORECAST;
@@ -273,7 +275,7 @@ NOTE: The file 'ucm.dat' is:
       Filename=/home/seymourd/ph/final/ucm.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
-      Last Modified=Wed Jan 13 12:48:19 2016
+      Last Modified=Wed Jan 13 14:30:44 2016
 
 NOTE: 14804 records were written to the file 'ucm.dat'.
       The minimum record length was 44.
@@ -282,12 +284,12 @@ NOTE: There were 14804 observations read from the data set WORK.UCM_OUT.
 NOTE: The data set WORK.UCM_OUT has 14804 observations and 6 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.04 seconds
-      cpu time            0.02 seconds
+      cpu time            0.03 seconds
+      
 
-
-101
+101        
 102        /* merge all predictions into total dataset */
-103
+103        
 104        proc sort data = mixed;
 105            by animal date_time;
 106        run;
@@ -295,14 +297,14 @@ NOTE: DATA statement used (Total process time):
 NOTE: There were 17280 observations read from the data set WORK.MIXED.
 NOTE: The data set WORK.MIXED has 17280 observations and 19 variables.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.00 seconds
+      real time           0.01 seconds
 6                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
       cpu time            0.01 seconds
+      
 
-
-107
+107        
 108        proc sort data = ucm_out;
 109            by animal date_time;
 110        run;
@@ -312,9 +314,9 @@ NOTE: The data set WORK.UCM_OUT has 14804 observations and 6 variables.
 NOTE: PROCEDURE SORT used (Total process time):
       real time           0.00 seconds
       cpu time            0.01 seconds
+      
 
-
-111
+111        
 112        data total;
 113            merge mixed ucm_out;
 114            by animal date_time;
@@ -335,7 +337,7 @@ NOTE: The file 'total.dat' is:
       Filename=/home/seymourd/ph/final/total.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
-      Last Modified=Wed Jan 13 12:48:19 2016
+      Last Modified=Wed Jan 13 14:30:44 2016
 
 NOTE: 17280 records were written to the file 'total.dat'.
       The minimum record length was 98.
@@ -344,20 +346,20 @@ NOTE: There were 17280 observations read from the data set WORK.MIXED.
 NOTE: There were 14804 observations read from the data set WORK.UCM_OUT.
 NOTE: The data set WORK.TOTAL has 17280 observations and 21 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.11 seconds
-      cpu time            0.07 seconds
+      real time           0.10 seconds
+      cpu time            0.06 seconds
+      
 
-
-123
+123        
 124        /*  perform 10-fold cross validation */
 125        /*  adapted from Cassel (2007) */
 126        /*  generate list of animal-day subsets */
-127
+127        
 128        proc summary data = total;
 129            title2 'Generation of Animal-Day Subsets';
 130            by animal day;
 7                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 131            output out= aniday;
 132        run;
@@ -366,10 +368,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.ANIDAY has 60 observations and 4 variables.
 NOTE: PROCEDURE SUMMARY used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
+      
 
-
-133
+133        
 134        data aniday;
 135            set aniday;
 136            drop _TYPE_ _FREQ_;
@@ -381,15 +383,15 @@ NOTE: The data set WORK.ANIDAY has 57 observations and 2 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
+      
 
-
-139
+139        
 140        /*  generate cross-validation datasets */
 141        /*  always manually select seed for repeatability */
-142
+142        
 143        %let K=10;
 144        %let rate=%sysevalf((&K-1)/&K);
-145
+145        
 146        proc surveyselect data=aniday out=train seed=495857 samprate=&RATE
 146      ! outall
 147            rep=10;
@@ -400,24 +402,24 @@ NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
 NOTE: The PROCEDURE SURVEYSELECT printed page 21.
 NOTE: PROCEDURE SURVEYSELECT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
+      
 
-
-150
+150        
 151        proc sort data = train;
 152            by animal day;
-153
+153        
 
 NOTE: There were 570 observations read from the data set WORK.TRAIN.
 NOTE: The data set WORK.TRAIN has 570 observations and 4 variables.
 NOTE: PROCEDURE SORT used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
-
+      
 
 154        data train1 train2 train3 train4 train5 train6 train7 train8 train9
 8                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 154      ! train10;
 155            set train;
@@ -447,9 +449,9 @@ NOTE: The data set WORK.TRAIN10 has 57 observations and 4 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
       cpu time            0.01 seconds
+      
 
-
-167
+167        
 168        /*
 169            merge selection results to data. errors occur when merging
 169      ! multiple
@@ -457,7 +459,7 @@ NOTE: DATA statement used (Total process time):
 170      ! replicate
 171            and merge at end
 172        */
-173
+173        
 174        data xv1;
 175            merge train1 total;
 176            by animal day;
@@ -468,16 +470,16 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV1 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
+      
 
-
-178
+178        
 179        data xv2;
 180            merge train2 total;
 181            by animal day;
 182        run;
 9                                The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 
 NOTE: There were 57 observations read from the data set WORK.TRAIN2.
@@ -485,10 +487,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV2 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
+      
 
-
-183
+183        
 184        data xv3;
 185            merge train3 total;
 186            by animal day;
@@ -499,10 +501,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV3 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.02 seconds
+      cpu time            0.01 seconds
+      
 
-
-188
+188        
 189        data xv4;
 190            merge train4 total;
 191            by animal day;
@@ -513,10 +515,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV4 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.02 seconds
+      cpu time            0.01 seconds
+      
 
-
-193
+193        
 194        data xv5;
 195            merge train5 total;
 196            by animal day;
@@ -527,27 +529,27 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV5 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
+      
 
-
-198
+198        
 199        data xv6;
 200            merge train6 total;
 201            by animal day;
 202        run;
 
 10                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 NOTE: There were 57 observations read from the data set WORK.TRAIN6.
 NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV6 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.02 seconds
+      cpu time            0.00 seconds
+      
 
-
-203
+203        
 204        data xv7;
 205            merge train7 total;
 206            by animal day;
@@ -558,10 +560,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV7 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
+      
 
-
-208
+208        
 209        data xv8;
 210            merge train8 total;
 211            by animal day;
@@ -572,10 +574,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV8 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
+      
 
-
-213
+213        
 214        data xv9;
 215            merge train9 total;
 216            by animal day;
@@ -586,10 +588,10 @@ NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV9 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
-      cpu time            0.02 seconds
+      cpu time            0.01 seconds
+      
 
-
-218
+218        
 219        data xv10;
 220            merge train10 total;
 221            by animal day;
@@ -597,16 +599,16 @@ NOTE: DATA statement used (Total process time):
 
 NOTE: There were 57 observations read from the data set WORK.TRAIN10.
 11                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 NOTE: There were 17280 observations read from the data set WORK.TOTAL.
 NOTE: The data set WORK.XV10 has 17280 observations and 23 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
+      
 
-
-223
+223        
 224        data xv_in;
 225            set xv1 xv2 xv3 xv4 xv5 xv6 xv7 xv8 xv9 xv10;
 226            if selected then new_PrumenphM = PrumenphM;
@@ -624,7 +626,7 @@ NOTE: The file 'xv_in.dat' is:
       Filename=/home/seymourd/ph/final/xv_in.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
-      Last Modified=Wed Jan 13 12:48:19 2016
+      Last Modified=Wed Jan 13 14:30:45 2016
 
 NOTE: 164160 records were written to the file 'xv_in.dat'.
       The minimum record length was 81.
@@ -641,12 +643,11 @@ NOTE: There were 17280 observations read from the data set WORK.XV9.
 NOTE: There were 17280 observations read from the data set WORK.XV10.
 NOTE: The data set WORK.XV_IN has 164160 observations and 25 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.85 seconds
-      cpu time            0.55 seconds
+      real time           0.71 seconds
+      cpu time            0.48 seconds
+      
 
-9                                The SAS System  10:40 Tuesday, January 12, 2016
-
-234
+234        
 235        proc sort data=xv_in;
 236            by replicate animal date_time;
 237        run;
@@ -656,14 +657,14 @@ NOTE: The data set WORK.XV_IN has 164160 observations and 25 variables.
 NOTE: PROCEDURE SORT used (Total process time):
       real time           0.09 seconds
       cpu time            0.09 seconds
-
+      
 12                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
 
-238
+238        
 239        /*  get predicted values for new_PrumenphM in each replicate */
-240
+240        
 241        proc mixed data=xv_in method=mivque0;
 242            title2 '10-Fold Cross Validation - PROC MIXED';
 243            /* used mivque0 because of 'too many likelihoods' error */
@@ -709,284 +710,282 @@ NOTE: The above message was for the following BY group:
 NOTE: The data set WORK.XV_MIXED has 14886 observations and 32 variables.
 NOTE: The PROCEDURE MIXED printed pages 22-51.
 NOTE: PROCEDURE MIXED used (Total process time):
-      real time           1.86 seconds
-      cpu time            1.85 seconds
+      real time           1.78 seconds
+      cpu time            1.74 seconds
+      
 
-11                               The SAS System  10:40 Tuesday, January 12, 2016
-
-251
+251        
 252        /* get predicted values for new_PrumenphU in each replicate */
-253
-254        proc ucm data=xv_in;
+253        
+254        
 13                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
-255            title2 '10-Fold Cross Validation - PROC UCM';
-256            id date_time interval=dtmin5;
-257            by replicate animal;
-258
-259            model new_PrumenphU = reticph;
-260            level variance=0 noest;
-261            cycle;
-262            forecast print=none outfor=xv_UCM(where=(new_PrumenphU=.));
-263        run;
+255        proc ucm data=xv_in;
+256            title2 '10-Fold Cross Validation - PROC UCM';
+257            id date_time interval=dtmin5;
+258            by replicate animal;
+259        
+260            model new_PrumenphU = reticph;
+261            level variance=0 noest;
+262            cycle;
+263            forecast print=none outfor=xv_UCM(where=(new_PrumenphU=.));
+264        run;
 
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=1 animal=64
-NOTE: The Hessian matrix associated with the parameter estimates is singular.
+NOTE: The Hessian matrix associated with the parameter estimates is singular. 
       This may indicate an unstable optimum.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=1 animal=138
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=1 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=2 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=2 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=2 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=3 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=3 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=4 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
-      in the LEAD= option is reduced to 0.
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
 14                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
+      in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=4 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=4 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=5 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=5 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=6 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=6 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=6 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=7 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=7 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=7 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=8 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
-      Sample Replicate Number=8 animal=64
 15                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+      Sample Replicate Number=8 animal=64
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=8 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=9 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=9 animal=64
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
-12                               The SAS System  10:40 Tuesday, January 12, 2016
-
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=9 animal=183
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=10 animal=52
-NOTE: Number of non-missing predictor values in the forecast horizon is less
-      than the value in the LEAD= option of the FORECAST statement.  The value
+NOTE: Number of non-missing predictor values in the forecast horizon is less 
+      than the value in the LEAD= option of the FORECAST statement.  The value 
       in the LEAD= option is reduced to 0.
 NOTE: The above message was for the following BY group:
       Sample Replicate Number=10 animal=64
 NOTE: The data set WORK.XV_UCM has 10248 observations and 25 variables.
 NOTE: The PROCEDURE UCM printed pages 52-212.
 NOTE: PROCEDURE UCM used (Total process time):
-      real time           12.90 seconds
-      cpu time            12.78 seconds
+      real time           12.32 seconds
+      cpu time            12.12 seconds
+      
 
-
-264
-265        /*  summarize results of cross validation */
-266
-267        proc sort data = xv_Mixed;
-268            by replicate animal date_time;
-269        run;
+265        
+266        /*  summarize results of cross validation */
+267        
+268        proc sort data = xv_Mixed;
+269            by replicate animal date_time;
+270        run;
 
 NOTE: There were 14886 observations read from the data set WORK.XV_MIXED.
 NOTE: The data set WORK.XV_MIXED has 14886 observations and 32 variables.
 NOTE: PROCEDURE SORT used (Total process time):
-      real time           0.01 seconds
+      real time           0.00 seconds
       cpu time            0.01 seconds
+      
 
+271        
+272        proc sort data = xv_UCM;
+273            by replicate animal date_time;
+274        run;
 
-270
-271        proc sort data = xv_UCM;
-272            by replicate animal date_time;
-273        run;
+16                               The SAS System
+                                               14:22 Wednesday, January 13, 2016
 
 NOTE: There were 10248 observations read from the data set WORK.XV_UCM.
-16                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
-
 NOTE: The data set WORK.XV_UCM has 10248 observations and 25 variables.
 NOTE: PROCEDURE SORT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
+      
 
-
-274
-275        data xv_out;
-276            merge xv_Mixed xv_UCM;
-277            by replicate animal date_time;
-278            if selected ne 0 then delete;
-279            xv_PrumenphM = Pred;
-280            xv_RrumenphM = rumenph - xv_PrumenphM;
-281            absrM = abs(xv_RrumenphM);
-282            xv_PrumenphU = FORECAST;
-283            xv_RrumenphU = rumenph - xv_PrumenphU;
-284            absrU = abs(xv_RrumenphU);
-285            keep replicate date_time animal day silage dmi rumenph PrumenphM
-285      ! RrumenphM
-286                xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
-286      ! xv_PrumenphU
-287                xv_RrumenphU absrU reticph PreticphT RreticphT;
-288            file 'xv_pred.dat';
-289            put replicate date_time animal day silage dmi rumenph PrumenphM
-289      ! RrumenphM
-290                xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
-290      ! xv_PrumenphU
-291                xv_RrumenphU absrU reticph PreticphT RreticphT;
-292        run;
+275        
+276        data xv_out;
+277            merge xv_Mixed xv_UCM;
+278            by replicate animal date_time;
+279            if selected ne 0 then delete;
+280            xv_PrumenphM = Pred;
+281            xv_RrumenphM = rumenph - xv_PrumenphM;
+282            absrM = abs(xv_RrumenphM);
+283            xv_PrumenphU = FORECAST;
+284            xv_RrumenphU = rumenph - xv_PrumenphU;
+285            absrU = abs(xv_RrumenphU);
+286            keep replicate date_time animal day silage dmi rumenph PrumenphM
+286      ! RrumenphM
+287                xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
+287      ! xv_PrumenphU
+288                xv_RrumenphU absrU reticph PreticphT RreticphT;
+289            file 'xv_pred.dat';
+290            put replicate date_time animal day silage dmi rumenph PrumenphM
+290      ! RrumenphM
+291                xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
+291      ! xv_PrumenphU
+292                xv_RrumenphU absrU reticph PreticphT RreticphT;
+293        run;
 
 NOTE: The file 'xv_pred.dat' is:
       Filename=/home/seymourd/ph/final/xv_pred.dat,
       Owner Name=seymourd,Group Name=seymourd,
       Access Permission=-rw-r-----,
-      Last Modified=Wed Jan 13 12:48:35 2016
+      Last Modified=Wed Jan 13 14:30:59 2016
 
 NOTE: 14400 records were written to the file 'xv_pred.dat'.
       The minimum record length was 77.
       The maximum record length was 211.
-NOTE: Missing values were generated as a result of performing an operation on
+NOTE: Missing values were generated as a result of performing an operation on 
       missing values.
       Each place is given by: (Number of times) at (Line):(Column).
-      112 at 280:28    112 at 281:13    4320 at 283:28   4320 at 284:13
+      112 at 281:28    112 at 282:13    4320 at 284:28   4320 at 285:13
 NOTE: There were 14886 observations read from the data set WORK.XV_MIXED.
 NOTE: There were 10248 observations read from the data set WORK.XV_UCM.
 NOTE: The data set WORK.XV_OUT has 14400 observations and 20 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.10 seconds
+      real time           0.08 seconds
       cpu time            0.06 seconds
+      
 
-
-293
-294        proc summary data=xv_out;
-295            title2 '10-Fold Cross Validation Summary';
-296            title3 'MAE: Mean Absolute Error';
-297            var xv_RrumenphM xv_RrumenphU absrM absrU;
-298            output out=summary std(xv_RrumenphM)=RMSE_Mixed
+294        
+295        proc summary data=xv_out;
+296            title2 '10-Fold Cross Validation Summary';
+297            title3 'MAE: Mean Absolute Error';
+298            var xv_RrumenphM xv_RrumenphU absrM absrU;
 17                               The SAS System
-                                               12:40 Wednesday, January 13, 2016
+                                               14:22 Wednesday, January 13, 2016
 
-298      ! mean(absrM)=MAE_Mixed
-299                std(xv_RrumenphU)=RMSE_UCM mean(absrU)=MAE_UCM;
-300        run;
+299            output out=summary std(xv_RrumenphM)=RMSE_Mixed
+299      ! mean(absrM)=MAE_Mixed
+300                std(xv_RrumenphU)=RMSE_UCM mean(absrU)=MAE_UCM;
+301        run;
 
 NOTE: There were 14400 observations read from the data set WORK.XV_OUT.
 NOTE: The data set WORK.SUMMARY has 1 observations and 6 variables.
 NOTE: PROCEDURE SUMMARY used (Total process time):
       real time           0.00 seconds
       cpu time            0.01 seconds
+      
 
-
-301
-302        proc print data=summary;
-303        run;
+302        
+303        proc print data=summary;
+304        run;
 
 NOTE: There were 1 observations read from the data set WORK.SUMMARY.
 NOTE: The PROCEDURE PRINT printed page 213.
 NOTE: PROCEDURE PRINT used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
-
+      
 
 NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
 NOTE: The SAS System used:
-      real time           7:52.27
-      cpu time            7:48.34
-
+      real time           8:01.99
+      cpu time            7:42.03
+      

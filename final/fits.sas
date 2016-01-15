@@ -1,5 +1,5 @@
 /* output goodness of fit stats for each procedure used */
-options linesize=80 pagesize=24;
+options linesize=80 pagesize=53;
 
 title 'Rumen pH Model Fit Statistics';
 

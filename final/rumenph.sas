@@ -68,7 +68,7 @@ data mixed;
     keep date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
         reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
     file 'mixed.dat';
-    put date_time best. animal day silage dmi time tc rumenph PrumenphM
+    put date_time best16. animal day silage dmi time tc rumenph PrumenphM
         RrumenphM reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r
         lag9r;
 
@@ -97,7 +97,7 @@ data ucm_out;
     RrumenphU = RESIDUAL;
     keep date_time animal rumenph PrumenphU RrumenphU reticph;
     file 'ucm.dat';
-    put date_time best. animal rumenph PrumenphU RrumenphU reticph;
+    put date_time best16. animal rumenph PrumenphU RrumenphU reticph;
 run;
 
 /* merge all predictions into total dataset */
@@ -117,7 +117,7 @@ data total;
         PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p lag2r lag4r
         lag7r lag9r;
     file 'total.dat';
-    put date_time best. animal day silage dmi time tc rumenph PrumenphM
+    put date_time best16. animal day silage dmi time tc rumenph PrumenphM
         RrumenphM PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p
         lag2r lag4r lag7r lag9r;
 run;
@@ -228,7 +228,7 @@ data xv_in;
     if selected then new_PrumenphU = PrumenphU;
     if replicate = . then delete;
     file 'xv_in.dat';
-    put replicate selected date_time best. animal day silage dmi time tc rumenph
+    put replicate selected date_time best16. animal day silage dmi time tc rumenph
         PrumenphM RrumenphM PrumenphU RrumenphU new_PrumenphM new_PrumenphU
         reticph PreticphT RreticphT;
 run;
@@ -284,12 +284,11 @@ data xv_out;
     xv_PrumenphU = FORECAST;
     xv_RrumenphU = rumenph - xv_PrumenphU;
     absrU = abs(xv_RrumenphU);
-    format date_time best12.;
     keep replicate date_time animal day silage dmi rumenph PrumenphM RrumenphM
         xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU xv_PrumenphU
         xv_RrumenphU absrU reticph PreticphT RreticphT;
     file 'xv_pred.dat';
-    put replicate date_time best. animal day silage dmi rumenph PrumenphM
+    put replicate date_time best16. animal day silage dmi rumenph PrumenphM
         RrumenphM xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
         xv_PrumenphU xv_RrumenphU absrU reticph PreticphT RreticphT;
 run;

@@ -227,9 +227,10 @@ data all_fits;
         PrumenphTP RrumenphTP PrumenphRM RrumenphRM PrumenphTM RrumenphTM
         PrumenphU RrumenphU reticph PreticphR RreticphR PreticphT RreticphT;
     file 'all_fits.dat';
-    put date_time animal day silage dmi time tc rumenph PrumenphRP RrumenphRP
-        PrumenphTP RrumenphTP PrumenphRM RrumenphRM PrumenphTM RrumenphTM
-        PrumenphU RrumenphU reticph PreticphR RreticphR PreticphT RreticphT;
+    put date_time best16. animal day silage dmi time tc rumenph PrumenphRP
+        RrumenphRP PrumenphTP RrumenphTP PrumenphRM RrumenphRM PrumenphTM
+        RrumenphTM PrumenphU RrumenphU reticph PreticphR RreticphR PreticphT
+        RreticphT;
 run;
 
 proc print data=reg_fits;

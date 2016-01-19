@@ -68,8 +68,9 @@ data mixed;
     keep date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
         reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
     file 'mixed.dat';
-    put date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
-        reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r lag9r;
+    put date_time best. animal day silage dmi time tc rumenph PrumenphM
+        RrumenphM reticph PreticphT RreticphT lag1p lag3p lag2r lag4r lag7r
+        lag9r;
 
 /* alternate method: prediction from reticph using PROC UCM */
 
@@ -96,7 +97,7 @@ data ucm_out;
     RrumenphU = RESIDUAL;
     keep date_time animal rumenph PrumenphU RrumenphU reticph;
     file 'ucm.dat';
-    put date_time animal rumenph PrumenphU RrumenphU reticph;
+    put date_time best. animal rumenph PrumenphU RrumenphU reticph;
 run;
 
 /* merge all predictions into total dataset */
@@ -116,9 +117,9 @@ data total;
         PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p lag2r lag4r
         lag7r lag9r;
     file 'total.dat';
-    put date_time animal day silage dmi time tc rumenph PrumenphM RrumenphM
-        PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p lag2r lag4r
-        lag7r lag9r;
+    put date_time best. animal day silage dmi time tc rumenph PrumenphM
+        RrumenphM PrumenphU RrumenphU reticph PreticphT RreticphT lag1p lag3p
+        lag2r lag4r lag7r lag9r;
 run;
 
 /*  perform 10-fold cross validation */
@@ -227,7 +228,7 @@ data xv_in;
     if selected then new_PrumenphU = PrumenphU;
     if replicate = . then delete;
     file 'xv_in.dat';
-    put replicate selected date_time animal day silage dmi time tc rumenph
+    put replicate selected date_time best. animal day silage dmi time tc rumenph
         PrumenphM RrumenphM PrumenphU RrumenphU new_PrumenphM new_PrumenphU
         reticph PreticphT RreticphT;
 run;
@@ -237,10 +238,10 @@ proc sort data=xv_in;
 run;
 
 /*  get predicted values for new_PrumenphM in each replicate */
+/* used mivque0 because of 'too many likelihoods' error */
 
-proc mixed data=xv_in method=mivque0;
+proc mixed data=xv_in method=mivque0 lognote;
     title2 '10-Fold Cross Validation - PROC MIXED';
-    /* used mivque0 because of 'too many likelihoods' error */
     by replicate;
     class animal day silage;
     model new_PrumenphM = reticph lag1p lag2r lag7r lag9r silage / solution
@@ -283,13 +284,14 @@ data xv_out;
     xv_PrumenphU = FORECAST;
     xv_RrumenphU = rumenph - xv_PrumenphU;
     absrU = abs(xv_RrumenphU);
+    format date_time best12.;
     keep replicate date_time animal day silage dmi rumenph PrumenphM RrumenphM
         xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU xv_PrumenphU
         xv_RrumenphU absrU reticph PreticphT RreticphT;
     file 'xv_pred.dat';
-    put replicate date_time animal day silage dmi rumenph PrumenphM RrumenphM
-        xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU xv_PrumenphU
-        xv_RrumenphU absrU reticph PreticphT RreticphT;
+    put replicate date_time best. animal day silage dmi rumenph PrumenphM
+        RrumenphM xv_PrumenphM xv_RrumenphM absrM PrumenphU RrumenphU
+        xv_PrumenphU xv_RrumenphU absrU reticph PreticphT RreticphT;
 run;
 
 proc summary data=xv_out;
@@ -297,7 +299,9 @@ proc summary data=xv_out;
     title3 'MAE: Mean Absolute Error';
     var xv_RrumenphM xv_RrumenphU absrM absrU;
     output out=summary std(xv_RrumenphM)=RMSE_Mixed mean(absrM)=MAE_Mixed
-        std(xv_RrumenphU)=RMSE_UCM mean(absrU)=MAE_UCM;
+        min(xv_RrumenphM)=min_M max(xv_RrumenphM)=max_M
+        std(xv_RrumenphU)=RMSE_UCM mean(absrU)=MAE_UCM min(xv_RrumenphU)=min_U
+        max(xv_RrumenphU)=max_U;
 run;
 
 proc print data=summary;

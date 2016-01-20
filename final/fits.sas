@@ -6,7 +6,6 @@ title 'Rumen pH Model Fit Statistics';
 data ph;
     infile '~/ph/ph.dat';
     input date_time animal day silage dmi time tc rumenph reticph;
-    format date_time datetime16.;
     time2 = time**2;
     time3 = time**3;
     time4 = time**4;
@@ -14,7 +13,7 @@ data ph;
     tc3 = tc**3;
     tc4 = tc**4;
 
-/* prediction of reticular ph from time - REG vs. TRANREG*/
+/* prediction of reticular ph from time - REG vs. TRANSREG*/
 /* can't get AIC value for pspline in TRANSREG, need to run output through
     REG */
 
@@ -192,6 +191,7 @@ proc sort data=mixedT_out;
 
 data ucm_in;
     set ph;
+    forat date_time datetime16.;
     if reticph = . then delete;
     if animal = 138 and date_time >= '01feb14:15:33:16'dt then delete;
 run;
@@ -212,6 +212,7 @@ run;
 
 data ucm_out;
     set ucm_out;
+    format date_time best.;
     PrumenphU = FORECAST;
     RrumenphU = RESIDUAL;
     keep date_time animal rumenph PrumenphU RrumenphU reticph;
@@ -227,7 +228,7 @@ data all_fits;
         PrumenphTP RrumenphTP PrumenphRM RrumenphRM PrumenphTM RrumenphTM
         PrumenphU RrumenphU reticph PreticphR RreticphR PreticphT RreticphT;
     file 'all_fits.dat';
-    put date_time best16. animal day silage dmi time tc rumenph PrumenphRP
+    put date_time animal day silage dmi time tc rumenph PrumenphRP
         RrumenphRP PrumenphTP RrumenphTP PrumenphRM RrumenphRM PrumenphTM
         RrumenphTM PrumenphU RrumenphU reticph PreticphR RreticphR PreticphT
         RreticphT;
